@@ -1,0 +1,14 @@
+node_modules
+.next
+
+# env
+.env
+.env.local
+.env.*
+
+# logs
+*.log
+
+# runtime/dev artifacts
+.tmp-puppeteer-test
+public/generated-screenshots

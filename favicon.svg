@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="HOMPAGE Webservice">
+  <defs>
+    <linearGradient id="a" x1="18" y1="18" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c96f3b"/>
+      <stop offset="0.55" stop-color="#f1cc98"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="108" height="108" rx="30" fill="url(#a)"/>
+  <rect x="34" y="34" width="60" height="60" rx="14" fill="none" stroke="#0e2a47" stroke-width="7"/>
+  <rect x="49" y="49" width="30" height="30" rx="8" fill="none" stroke="#0e2a47" stroke-width="7"/>
+</svg>

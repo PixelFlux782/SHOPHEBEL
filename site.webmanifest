@@ -1,0 +1,17 @@
+{
+  "name": "Shophebel",
+  "short_name": "Shophebel",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f4ee",
+  "theme_color": "#0e2a47",
+  "description": "Webdesign, Onlineshops und Shop-Optimierung für Händler und Unternehmen.",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
