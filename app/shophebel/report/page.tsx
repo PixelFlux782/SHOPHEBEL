@@ -42,10 +42,10 @@ const targetGroups = [
 
 export default function PremiumReportPage() {
   return (
-    <main className="shophebel-page flex flex-col">
-      <section className="sh-section-dark px-6 py-14 lg:px-12 lg:py-16">
-        <div className="pointer-events-none absolute -right-24 top-8 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-blue-500/15 blur-3xl" />
+    <main className="shophebel-page flex flex-col bg-zinc-950 text-zinc-100">
+      <section className="sh-section-dark relative overflow-hidden border-b border-white/5 bg-zinc-950 px-6 py-14 lg:px-12 lg:py-16">
+        <div className="pointer-events-none absolute -right-24 top-8 h-72 w-72 rounded-full bg-blue-600/10 blur-[120px]" />
+        <div className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-blue-500/5 blur-[120px]" />
         <div className="relative grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
           <div>
             <p className="sh-eyebrow sh-eyebrow-dark">Premium Analyse Report</p>
@@ -115,62 +115,62 @@ export default function PremiumReportPage() {
         </div>
       </section>
 
-      <section id="umfang" className="sh-section px-6 py-12 lg:px-10">
+      <section id="umfang" className="relative border-t border-white/5 bg-zinc-950 px-6 py-12 lg:px-10">
         <p className="sh-eyebrow">Was geprueft wird</p>
-        <h2 className="sh-heading mt-3 max-w-3xl text-3xl">
+        <h2 className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-white">
           Die wichtigsten Hebel fuer Sichtbarkeit, Vertrauen und Kaufbereitschaft
         </h2>
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {checks.map((item) => (
-            <div key={item} className="sh-card p-5">
-              <span className="sh-check">
-                {"\u2713"}
+            <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 backdrop-blur-sm transition-all hover:bg-white/[0.05] hover:border-blue-500/20">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600/20 text-blue-400 text-xs">
+                ✓
               </span>
-              <h3 className="mt-4 text-lg font-semibold text-slate-950">{item}</h3>
+              <h3 className="mt-4 text-lg font-semibold text-zinc-100">{item}</h3>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="sh-section px-6 py-12 lg:px-10">
+      <section className="relative border-t border-white/5 bg-black px-6 py-12 lg:px-10">
         <p className="sh-eyebrow">Was bekomme ich?</p>
-        <h2 className="sh-heading mt-3 max-w-3xl text-3xl">
+        <h2 className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-white">
           Ein Report, der Entscheidungen leichter macht
         </h2>
         <div className="mt-8 grid gap-4 lg:grid-cols-4">
           {deliverables.map((item) => (
-            <article key={item} className="sh-card p-5">
-              <span className="sh-check">{"\u2713"}</span>
-              <p className="mt-4 text-sm font-semibold leading-6 text-slate-900">{item}</p>
+            <article key={item} className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 backdrop-blur-sm">
+              <span className="text-blue-500 font-bold">✓</span>
+              <p className="mt-4 text-sm font-semibold leading-6 text-zinc-200">{item}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="sh-section px-6 py-12 lg:px-10">
+      <section className="relative border-t border-white/5 bg-zinc-950 px-6 py-12 lg:px-10">
         <p className="sh-eyebrow">Beispielhafte Ergebnisse</p>
-        <h2 className="sh-heading mt-3 max-w-3xl text-3xl">
+        <h2 className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-white">
           Was Sie aus dem Report mitnehmen
         </h2>
         <div className="mt-8 grid gap-4 lg:grid-cols-3">
           {sampleResults.map((result) => (
-            <article key={result.title} className="sh-card p-6">
-              <h3 className="text-xl font-semibold text-slate-950">{result.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-slate-600">{result.text}</p>
+            <article key={result.title} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-sm shadow-2xl shadow-blue-900/5">
+              <h3 className="text-xl font-semibold text-white">{result.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-zinc-400">{result.text}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="sh-section px-6 py-12 lg:px-10">
+      <section className="relative border-t border-white/5 bg-black px-6 py-12 lg:px-10">
         <p className="sh-eyebrow">Fuer wen lohnt es sich?</p>
-        <h2 className="sh-heading mt-3 max-w-3xl text-3xl">
+        <h2 className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-white">
           Fuer Shops, die Klarheit vor Umsetzung brauchen
         </h2>
         <div className="mt-8 grid gap-4 lg:grid-cols-3">
           {targetGroups.map((item) => (
-            <article key={item} className="sh-card p-6">
-              <p className="text-sm leading-7 text-slate-700">{item}</p>
+            <article key={item} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-sm">
+              <p className="text-sm leading-7 text-zinc-300">{item}</p>
             </article>
           ))}
         </div>
