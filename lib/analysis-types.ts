@@ -88,7 +88,7 @@ export interface AnalysisResult {
   analysisMode: AnalysisMode;
   finalUrl?: string;
   technicalNotes?: string[];
-  screenshots?: AnalysisScreenshots;
+  screenshots?: AnalysisScreenshots | string | null;
   visualPreviewAvailable?: boolean;
   visual_preview_available?: boolean;
   visualMap?: VisualMap;

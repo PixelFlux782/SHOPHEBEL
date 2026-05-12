@@ -98,7 +98,12 @@ function VisualCapturePreview({
   const [primaryFailed, setPrimaryFailed] = useState(false);
   const [mobileFailed, setMobileFailed] = useState(false);
   const showPrimaryImage = preview.primary && !primaryFailed;
-  const showMobileImage = preview.mobile && !mobileFailed;
+  const showMobileImage = preview.mobileUrl && !mobileFailed;
+
+  useEffect(() => {
+    setPrimaryFailed(false);
+    setMobileFailed(false);
+  }, [preview.primary, preview.mobileUrl]);
 
   return (
     <div className="group relative z-10 mt-5 overflow-visible rounded-xl border border-white/[0.075] bg-[#05070b]/92 p-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.045),inset_0_0_22px_rgba(255,255,255,0.018),0_18px_54px_rgba(0,0,0,0.48)]">
@@ -148,7 +153,7 @@ function VisualCapturePreview({
           <div className="pointer-events-none absolute left-0 right-0 top-5 h-px bg-white/[0.12] opacity-55" />
         </div>
 
-        {preview.mobile && (
+        {preview.mobileUrl && (
           <div className="absolute bottom-1 right-0 w-[72px] rounded-[14px] border border-white/[0.12] bg-[#050608] p-1 shadow-[0_16px_34px_rgba(0,0,0,0.62),inset_0_1px_0_rgba(255,255,255,0.06)] sm:w-[84px]">
             <div className="overflow-hidden rounded-[10px] border border-white/[0.075] bg-[#090b0f]">
               <div className="flex h-3 items-center justify-center border-b border-white/[0.055] bg-white/[0.035]">
@@ -156,7 +161,7 @@ function VisualCapturePreview({
               </div>
               {showMobileImage ? (
                 <img
-                  src={preview.mobile}
+                  src={preview.mobileUrl}
                   alt={`Mobile Website-Signal von ${urlLabel}`}
                   loading="lazy"
                   onError={() => setMobileFailed(true)}
@@ -176,7 +181,7 @@ function VisualCapturePreview({
 
       <div className="mt-[-1.15rem] flex items-center justify-between gap-3 px-1 sm:mt-[-1.25rem]">
         <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-zinc-700">
-          {preview.mobile ? "Mobile Signal" : "Viewport Signal"}
+          {preview.mobileUrl ? "Mobile Signal" : "Viewport Signal"}
         </span>
         <span className="h-px flex-1 bg-white/[0.055]" />
         <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-zinc-600">

@@ -1,4 +1,4 @@
-import type { AnalysisResult, AuditCheckStatus } from "@/lib/analysis-types";
+import type { AnalysisResult, AnalysisScreenshots, AuditCheckStatus } from "@/lib/analysis-types";
 
 export type DashboardMode = "demo" | "scanning" | "result" | "error";
 export type LeverPriority = "Critical" | "High" | "Medium";
@@ -17,9 +17,9 @@ export interface DashboardSignal {
 }
 
 export interface DashboardPreviewCapture {
-  viewport?: string;
-  mobile?: string;
-  fullPage?: string;
+  viewportUrl?: string;
+  mobileUrl?: string;
+  fullPageUrl?: string;
   primary: string;
   primaryVariant: "viewport" | "mobile" | "fullPage" | "hero";
   hasMobileSignal: boolean;
@@ -113,8 +113,46 @@ function getTopSignals(result: AnalysisResult): DashboardSignal[] {
   }));
 }
 
+function asUrl(value: unknown) {
+  return typeof value === "string" && /^https?:\/\//i.test(value.trim())
+    ? value.trim()
+    : undefined;
+}
+
+function normalizeScreenshots(value: AnalysisResult["screenshots"]): AnalysisScreenshots | undefined {
+  if (!value) {
+    return undefined;
+  }
+
+  let parsed: unknown = value;
+
+  if (typeof value === "string") {
+    try {
+      parsed = JSON.parse(value);
+    } catch {
+      return undefined;
+    }
+  }
+
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+    return undefined;
+  }
+
+  const record = parsed as Record<string, unknown>;
+  const normalized = {
+    viewport: asUrl(record.viewport) ?? asUrl(record.viewportUrl),
+    mobile: asUrl(record.mobile) ?? asUrl(record.mobileUrl),
+    fullPage: asUrl(record.fullPage) ?? asUrl(record.full_page) ?? asUrl(record.fullPageUrl),
+    hero: asUrl(record.hero) ?? asUrl(record.heroUrl),
+  };
+
+  return normalized.viewport || normalized.mobile || normalized.fullPage || normalized.hero
+    ? normalized
+    : undefined;
+}
+
 function getPreviewCapture(result: AnalysisResult): DashboardPreviewCapture | undefined {
-  const screenshots = result.screenshots;
+  const screenshots = normalizeScreenshots(result.screenshots);
   const visualPreviewAvailable = Boolean(
     result.visualPreviewAvailable ||
       result.visual_preview_available ||
@@ -142,10 +180,20 @@ function getPreviewCapture(result: AnalysisResult): DashboardPreviewCapture | un
         ? "mobile"
         : "fullPage";
 
+  if (process.env.NODE_ENV !== "production") {
+    console.info("[dashboard-preview] screenshot preview mapping", {
+      visualPreviewAvailable,
+      viewportUrl: screenshots.viewport ?? null,
+      mobileUrl: screenshots.mobile ?? null,
+      fullPageUrl: screenshots.fullPage ?? null,
+      primaryVariant,
+    });
+  }
+
   return {
-    viewport: screenshots.viewport,
-    mobile: screenshots.mobile,
-    fullPage: screenshots.fullPage,
+    viewportUrl: screenshots.viewport,
+    mobileUrl: screenshots.mobile,
+    fullPageUrl: screenshots.fullPage,
     primary,
     primaryVariant,
     hasMobileSignal: Boolean(screenshots.mobile),
