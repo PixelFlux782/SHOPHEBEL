@@ -16,6 +16,15 @@ export interface DashboardSignal {
   tone: "stable" | "watch" | "risk";
 }
 
+export interface DashboardPreviewCapture {
+  viewport?: string;
+  mobile?: string;
+  fullPage?: string;
+  primary: string;
+  primaryVariant: "viewport" | "mobile" | "fullPage" | "hero";
+  hasMobileSignal: boolean;
+}
+
 export interface DashboardView {
   score: number;
   urlLabel: string;
@@ -26,6 +35,7 @@ export interface DashboardView {
   levers: DashboardLever[];
   signals: DashboardSignal[];
   reportHref?: string;
+  preview?: DashboardPreviewCapture;
 }
 
 const demoView: DashboardView = {
@@ -103,6 +113,45 @@ function getTopSignals(result: AnalysisResult): DashboardSignal[] {
   }));
 }
 
+function getPreviewCapture(result: AnalysisResult): DashboardPreviewCapture | undefined {
+  const screenshots = result.screenshots;
+  const visualPreviewAvailable = Boolean(
+    result.visualPreviewAvailable ||
+      result.visual_preview_available ||
+      screenshots?.viewport ||
+      screenshots?.mobile ||
+      screenshots?.fullPage ||
+      screenshots?.hero,
+  );
+
+  if (!visualPreviewAvailable || !screenshots) {
+    return undefined;
+  }
+
+  const primary = screenshots.viewport || screenshots.hero || screenshots.mobile || screenshots.fullPage;
+
+  if (!primary) {
+    return undefined;
+  }
+
+  const primaryVariant = screenshots.viewport
+    ? "viewport"
+    : screenshots.hero
+      ? "hero"
+      : screenshots.mobile
+        ? "mobile"
+        : "fullPage";
+
+  return {
+    viewport: screenshots.viewport,
+    mobile: screenshots.mobile,
+    fullPage: screenshots.fullPage,
+    primary,
+    primaryVariant,
+    hasMobileSignal: Boolean(screenshots.mobile),
+  };
+}
+
 export function getDemoDashboardView(): DashboardView {
   return demoView;
 }
@@ -140,5 +189,6 @@ export function mapAnalysisResultToDashboardView(result: AnalysisResult): Dashbo
     levers: levers.length > 0 ? levers : demoView.levers,
     signals: signals.length > 0 ? signals : demoView.signals,
     reportHref: result.id ? `/analyse/result/${result.id}` : undefined,
+    preview: getPreviewCapture(result),
   };
 }

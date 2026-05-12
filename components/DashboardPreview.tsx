@@ -16,10 +16,11 @@ import {
   Zap,
 } from "lucide-react";
 
-import { ANALYSE_TOOL_URL } from "@/lib/constants";
+import { ANALYSE_TOOL_URL, buildAnalyseToolUrl } from "@/lib/constants";
 import type { AnalysisResult } from "@/lib/analysis-types";
 import {
   DashboardMode,
+  DashboardPreviewCapture,
   DashboardView,
   getDemoDashboardView,
   mapAnalysisResultToDashboardView,
@@ -71,10 +72,6 @@ function reportHrefFor(result?: AnalysisResult) {
   return new URL(`/analyse/result/${result.id}`, ANALYSE_TOOL_URL).toString();
 }
 
-function getScreenshotPreview(result?: AnalysisResult) {
-  return result?.screenshots?.viewport || result?.screenshots?.hero || result?.screenshots?.mobile;
-}
-
 function formatScanTime(result?: AnalysisResult) {
   const raw = result?.scannedAt || result?.createdAt;
   if (!raw) return "Demo Lauf";
@@ -89,6 +86,74 @@ function formatScanTime(result?: AnalysisResult) {
   } catch {
     return "Live Lauf";
   }
+}
+
+function VisualCapturePreview({
+  preview,
+  urlLabel,
+}: {
+  preview: DashboardPreviewCapture;
+  urlLabel: string;
+}) {
+  return (
+    <div className="relative z-10 mt-5 overflow-hidden rounded-xl border border-white/[0.075] bg-[#05070b]/92 p-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.045),inset_0_0_32px_rgba(37,99,235,0.055),0_18px_54px_rgba(0,0,0,0.48)]">
+      <div className="mb-2 flex items-center justify-between gap-3 px-1">
+        <div>
+          <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-blue-200/68">
+            Visual Capture
+          </p>
+          <p className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.16em] text-zinc-700">
+            Above the Fold
+          </p>
+        </div>
+        <span className="rounded-sm border border-white/[0.055] bg-white/[0.025] px-2 py-1 font-mono text-[8px] uppercase tracking-[0.16em] text-zinc-600">
+          {preview.primaryVariant}
+        </span>
+      </div>
+
+      <div className="relative overflow-hidden rounded-lg border border-white/[0.06] bg-black">
+        <div className="flex h-5 items-center gap-1.5 border-b border-white/[0.055] bg-white/[0.035] px-2" aria-hidden="true">
+          <span className="h-1.5 w-1.5 rounded-full bg-white/[0.16]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-white/[0.11]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-white/[0.08]" />
+          <span className="ml-2 h-1.5 flex-1 rounded-full bg-white/[0.045]" />
+        </div>
+        <img
+          src={preview.primary}
+          alt={`Website-Vorschau von ${urlLabel}`}
+          loading="lazy"
+          className="h-32 w-full object-cover object-top opacity-[0.82] saturate-[0.82] sm:h-36 lg:h-40"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(0,0,0,0.12)_70%,rgba(0,0,0,0.45)_100%)]" />
+
+        {preview.mobile && (
+          <div className="absolute bottom-2 right-2 w-[58px] overflow-hidden rounded-md border border-white/[0.12] bg-black shadow-[0_10px_28px_rgba(0,0,0,0.55),0_0_18px_rgba(37,99,235,0.08)] sm:w-[68px]">
+            <div className="flex h-2 items-center justify-center border-b border-white/[0.06] bg-white/[0.04]">
+              <span className="h-0.5 w-3 rounded-full bg-white/[0.16]" />
+            </div>
+            <img
+              src={preview.mobile}
+              alt={`Mobile Website-Signal von ${urlLabel}`}
+              loading="lazy"
+              className="h-20 w-full object-cover object-top opacity-[0.78] saturate-[0.82] sm:h-24"
+            />
+          </div>
+        )}
+      </div>
+
+      {preview.mobile && (
+        <div className="mt-2 flex items-center justify-between gap-3 px-1">
+          <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-zinc-700">
+            Mobile Signal
+          </span>
+          <span className="h-px flex-1 bg-white/[0.055]" />
+          <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-zinc-600">
+            Live Capture
+          </span>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export const DashboardPreview = ({
@@ -226,9 +291,8 @@ export const DashboardPreview = ({
   const isDemo = mode === "demo";
   const isError = mode === "error";
   const progressWidth = isScanning ? `${Math.max(12, displayScore)}%` : `${view.score}%`;
-  const reportHref = result?.id ? reportHrefFor(result) : view.reportHref || ANALYSE_TOOL_URL;
+  const reportHref = result?.id ? reportHrefFor(result) : buildAnalyseToolUrl(result?.requestedUrl || result?.url || activeUrl || inputUrl);
   const canOpenReport = mode === "result" && Boolean(result?.id);
-  const screenshotPreview = getScreenshotPreview(result);
   const systemMeta = [
     { label: "Analyse-Zeitpunkt", value: mode === "result" ? formatScanTime(result) : isScanning ? "jetzt" : "Demo Lauf" },
     { label: "Render-Status", value: mode === "result" ? result?.analysisMode ?? "static" : isScanning ? scanSteps[scanIndex] : "preview" },
@@ -443,22 +507,8 @@ export const DashboardPreview = ({
                   </div>
                 )}
 
-                {mode === "result" && screenshotPreview && (
-                  <div className="relative z-10 mt-5 overflow-hidden rounded-lg border border-white/[0.06] bg-black/25 p-2">
-                    <div className="mb-2 flex items-center justify-between gap-3 px-1">
-                      <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-zinc-600">
-                        Website Micro Preview
-                      </p>
-                      <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-zinc-700">
-                        viewport
-                      </span>
-                    </div>
-                    <img
-                      src={screenshotPreview}
-                      alt={`Mini-Vorschau von ${view.urlLabel}`}
-                      className="h-24 w-full rounded-md border border-white/[0.04] object-cover object-top opacity-75"
-                    />
-                  </div>
+                {mode === "result" && view.preview && (
+                  <VisualCapturePreview preview={view.preview} urlLabel={view.urlLabel} />
                 )}
 
                 <div className="absolute bottom-0 left-0 h-px w-full bg-white/[0.06]">
@@ -616,8 +666,15 @@ export const DashboardPreview = ({
                       Vollstaendiger Report nicht gespeichert
                     </p>
                     <p className="mt-1 text-[11px] text-zinc-600">
-                      Die kompakte Analyse ist sichtbar; fuer den Detailreport bitte erneut scannen.
+                      Die kompakte Analyse ist sichtbar. Oeffne die Analyse-App mit der geprueften URL.
                     </p>
+                    <a
+                      href={reportHref}
+                      className="mt-3 inline-flex items-center justify-center gap-2 rounded-md border border-white/[0.08] bg-white/[0.035] px-3 py-2 font-mono text-[9px] uppercase tracking-[0.16em] text-zinc-400 transition hover:border-white/[0.14] hover:bg-white/[0.055]"
+                    >
+                      Analyse-App oeffnen
+                      <ChevronRight className="h-3 w-3" strokeWidth={1.5} />
+                    </a>
                   </div>
                 )}
               </div>

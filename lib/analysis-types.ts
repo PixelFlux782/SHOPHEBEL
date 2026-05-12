@@ -90,6 +90,7 @@ export interface AnalysisResult {
   technicalNotes?: string[];
   screenshots?: AnalysisScreenshots;
   visualPreviewAvailable?: boolean;
+  visual_preview_available?: boolean;
   visualMap?: VisualMap;
   isPremium: boolean;
   totalFindings: number;
