@@ -95,8 +95,13 @@ function VisualCapturePreview({
   preview: DashboardPreviewCapture;
   urlLabel: string;
 }) {
+  const [primaryFailed, setPrimaryFailed] = useState(false);
+  const [mobileFailed, setMobileFailed] = useState(false);
+  const showPrimaryImage = preview.primary && !primaryFailed;
+  const showMobileImage = preview.mobile && !mobileFailed;
+
   return (
-    <div className="relative z-10 mt-5 overflow-hidden rounded-xl border border-white/[0.075] bg-[#05070b]/92 p-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.045),inset_0_0_32px_rgba(37,99,235,0.055),0_18px_54px_rgba(0,0,0,0.48)]">
+    <div className="group relative z-10 mt-5 overflow-visible rounded-xl border border-white/[0.075] bg-[#05070b]/92 p-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.045),inset_0_0_22px_rgba(255,255,255,0.018),0_18px_54px_rgba(0,0,0,0.48)]">
       <div className="mb-2 flex items-center justify-between gap-3 px-1">
         <div>
           <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-blue-200/68">
@@ -111,47 +116,73 @@ function VisualCapturePreview({
         </span>
       </div>
 
-      <div className="relative overflow-hidden rounded-lg border border-white/[0.06] bg-black">
-        <div className="flex h-5 items-center gap-1.5 border-b border-white/[0.055] bg-white/[0.035] px-2" aria-hidden="true">
-          <span className="h-1.5 w-1.5 rounded-full bg-white/[0.16]" />
-          <span className="h-1.5 w-1.5 rounded-full bg-white/[0.11]" />
-          <span className="h-1.5 w-1.5 rounded-full bg-white/[0.08]" />
-          <span className="ml-2 h-1.5 flex-1 rounded-full bg-white/[0.045]" />
+      <div className="relative pr-8 pb-7 sm:pr-10">
+        <div className="relative aspect-[16/8.2] overflow-hidden rounded-lg border border-white/[0.065] bg-[#080a0e] shadow-[inset_0_1px_0_rgba(255,255,255,0.045)] transition duration-300 group-hover:border-white/[0.095] group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.055),0_12px_34px_rgba(0,0,0,0.32)]">
+          <div className="flex h-5 items-center gap-1.5 border-b border-white/[0.055] bg-[#0c0e13] px-2" aria-hidden="true">
+            <span className="h-1.5 w-1.5 rounded-full bg-white/[0.16]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-white/[0.11]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-white/[0.08]" />
+            <span className="ml-2 h-1.5 flex-1 rounded-full bg-white/[0.045]" />
+          </div>
+
+          {showPrimaryImage ? (
+            <img
+              src={preview.primary}
+              alt={`Website-Vorschau von ${urlLabel}`}
+              loading="lazy"
+              onError={() => setPrimaryFailed(true)}
+              className="h-[calc(100%-1.25rem)] w-full object-cover object-top opacity-[0.86] saturate-[0.86] transition duration-500 group-hover:scale-[1.012] group-hover:opacity-[0.9]"
+            />
+          ) : (
+            <div className="flex h-[calc(100%-1.25rem)] w-full items-center justify-center bg-[linear-gradient(135deg,rgba(255,255,255,0.035),rgba(255,255,255,0.012))]">
+              <div className="w-2/3 space-y-2">
+                <span className="block h-2 rounded-full bg-white/[0.06]" />
+                <span className="block h-2 w-4/5 rounded-full bg-white/[0.045]" />
+                <span className="block h-16 rounded-md border border-white/[0.045] bg-white/[0.018]" />
+              </div>
+            </div>
+          )}
+
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08)_0%,transparent_34%,rgba(0,0,0,0.34)_100%)]" />
+          <div className="pointer-events-none absolute inset-0 opacity-[0.045] [background-image:linear-gradient(rgba(255,255,255,0.6)_1px,transparent_1px)] [background-size:100%_6px]" />
+          <div className="pointer-events-none absolute left-0 right-0 top-5 h-px bg-white/[0.12] opacity-55" />
         </div>
-        <img
-          src={preview.primary}
-          alt={`Website-Vorschau von ${urlLabel}`}
-          loading="lazy"
-          className="h-32 w-full object-cover object-top opacity-[0.82] saturate-[0.82] sm:h-36 lg:h-40"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(0,0,0,0.12)_70%,rgba(0,0,0,0.45)_100%)]" />
 
         {preview.mobile && (
-          <div className="absolute bottom-2 right-2 w-[58px] overflow-hidden rounded-md border border-white/[0.12] bg-black shadow-[0_10px_28px_rgba(0,0,0,0.55),0_0_18px_rgba(37,99,235,0.08)] sm:w-[68px]">
-            <div className="flex h-2 items-center justify-center border-b border-white/[0.06] bg-white/[0.04]">
-              <span className="h-0.5 w-3 rounded-full bg-white/[0.16]" />
+          <div className="absolute bottom-1 right-0 w-[72px] rounded-[14px] border border-white/[0.12] bg-[#050608] p-1 shadow-[0_16px_34px_rgba(0,0,0,0.62),inset_0_1px_0_rgba(255,255,255,0.06)] sm:w-[84px]">
+            <div className="overflow-hidden rounded-[10px] border border-white/[0.075] bg-[#090b0f]">
+              <div className="flex h-3 items-center justify-center border-b border-white/[0.055] bg-white/[0.035]">
+                <span className="h-0.5 w-4 rounded-full bg-white/[0.18]" />
+              </div>
+              {showMobileImage ? (
+                <img
+                  src={preview.mobile}
+                  alt={`Mobile Website-Signal von ${urlLabel}`}
+                  loading="lazy"
+                  onError={() => setMobileFailed(true)}
+                  className="h-[98px] max-h-[98px] w-full object-cover object-top opacity-[0.82] saturate-[0.84] sm:h-[112px] sm:max-h-[112px]"
+                />
+              ) : (
+                <div className="flex h-[98px] max-h-[98px] w-full flex-col gap-1.5 p-2 sm:h-[112px] sm:max-h-[112px]">
+                  <span className="h-1.5 rounded bg-white/[0.06]" />
+                  <span className="h-1.5 w-3/4 rounded bg-white/[0.045]" />
+                  <span className="mt-1 flex-1 rounded border border-white/[0.04] bg-white/[0.018]" />
+                </div>
+              )}
             </div>
-            <img
-              src={preview.mobile}
-              alt={`Mobile Website-Signal von ${urlLabel}`}
-              loading="lazy"
-              className="h-20 w-full object-cover object-top opacity-[0.78] saturate-[0.82] sm:h-24"
-            />
           </div>
         )}
       </div>
 
-      {preview.mobile && (
-        <div className="mt-2 flex items-center justify-between gap-3 px-1">
-          <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-zinc-700">
-            Mobile Signal
-          </span>
-          <span className="h-px flex-1 bg-white/[0.055]" />
-          <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-zinc-600">
-            Live Capture
-          </span>
-        </div>
-      )}
+      <div className="mt-[-1.15rem] flex items-center justify-between gap-3 px-1 sm:mt-[-1.25rem]">
+        <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-zinc-700">
+          {preview.mobile ? "Mobile Signal" : "Viewport Signal"}
+        </span>
+        <span className="h-px flex-1 bg-white/[0.055]" />
+        <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-zinc-600">
+          Live Render
+        </span>
+      </div>
     </div>
   );
 }
