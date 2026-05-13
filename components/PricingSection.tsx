@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { ANALYSE_APP_URL } from "@/lib/constants";
+
 const pricingPackages = [
   {
     name: "Kostenloser Schnellcheck",
@@ -8,7 +10,7 @@ const pricingPackages = [
     description: "Ein kompakter erster Blick auf Ihre Website, damit Sie Potenziale schnell einordnen koennen.",
     features: ["Erste Website-Einschaetzung", "Basis-Score", "3 Sofort-Hinweise", "ideal zum Einstieg"],
     cta: "Kostenlosen Schnellcheck starten",
-    href: "/analyse",
+    href: ANALYSE_APP_URL,
     highlighted: false,
   },
   {

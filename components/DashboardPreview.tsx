@@ -339,9 +339,12 @@ export const DashboardPreview = ({
 
   return (
     <section
-      id="intelligence-os"
+      id="analyse"
       className="relative scroll-mt-28 overflow-hidden px-4 pb-20 pt-3 sm:px-6 sm:pb-28 lg:pt-0"
     >
+      <span id="plattform" className="sr-only">
+        Shophebel Plattform
+      </span>
       <motion.div
         initial={reducedMotion ? false : { y: 32 }}
         whileInView={reducedMotion ? undefined : { y: 0 }}

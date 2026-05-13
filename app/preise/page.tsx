@@ -1,12 +1,14 @@
 import Link from "next/link";
 
+import { ANALYSE_APP_URL } from "@/lib/constants";
+
 const packages = [
   {
     name: "Free Audit",
     price: "0 EUR",
     description: "Kostenloser Website-Check mit Score, kurzer Diagnose, Quick Wins und kritischen Punkten.",
     cta: "Website pruefen",
-    href: "/analyse",
+    href: ANALYSE_APP_URL,
     highlight: false,
   },
   {

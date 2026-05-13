@@ -4,6 +4,7 @@ import { FunnelSteps } from "@/components/FunnelSteps";
 import { PricingSection } from "@/components/PricingSection";
 import { ShophebelFAQ } from "@/components/ShophebelFAQ";
 import { CtaSection } from "@/components/sections/cta-section";
+import { ANALYSE_APP_URL } from "@/lib/constants";
 
 export default function ShophebelPage() {
   return (
@@ -24,7 +25,7 @@ export default function ShophebelPage() {
               Wirkung.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/analyse" className="sh-button-primary">
+              <Link href={ANALYSE_APP_URL} className="sh-button-primary">
                 Kostenlosen Schnellcheck starten
               </Link>
               <Link href="/shophebel/report" className="sh-button-secondary sh-button-ghost">

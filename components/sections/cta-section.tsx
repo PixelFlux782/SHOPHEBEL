@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { ContactRequestForm } from "@/components/sections/contact-request-form";
+import { ANALYSE_APP_URL } from "@/lib/constants";
 
 interface CtaSectionProps {
   title: string;
@@ -11,7 +12,7 @@ interface CtaSectionProps {
 const ctas = {
   quickCheck: {
     label: "Jetzt kostenlosen Check starten",
-    href: "/analyse",
+    href: ANALYSE_APP_URL,
   },
   premiumReport: {
     label: "Premium Report ansehen",

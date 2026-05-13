@@ -1,6 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+
+import { ANALYSE_APP_URL } from "@/lib/constants";
 
 export const Hero = () => {
   return (
@@ -64,12 +67,12 @@ export const Hero = () => {
         {/* Soft diffuse glow behind CTA buttons */}
         <div className="absolute inset-0 blur-[60px] bg-blue-500/10 pointer-events-none -z-10" />
 
-        <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600/90 transition-all text-center shadow-lg shadow-blue-600/20">
+        <Link href="#analyse" className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600/90 transition-all text-center shadow-lg shadow-blue-600/20">
           Website analysieren
-        </button>
-        <button className="bg-white/[0.03] border border-white/10 px-8 py-4 rounded-xl font-semibold hover:border-blue-500/50 transition-all text-center backdrop-blur">
+        </Link>
+        <Link href={ANALYSE_APP_URL} className="bg-white/[0.03] border border-white/10 px-8 py-4 rounded-xl font-semibold hover:border-blue-500/50 transition-all text-center backdrop-blur">
           Premium Report ansehen
-        </button>
+        </Link>
       </motion.div>
     </section>
   );

@@ -13,7 +13,7 @@ const features = [
 
 export const Features = () => {
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
+    <section id="leistungen" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-28">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tighter mb-4 text-brand-muted">Was Shophebel prüft.</h2>
         <p className="text-brand-muted max-w-xl mx-auto">Tiefgreifende Analyse der sechs wichtigsten Säulen für E-Commerce Erfolg.</p>

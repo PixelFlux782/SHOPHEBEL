@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
+import { ANALYSE_APP_URL } from "@/lib/constants";
+
 type MenuItem = {
   label: string;
   href: string;
@@ -22,12 +24,12 @@ const menuGroups: MenuGroup[] = [
     items: [
       {
         label: "Website Audit",
-        href: "/analyse",
+        href: ANALYSE_APP_URL,
         description: "Kostenloser Check fuer UX, Technik, Trust, Conversion und Sichtbarkeit.",
       },
       {
         label: "Visuelle Analyse",
-        href: "/#dashboard",
+        href: "/#analyse",
         description: "Screenshots, sichtbare Reibung und konkrete Layout-Hebel einordnen.",
       },
       {
@@ -47,7 +49,7 @@ const menuGroups: MenuGroup[] = [
     items: [
       {
         label: "Free Audit",
-        href: "/analyse",
+        href: ANALYSE_APP_URL,
         description: "Schnelle Diagnose ohne Login und ohne Datenflut.",
       },
       {
@@ -107,7 +109,7 @@ const menuGroups: MenuGroup[] = [
       },
       {
         label: "Beispiele",
-        href: "/#dashboard",
+        href: "/#analyse",
         description: "So koennen Scores, Reports und visuelle Hinweise aussehen.",
       },
     ],
@@ -260,7 +262,7 @@ export function SiteHeader() {
                 Report ansehen
               </Link>
               <Link
-                href="/analyse"
+                href={ANALYSE_APP_URL}
                 className="inline-flex h-9 items-center justify-center overflow-hidden rounded-full bg-white px-5 text-sm font-semibold text-slate-950 shadow-[0_0_20px_-5px_rgba(255,255,255,0.3)] transition-all hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98]"
               >
                 Website prüfen
@@ -362,7 +364,7 @@ export function SiteHeader() {
                   Premium Report ansehen
                 </Link>
                 <Link 
-                  href="/analyse" 
+                  href={ANALYSE_APP_URL}
                   onClick={() => setIsOpen(false)} 
                   className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-white text-sm font-semibold text-slate-950 transition-colors hover:bg-slate-100"
                 >

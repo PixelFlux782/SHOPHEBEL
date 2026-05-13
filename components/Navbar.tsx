@@ -2,6 +2,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { ANALYSE_APP_URL } from "@/lib/constants";
+
 export const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 sm:p-5">
@@ -19,16 +21,19 @@ export const Navbar = () => {
           </Link>
           
           <div className="hidden md:flex items-center gap-8 text-sm text-white/75 font-medium">
-            <Link href="#" className="hover:text-white transition-all duration-300">Analyse</Link>
-            <Link href="#" className="hover:text-white transition-all duration-300">Leistungen</Link>
-            <Link href="#" className="hover:text-white transition-all duration-300">Plattform</Link>
-            <Link href="#" className="hover:text-white transition-all duration-300">Preise</Link>
+            <Link href="/#analyse" className="hover:text-white transition-all duration-300">Analyse</Link>
+            <Link href="/#leistungen" className="hover:text-white transition-all duration-300">Leistungen</Link>
+            <Link href="/#plattform" className="hover:text-white transition-all duration-300">Plattform</Link>
+            <Link href="/#preise" className="hover:text-white transition-all duration-300">Preise</Link>
           </div>
         </div>
 
-        <button className="hidden bg-blue-600/80 text-white text-sm px-4 py-2 rounded-lg font-semibold hover:bg-blue-600 transition-all shadow-lg shadow-blue-600/20 sm:inline-flex">
+        <Link
+          href={ANALYSE_APP_URL}
+          className="hidden bg-blue-600/80 text-white text-sm px-4 py-2 rounded-lg font-semibold hover:bg-blue-600 transition-all shadow-lg shadow-blue-600/20 sm:inline-flex"
+        >
           Website analysieren
-        </button>
+        </Link>
       </div>
     </nav>
   );
