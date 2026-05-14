@@ -60,7 +60,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Gueltige E-Mail ist erforderlich." }, { status: 400 });
   }
 
-  if (!website || !isValidWebsiteUrl(website)) {
+  if (website && !isValidWebsiteUrl(website)) {
     return NextResponse.json({ error: "Gueltige Website-URL ist erforderlich." }, { status: 400 });
   }
 
