@@ -4,26 +4,25 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ANALYSE_APP_URL } from "@/lib/constants";
+import SplineHeroBackground from "./SplineHeroBackground";
 
 export const Hero = () => {
   return (
     <section className="relative min-h-[85vh] flex flex-col items-center justify-start px-6 pt-40 pb-20 overflow-hidden">
-      {/* 1. Deep Atmospheric Background & Grain Texture */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.02] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <SplineHeroBackground />
 
-      {/* 2. Volumetric Ambient Light / Fog (Top Left & Bottom Right) */}
-      <div className="absolute -top-[15%] -left-[10%] w-[50%] h-[50%] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute -bottom-[15%] -right-[10%] w-[50%] h-[50%] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none" />
+      {/* Subtle readability overlays above the Spline scene */}
+      <div className="absolute inset-0 z-[1] pointer-events-none bg-[radial-gradient(circle_at_70%_45%,rgba(37,99,235,0.10),transparent_38%),linear-gradient(90deg,rgba(2,6,23,0.35)_0%,rgba(2,6,23,0.15)_45%,rgba(2,6,23,0.05)_100%)]" />
+      <div className="absolute inset-0 z-[1] pointer-events-none bg-[linear-gradient(180deg,rgba(2,6,23,0.18)_0%,transparent_42%,rgba(2,6,23,0.24)_100%)]" />
 
-      {/* 3. Subtle Grid Layer - Focus Above-the-fold */}
-      <div className="absolute inset-0 z-0 pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_35%,#000_30%,transparent_100%)] opacity-60" />
+      {/* Grain and grid preserve the existing premium SaaS texture */}
+      <div className="absolute inset-0 z-[2] pointer-events-none opacity-[0.025] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <div className="absolute inset-0 z-[2] pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_64%_52%_at_50%_35%,#000_24%,transparent_100%)] opacity-30" />
       
-      {/* 4. Central Volumetric Light (Behind Headline) */}
-      <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[70%] bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.14),transparent_65%)] pointer-events-none -z-10" />
-
-      {/* 5. Depth Vignette for "Dark Intelligent Room" feel */}
-      <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_20%,rgba(9,9,11,0.5)_100%)]" />
+      {/* Light vignette for contrast without hiding the 3D scene */}
+      <div className="absolute inset-0 z-[2] pointer-events-none bg-[radial-gradient(circle_at_center,transparent_35%,rgba(0,0,0,0.35)_100%)]" />
       
+      <div className="relative z-10 flex flex-col items-center">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -74,6 +73,7 @@ export const Hero = () => {
           Premium Report ansehen
         </Link>
       </motion.div>
+      </div>
     </section>
   );
 };
