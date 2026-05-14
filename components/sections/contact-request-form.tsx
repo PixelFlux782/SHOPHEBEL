@@ -117,7 +117,7 @@ export function ContactRequestForm() {
       const result = (await response.json()) as { error?: string };
 
       if (!response.ok) {
-        throw new Error(result.error || "Anfrage konnte nicht gespeichert werden.");
+        throw new Error(result.error || "Deine Anfrage konnte gerade nicht gesendet werden. Bitte schreibe direkt an kontakt@shophebel.de.");
       }
 
       setSuccessMessage(
@@ -125,8 +125,7 @@ export function ContactRequestForm() {
       );
       setForm(INITIAL_STATE);
     } catch (error) {
-      const message = error instanceof Error ? error.message : "Anfrage konnte nicht gespeichert werden.";
-      setSubmitError(message);
+      setSubmitError("Deine Anfrage konnte gerade nicht gesendet werden. Bitte schreibe direkt an kontakt@shophebel.de.");
     } finally {
       setIsSubmitting(false);
     }
@@ -135,6 +134,7 @@ export function ContactRequestForm() {
   return (
     <form
       onSubmit={handleSubmit}
+      noValidate
       className="relative overflow-hidden rounded-[1.5rem] border border-white/15 bg-[linear-gradient(180deg,rgba(15,23,42,0.94),rgba(8,17,31,0.9))] p-5 text-sm shadow-[0_30px_100px_-58px_rgba(0,0,0,0.85)] backdrop-blur md:p-6"
     >
       <div className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-cyan-400/20 blur-3xl" />

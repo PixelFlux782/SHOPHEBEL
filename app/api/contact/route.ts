@@ -84,6 +84,7 @@ export async function POST(request: Request) {
   };
 
   const canUseSupabase = hasSupabaseConfig();
+  const isProduction = process.env.NODE_ENV === "production";
 
   if (canUseSupabase) {
     try {
@@ -103,15 +104,27 @@ export async function POST(request: Request) {
 
       return NextResponse.json({ success: true, id: entry.id, storage: "supabase" }, { status: 201 });
     } catch (error) {
-      console.error("[contact-api] supabase save failed, fallback to json", error);
+      console.error("[contact-api] supabase insert failed", {
+        error,
+        contactRequestId: entry.id,
+      });
+      return NextResponse.json({ error: "Anfrage konnte nicht gespeichert werden." }, { status: 500 });
     }
+  }
+
+  if (isProduction) {
+    console.error("[contact-api] missing Supabase configuration in production", {
+      hasSupabaseUrl: Boolean(process.env.SUPABASE_URL?.trim()),
+      hasServiceRoleKey: Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()),
+    });
+    return NextResponse.json({ error: "Anfrage konnte nicht gespeichert werden." }, { status: 500 });
   }
 
   try {
     await saveToLocalJson(entry);
     return NextResponse.json({ success: true, id: entry.id, storage: "json" }, { status: 201 });
   } catch (error) {
-    console.error("[contact-api] failed to save request", error);
+    console.error("[contact-api] development json save failed", error);
     return NextResponse.json({ error: "Anfrage konnte nicht gespeichert werden." }, { status: 500 });
   }
 }
