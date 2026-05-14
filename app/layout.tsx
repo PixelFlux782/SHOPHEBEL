@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "../components/Navbar";
+import { siteConfig } from "@/lib/siteConfig";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,6 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: "Shophebel | Growth OS for E-Commerce Brands",
   description: "Das Betriebssystem für ambitionierte E-Commerce Marken.",
 };

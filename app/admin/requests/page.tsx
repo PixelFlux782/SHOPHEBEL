@@ -1,9 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ContactStatus, readLocalContactRequests, StoredContactRequest } from "@/lib/contactRequests";
 import { hasSupabaseConfig, listContactRequestsSupabase } from "@/lib/supabaseAdmin";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+  },
+};
 
 type RequestsPageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;

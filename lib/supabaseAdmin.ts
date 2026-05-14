@@ -14,6 +14,24 @@ type SupabaseContactInsert = {
   message: string;
 };
 
+export type SupabaseAuditContextInsert = {
+  id: string;
+  contact_request_id: string;
+  created_at: string;
+  updated_at: string;
+  website_url: string;
+  industry?: string;
+  target_audience?: string;
+  primary_goal?: string;
+  current_situation?: string;
+  problems_assumptions?: string;
+  desired_goal?: string;
+  technical_info?: string;
+  competitors?: string;
+  priority_focus?: string;
+  metadata?: Record<string, unknown>;
+};
+
 function getSupabaseConfig(): { url: string; serviceRoleKey: string } | null {
   const url = process.env.SUPABASE_URL?.trim();
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
@@ -47,6 +65,33 @@ export async function insertContactRequestSupabase(entry: SupabaseContactInsert)
   if (!response.ok) {
     const details = await response.text();
     throw new Error(`supabase_insert_failed: ${response.status} ${details}`);
+  }
+
+  return true;
+}
+
+export async function insertAuditContextSupabase(entry: SupabaseAuditContextInsert): Promise<boolean> {
+  const config = getSupabaseConfig();
+
+  if (!config) {
+    return false;
+  }
+
+  const response = await fetch(`${config.url}/rest/v1/audit_contexts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      apikey: config.serviceRoleKey,
+      Authorization: `Bearer ${config.serviceRoleKey}`,
+      Prefer: "return=minimal",
+    },
+    body: JSON.stringify(entry),
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    const details = await response.text();
+    throw new Error(`supabase_audit_context_insert_failed: ${response.status} ${details}`);
   }
 
   return true;
