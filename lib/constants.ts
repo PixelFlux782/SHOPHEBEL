@@ -5,6 +5,8 @@ export const ANALYSE_APP_URL =
   "http://localhost:3001";
 export const ANALYSE_TOOL_URL = ANALYSE_APP_URL;
 export const SCOUT_TOOL_URL = process.env.NEXT_PUBLIC_SCOUT_TOOL_URL || "http://localhost:3002";
+export const WEBSITE_ANALYSE_URL = new URL("/website-analyse", ANALYSE_APP_URL).toString();
+export const CONVERSION_OPTIMIERUNG_URL = new URL("/conversion-optimierung", ANALYSE_APP_URL).toString();
 
 export function buildAnalyseToolUrl(inputUrl?: string): string {
   const base = ANALYSE_TOOL_URL;

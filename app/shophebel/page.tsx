@@ -21,7 +21,7 @@ export default function ShophebelPage() {
               Mach sichtbar, warum dein Shop nicht besser verkauft.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
-              Shophebel analysiert SEO, Technik, Vertrauen und Conversion - und zeigt dir konkrete Hebel fuer mehr
+              Shophebel analysiert SEO, Technik, Vertrauen und Conversion - und zeigt dir konkrete Hebel für mehr
               Wirkung.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -60,8 +60,8 @@ export default function ShophebelPage() {
                 <div className="grid gap-3">
                   {[
                     ["SEO Struktur", "Meta-Daten uneinheitlich", "72"],
-                    ["Vertrauen", "Trust-Signale zu spaet sichtbar", "61"],
-                    ["Conversion", "CTA-Fuehrung nicht klar genug", "58"],
+                    ["Vertrauen", "Trust-Signale zu spät sichtbar", "61"],
+                    ["Conversion", "CTA-Führung nicht klar genug", "58"],
                   ].map(([label, finding, score]) => (
                     <div key={label} className="rounded-2xl border border-white/10 bg-white/8 p-4">
                       <div className="flex items-start justify-between gap-3">
@@ -79,7 +79,7 @@ export default function ShophebelPage() {
               </div>
 
               <div className="mt-4 rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-4">
-                <p className="text-sm font-semibold text-cyan-100">Naechster Hebel</p>
+                <p className="text-sm font-semibold text-cyan-100">Nächster Hebel</p>
                 <p className="mt-1 text-xs leading-5 text-slate-300">
                   Produktseiten klarer strukturieren und sichtbare Vertrauenselemente vor dem ersten Scroll setzen.
                 </p>
@@ -93,8 +93,8 @@ export default function ShophebelPage() {
       <PricingSection />
       <ShophebelFAQ />
       <CtaSection
-        title="Bereit fuer eine klare Einschaetzung Ihrer Website?"
-        description="Senden Sie uns Ihre URL und den passenden Anfrage-Typ. Wir speichern die Anfrage und melden uns mit dem naechsten sinnvollen Schritt."
+        title="Bereit für eine klare Einschätzung Ihrer Website?"
+        description="Senden Sie uns Ihre URL und den passenden Anfrage-Typ. Wir speichern die Anfrage und melden uns mit dem nächsten sinnvollen Schritt."
       />
     </main>
   );

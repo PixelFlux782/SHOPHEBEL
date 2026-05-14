@@ -2,32 +2,32 @@ const faqs = [
   {
     question: "Ist die Analyse kostenlos?",
     answer:
-      "Der Schnellcheck ist kostenlos. Wenn Sie eine tiefere Auswertung moechten, koennen Sie den Premium Report anfragen.",
+      "Der Schnellcheck ist kostenlos. Wenn Sie eine tiefere Auswertung möchten, können Sie den Premium Report anfragen.",
   },
   {
     question: "Was ist im Premium Report enthalten?",
     answer:
-      "Der Report prueft SEO, Technik, UX, Vertrauen und Conversion. Sie erhalten konkrete Hinweise und eine priorisierte Einschaetzung per E-Mail.",
+      "Der Report prüft SEO, Technik, UX, Vertrauen und Conversion. Sie erhalten konkrete Hinweise und eine priorisierte Einschätzung per E-Mail.",
   },
   {
     question: "Muss ich meine Zugangsdaten angeben?",
     answer:
-      "Fuer den Schnellcheck und den Premium Report sind keine Zugangsdaten noetig. Fuer eine spaetere Umsetzung klaeren wir Zugriffe nur, wenn sie wirklich gebraucht werden.",
+      "Für den Schnellcheck und den Premium Report sind keine Zugangsdaten nötig. Für eine spätere Umsetzung klären wir Zugriffe nur, wenn sie wirklich gebraucht werden.",
   },
   {
-    question: "Fuer welche Shops ist Shophebel geeignet?",
+    question: "Für welche Shops ist Shophebel geeignet?",
     answer:
-      "Shophebel eignet sich fuer kleine und mittelgrosse Shops, Dienstleister-Websites und Landingpages, die Sichtbarkeit, Vertrauen oder Conversion verbessern moechten.",
+      "Shophebel eignet sich für kleine und mittelgroße Shops, Dienstleister-Websites und Landingpages, die Sichtbarkeit, Vertrauen oder Conversion verbessern möchten.",
   },
   {
     question: "Setzt ihr die Optimierungen auch um?",
     answer:
-      "Ja. Im Umsetzungspaket koennen wir priorisierte Verbesserungen an Inhalten, Struktur, Produktseiten, Technik und Vertrauen direkt bearbeiten.",
+      "Ja. Im Umsetzungspaket können wir priorisierte Verbesserungen an Inhalten, Struktur, Produktseiten, Technik und Vertrauen direkt bearbeiten.",
   },
   {
-    question: "Wie schnell bekomme ich eine Rueckmeldung?",
+    question: "Wie schnell bekomme ich eine Rückmeldung?",
     answer:
-      "In der Regel melden wir uns zeitnah nach Eingang der Anfrage. Bei umfangreicheren Projekten klaeren wir zuerst den passenden Rahmen.",
+      "In der Regel melden wir uns zeitnah nach Eingang der Anfrage. Bei umfangreicheren Projekten klären wir zuerst den passenden Rahmen.",
   },
 ] as const;
 
@@ -55,7 +55,7 @@ export function ShophebelFAQ() {
       />
       <p className="sh-eyebrow">FAQ</p>
       <h2 className="sh-heading mt-3 max-w-3xl text-3xl">
-        Haeufige Fragen zu Shophebel
+        Häufige Fragen zu Shophebel
       </h2>
       <div className="mt-7 divide-y divide-slate-200/80">
         {faqs.map((faq) => (

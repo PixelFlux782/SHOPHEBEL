@@ -5,6 +5,7 @@ import { Pricing } from "../components/Pricing";
 import { Audience } from "../components/Audience";
 import { FinalCTA } from "../components/FinalCTA";
 import { CtaSection } from "../components/sections/cta-section";
+import { SiteFooter } from "../components/site-footer";
 
 export default function Home() {
   return (
@@ -17,9 +18,10 @@ export default function Home() {
       <FinalCTA />
       <CtaSection
         title="Projekt oder Optimierung anfragen"
-        description="Senden Sie uns Ihre Website-URL und waehlen Sie aus, ob es um Schnellcheck, Premium Report oder Umsetzung geht."
+        description="Senden Sie uns Ihre Website-URL und wählen Sie aus, ob es um Analyse, Conversion Optimierung, Premium Report oder Umsetzung geht."
         primaryCta="optimization"
       />
+      <SiteFooter />
     </div>
   );
 }

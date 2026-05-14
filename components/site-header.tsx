@@ -25,7 +25,7 @@ const menuGroups: MenuGroup[] = [
       {
         label: "Website Audit",
         href: ANALYSE_APP_URL,
-        description: "Kostenloser Check fuer UX, Technik, Trust, Conversion und Sichtbarkeit.",
+        description: "Kostenloser Check für UX, Technik, Trust, Conversion und Sichtbarkeit.",
       },
       {
         label: "Visuelle Analyse",
@@ -35,12 +35,12 @@ const menuGroups: MenuGroup[] = [
       {
         label: "AI Visibility",
         href: "/ki-sichtbarkeit",
-        description: "AEO/GEO-Grundlagen, Schema.org, Entitaeten und FAQ-Potenzial pruefen.",
+        description: "AEO/GEO-Grundlagen, Schema.org, Entitäten und FAQ-Potenzial prüfen.",
       },
       {
         label: "Reports",
         href: "/shophebel/report",
-        description: "Einfache Reports mit Massnahmen, Textideen und Entwickler-To-dos.",
+        description: "Einfache Reports mit Maßnahmen, Textideen und Entwickler-To-dos.",
       },
     ],
   },
@@ -55,12 +55,12 @@ const menuGroups: MenuGroup[] = [
       {
         label: "Premium Report",
         href: "/shophebel/report",
-        description: "Priorisierte Massnahmen und klare naechste Schritte.",
+        description: "Priorisierte Maßnahmen und klare nächste Schritte.",
       },
       {
         label: "Umsetzung & Service",
         href: "/shophebel/optimierung",
-        description: "Persoenliche Auswertung und Hilfe bei der Umsetzung.",
+        description: "Persönliche Auswertung und Hilfe bei der Umsetzung.",
       },
       {
         label: "Kostenlose Tools",
@@ -70,27 +70,27 @@ const menuGroups: MenuGroup[] = [
     ],
   },
   {
-    label: "Loesungen",
+    label: "Lösungen",
     items: [
       {
-        label: "Fuer Onlineshops",
+        label: "Für Onlineshops",
         href: "/leistungen",
         description: "Produktseiten, Trust, Checkout und Kaufargumente verbessern.",
       },
       {
-        label: "Fuer lokale Betriebe",
+        label: "Für lokale Betriebe",
         href: "/leistungen",
         description: "Kontakt, Standortsignale und Anfragewege klarer machen.",
       },
       {
-        label: "Fuer Dienstleister",
+        label: "Für Dienstleister",
         href: "/leistungen",
-        description: "Angebote, Expertenwirkung und Lead-Strecken schaerfen.",
+        description: "Angebote, Expertenwirkung und Lead-Strecken schärfen.",
       },
       {
-        label: "Fuer Agenturen",
+        label: "Für Agenturen",
         href: "/leistungen",
-        description: "Audit-Logik und Reports als Grundlage fuer Kundenprojekte.",
+        description: "Audit-Logik und Reports als Grundlage für Kundenprojekte.",
       },
     ],
   },
@@ -105,12 +105,12 @@ const menuGroups: MenuGroup[] = [
       {
         label: "Checklisten",
         href: "/tools/google-business-profil-checkliste",
-        description: "Kompakte Prueflisten fuer schnelle Verbesserungen.",
+        description: "Kompakte Prüflisten für schnelle Verbesserungen.",
       },
       {
         label: "Beispiele",
         href: "/#analyse",
-        description: "So koennen Scores, Reports und visuelle Hinweise aussehen.",
+        description: "So können Scores, Reports und visuelle Hinweise aussehen.",
       },
     ],
   },
@@ -273,7 +273,7 @@ export function SiteHeader() {
                 type="button"
                 onClick={() => setIsOpen(true)}
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-colors hover:bg-white/10 lg:hidden"
-                aria-label="Menue oeffnen"
+                aria-label="Menü öffnen"
                 aria-expanded={isOpen}
               >
                 <MenuIcon />
@@ -313,7 +313,7 @@ export function SiteHeader() {
                   type="button" 
                   onClick={() => setIsOpen(false)} 
                   className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-colors hover:bg-white/10" 
-                  aria-label="Menue schliessen"
+                  aria-label="Menü schließen"
                 >
                   <CloseIcon />
                 </button>

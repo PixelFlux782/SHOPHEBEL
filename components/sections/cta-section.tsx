@@ -1,7 +1,12 @@
-import Link from "next/link";
+import { CheckCircle2 } from "lucide-react";
 
 import { ContactRequestForm } from "@/components/sections/contact-request-form";
-import { ANALYSE_APP_URL } from "@/lib/constants";
+
+const trustPoints = [
+  "Klare Prioritäten statt Bauchgefühl",
+  "UX, SEO & Conversion in einem Blick",
+  "Konkrete nächste Schritte statt langer Analyse-PDFs",
+];
 
 interface CtaSectionProps {
   title?: string;
@@ -9,61 +14,41 @@ interface CtaSectionProps {
   primaryCta?: "quickCheck" | "premiumReport" | "optimization";
 }
 
-const entryCards = [
-  {
-    title: "Kostenloser Schnellcheck",
-    text: "Starte mit einer schnellen Analyse und erkenne die wichtigsten Hebel fuer deine Website.",
-    cta: "Website kostenlos pruefen",
-    href: ANALYSE_APP_URL,
-    tone: "border-cyan-300/30 bg-cyan-300/10",
-  },
-  {
-    title: "Premium Report",
-    text: "Wenn du mehr Tiefe brauchst: Screenshots, Prioritaeten und konkrete naechste Schritte.",
-    cta: "Premium Report starten",
-    href: ANALYSE_APP_URL,
-    tone: "border-blue-300/25 bg-blue-300/10",
-  },
-  {
-    title: "Umsetzung anfragen",
-    text: "Du moechtest nicht nur wissen, was zu tun ist, sondern es sauber umgesetzt bekommen.",
-    cta: "Projekt anfragen",
-    href: "#kontaktformular",
-    tone: "border-white/14 bg-white/8",
-  },
-] as const;
-
-export function CtaSection(_props: CtaSectionProps) {
+export function CtaSection({}: CtaSectionProps) {
   return (
-    <section id="kontakt" className="sh-section-dark px-6 py-12 lg:px-10 lg:py-14">
-      <div className="grid gap-4 lg:grid-cols-3">
-        {entryCards.map((card) => (
-          <article
-            key={card.title}
-            className={`flex min-h-full flex-col rounded-[1.4rem] border p-5 shadow-[0_24px_90px_-62px_rgba(0,0,0,0.9)] backdrop-blur-xl ${card.tone}`}
-          >
-            <h3 className="text-xl font-bold tracking-tight text-white">{card.title}</h3>
-            <p className="mt-3 flex-1 text-sm leading-7 text-slate-300">{card.text}</p>
-            <Link href={card.href} className="sh-button-primary mt-6 w-full">
-              {card.cta}
-            </Link>
-          </article>
-        ))}
-      </div>
+    <section
+      id="kontakt"
+      className="relative overflow-hidden border-t border-white/[0.08] bg-[#030712] px-5 py-20 sm:px-8 lg:px-10 lg:py-24"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(37,99,235,0.16),transparent_34%),radial-gradient(circle_at_82%_64%,rgba(34,211,238,0.08),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.03)_0%,transparent_26%,rgba(2,6,23,0.55)_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/35 to-transparent" />
 
-      <div id="kontaktformular" className="mt-8 grid gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
-        <div className="rounded-[1.5rem] border border-white/10 bg-white/6 p-6 backdrop-blur-xl">
-          <p className="sh-eyebrow sh-eyebrow-dark">Kontakt</p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-            Projekt oder Optimierung anfragen
+      <div className="relative mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.92fr_0.78fr] lg:items-center">
+        <div className="max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-200/80">Final Conversion Close</p>
+          <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl sm:leading-[1.05]">
+            Ihre Website hat bereits Potenzial. Die Frage ist, wie viel Umsatz gerade verloren geht.
           </h2>
-          <p className="mt-4 text-base leading-8 text-slate-200">
-            Du moechtest deine Website verbessern, einen Shop aufbauen oder die Analyse-Ergebnisse umsetzen lassen?
-            Schreib kurz, worum es geht - ich melde mich mit dem naechsten sinnvollen Schritt.
+          <p className="mt-6 max-w-xl text-base leading-8 text-slate-300">
+            SHOPHEBEL zeigt, wo Nutzer abspringen, Vertrauen verloren geht und welche Optimierungen messbar mehr
+            Anfragen oder Verkäufe bringen können.
           </p>
+
+          <div className="mt-8 grid gap-3">
+            {trustPoints.map((point) => (
+              <div key={point} className="flex items-center gap-3 text-sm font-medium text-slate-200">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-300/10 text-cyan-200">
+                  <CheckCircle2 className="h-4 w-4" strokeWidth={1.8} />
+                </span>
+                {point}
+              </div>
+            ))}
+          </div>
         </div>
 
-        <ContactRequestForm />
+        <div className="mx-auto w-full max-w-[31rem] lg:mx-0 lg:ml-auto">
+          <ContactRequestForm />
+        </div>
       </div>
     </section>
   );

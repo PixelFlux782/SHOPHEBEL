@@ -127,7 +127,7 @@ export default async function AdminRequestsPage({ searchParams }: RequestsPagePr
               {filteredRequests.length === 0 ? (
                 <tr>
                   <td className="px-4 py-8 text-center text-slate-500" colSpan={6}>
-                    Keine Anfragen fuer diesen Filter.
+                    Keine Anfragen für diesen Filter.
                   </td>
                 </tr>
               ) : null}

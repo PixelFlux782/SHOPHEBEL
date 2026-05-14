@@ -4,15 +4,15 @@ import { ShophebelFAQ } from "@/components/ShophebelFAQ";
 import { CtaSection } from "@/components/sections/cta-section";
 
 const targetGroups = [
-  "Shops, die bereits Besucher haben, aber zu wenig Anfragen oder Kaeufe erzielen.",
+  "Shops, die bereits Besucher haben, aber zu wenig Anfragen oder Käufe erzielen.",
   "Websites, bei denen Inhalte, Vertrauen oder Struktur nicht klar genug wirken.",
-  "Unternehmen, die konkrete Verbesserungen umsetzen lassen moechten statt nur eine Analyse zu lesen.",
+  "Unternehmen, die konkrete Verbesserungen umsetzen lassen möchten statt nur eine Analyse zu lesen.",
 ] as const;
 
 const improvements = [
   {
     title: "bessere Produkttexte",
-    text: "Nutzen, Einwaende und Kaufargumente werden klarer herausgearbeitet.",
+    text: "Nutzen, Einwände und Kaufargumente werden klarer herausgearbeitet.",
   },
   {
     title: "bessere Startseite",
@@ -24,7 +24,7 @@ const improvements = [
   },
   {
     title: "Trust-Elemente",
-    text: "Vertrauen wird frueher sichtbar: Belege, Sicherheit, Kontakt und klare Signale.",
+    text: "Vertrauen wird früher sichtbar: Belege, Sicherheit, Kontakt und klare Signale.",
   },
   {
     title: "Ladezeit / technische Basis",
@@ -32,27 +32,27 @@ const improvements = [
   },
   {
     title: "Conversion-Optimierung",
-    text: "CTAs, Seitenfuehrung und Entscheidungswege werden klarer priorisiert.",
+    text: "CTAs, Seitenführung und Entscheidungswege werden klarer priorisiert.",
   },
 ] as const;
 
 const outcomes = [
   "klarere Botschaften auf wichtigen Seiten",
-  "bessere Orientierung fuer Besucher",
+  "bessere Orientierung für Besucher",
   "sichtbarere Vertrauenselemente",
-  "nachvollziehbare Prioritaeten fuer weitere Schritte",
+  "nachvollziehbare Prioritäten für weitere Schritte",
 ] as const;
 
 const process = [
   {
     step: "01",
     title: "Analyse",
-    text: "Wir pruefen Website oder Shop und erfassen die wichtigsten Reibungspunkte.",
+    text: "Wir prüfen Website oder Shop und erfassen die wichtigsten Reibungspunkte.",
   },
   {
     step: "02",
     title: "Priorisierung",
-    text: "Die Massnahmen werden nach Wirkung, Aufwand und technischer Machbarkeit sortiert.",
+    text: "Die Maßnahmen werden nach Wirkung, Aufwand und technischer Machbarkeit sortiert.",
   },
   {
     step: "03",
@@ -62,7 +62,7 @@ const process = [
   {
     step: "04",
     title: "Kontrolle",
-    text: "Nach der Umsetzung pruefen wir die wichtigsten Punkte erneut und halten die Ergebnisse fest.",
+    text: "Nach der Umsetzung prüfen wir die wichtigsten Punkte erneut und halten die Ergebnisse fest.",
   },
 ] as const;
 
@@ -78,8 +78,8 @@ export default function OptimizationPage() {
               Wir analysieren nicht nur - wir verbessern deinen Shop konkret.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-200">
-              Nicht nur analysieren, sondern sinnvoll verbessern: Wir setzen priorisierte Massnahmen um, damit Ihre
-              Website klarer, vertrauenswuerdiger und besser nutzbar wird.
+              Nicht nur analysieren, sondern sinnvoll verbessern: Wir setzen priorisierte Maßnahmen um, damit Ihre
+              Website klarer, vertrauenswürdiger und besser nutzbar wird.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -102,7 +102,7 @@ export default function OptimizationPage() {
             <p className="mt-3 text-5xl font-bold">{"ab 999 \u20ac"}</p>
             <p className="mt-2 text-sm font-semibold text-cyan-200">Projektumfang nach Analyse und Priorisierung</p>
             <p className="mt-4 text-sm leading-7 text-slate-200">
-              Der genaue Umfang richtet sich nach Ausgangslage, Prioritaeten und gewuenschter Umsetzungstiefe.
+              Der genaue Umfang richtet sich nach Ausgangslage, Prioritäten und gewünschter Umsetzungstiefe.
             </p>
             <Link
               href="#kontakt"
@@ -135,7 +135,7 @@ export default function OptimizationPage() {
       <section className="sh-section-dark px-6 py-12 lg:px-10">
         <p className="sh-eyebrow sh-eyebrow-dark">Nach der Optimierung</p>
         <h2 className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-white">
-          Was sich nach der Optimierung veraendert
+          Was sich nach der Optimierung verändert
         </h2>
         <div className="mt-8 grid gap-4 lg:grid-cols-4">
           {outcomes.map((item) => (
@@ -166,9 +166,9 @@ export default function OptimizationPage() {
       </section>
 
       <section className="sh-section px-6 py-12 lg:px-10">
-        <p className="sh-eyebrow">Geeignet fuer</p>
+        <p className="sh-eyebrow">Geeignet für</p>
         <h2 className="sh-heading mt-3 max-w-3xl text-3xl">
-          Fuer welche Shops geeignet
+          Für welche Shops geeignet
         </h2>
         <div className="mt-8 grid gap-4 lg:grid-cols-3">
           {targetGroups.map((item) => (
@@ -185,7 +185,7 @@ export default function OptimizationPage() {
             <p className="sh-eyebrow">Preis</p>
             <h2 className="sh-heading mt-3 text-3xl">{"Umsetzungspaket ab 999 \u20ac"}</h2>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-700">
-              Vor Projektstart klaeren wir, welche Massnahmen sinnvoll sind und welcher Umfang realistisch ist. So
+              Vor Projektstart klären wir, welche Maßnahmen sinnvoll sind und welcher Umfang realistisch ist. So
               bleibt die Umsetzung nachvollziehbar und passend zur Ausgangslage.
             </p>
           </div>
@@ -203,12 +203,12 @@ export default function OptimizationPage() {
           <div>
             <p className="sh-eyebrow sh-eyebrow-dark">Vertrauen</p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white">
-              Keine Garantieversprechen. Saubere Umsetzung mit klaren Prioritaeten.
+              Keine Garantieversprechen. Saubere Umsetzung mit klaren Prioritäten.
             </h2>
           </div>
           <p className="text-sm leading-7 text-slate-300">
-            Wir versprechen keine pauschalen Umsatzspruenge. Stattdessen arbeiten wir strukturiert an den Punkten, die
-            Wirkung, Vertrauen und Nutzerfuehrung nachvollziehbar verbessern koennen.
+            Wir versprechen keine pauschalen Umsatzsprünge. Stattdessen arbeiten wir strukturiert an den Punkten, die
+            Wirkung, Vertrauen und Nutzerführung nachvollziehbar verbessern können.
           </p>
         </div>
       </section>
@@ -217,7 +217,7 @@ export default function OptimizationPage() {
 
       <CtaSection
         title={"Optimierungsgespr\u00e4ch anfragen"}
-        description="Senden Sie uns Ihre Website-URL und waehlen Sie im Formular das Umsetzungspaket aus. Wir melden uns mit einer realistischen Einschaetzung zum naechsten Schritt."
+        description="Senden Sie uns Ihre Website-URL und wählen Sie im Formular das Umsetzungspaket aus. Wir melden uns mit einer realistischen Einschätzung zum nächsten Schritt."
         primaryCta="optimization"
       />
     </main>

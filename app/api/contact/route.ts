@@ -178,7 +178,7 @@ export async function POST(request: Request) {
   try {
     payload = (await request.json()) as ContactPayload;
   } catch {
-    return NextResponse.json({ error: "Ungueltige Anfrage." }, { status: 400 });
+    return NextResponse.json({ error: "Ungültige Anfrage." }, { status: 400 });
   }
 
   const name = asText(payload.name);
@@ -205,15 +205,15 @@ export async function POST(request: Request) {
   }
 
   if (!email || !isValidEmail(email)) {
-    return NextResponse.json({ error: "Gueltige E-Mail ist erforderlich." }, { status: 400 });
+    return NextResponse.json({ error: "Gültige E-Mail ist erforderlich." }, { status: 400 });
   }
 
   if (website && !isValidWebsiteUrl(website)) {
-    return NextResponse.json({ error: "Gueltige Website-URL ist erforderlich." }, { status: 400 });
+    return NextResponse.json({ error: "Gültige Website-URL ist erforderlich." }, { status: 400 });
   }
 
   if (!ALLOWED_TOPICS.includes(topic)) {
-    return NextResponse.json({ error: "Gueltiges Anliegen ist erforderlich." }, { status: 400 });
+    return NextResponse.json({ error: "Gültiges Anliegen ist erforderlich." }, { status: 400 });
   }
 
   const now = new Date().toISOString();

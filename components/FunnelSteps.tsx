@@ -9,7 +9,7 @@ const funnelSteps = [
     number: "02",
     symbol: "SCAN",
     title: "Analyse starten",
-    text: "Shophebel prueft Technik, Struktur, Inhalte und Vertrauen.",
+    text: "Shophebel prüft Technik, Struktur, Inhalte und Vertrauen.",
   },
   {
     number: "03",
@@ -21,7 +21,7 @@ const funnelSteps = [
     number: "04",
     symbol: "OK",
     title: "Optimierung umsetzen",
-    text: "Auf Wunsch setzen wir die wichtigsten Verbesserungen direkt fuer dich um.",
+    text: "Auf Wunsch setzen wir die wichtigsten Verbesserungen direkt für dich um.",
   },
 ] as const;
 

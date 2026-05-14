@@ -9,8 +9,8 @@ export default function ImpressumPage() {
             <section>
               <h2 className="text-lg font-bold text-slate-950">Anbieterangaben</h2>
               <p className="mt-3 leading-7">
-                Die vollstaendigen Anbieterangaben werden vor der Live-Schaltung mit den echten Unternehmensdaten
-                ergaenzt.
+                Die vollständigen Anbieterangaben werden vor der Live-Schaltung mit den echten Unternehmensdaten
+                ergänzt.
               </p>
             </section>
             <section>
@@ -20,8 +20,8 @@ export default function ImpressumPage() {
             <section>
               <h2 className="text-lg font-bold text-slate-950">Hinweis</h2>
               <p className="mt-3 leading-7">
-                Diese Seite enthaelt keine erfundenen Rechts- oder Unternehmensdaten. Vor Veroeffentlichung muessen die
-                finalen Pflichtangaben juristisch geprueft und ergaenzt werden.
+                Diese Seite enthält keine erfundenen Rechts- oder Unternehmensdaten. Vor Veröffentlichung müssen die
+                finalen Pflichtangaben juristisch geprüft und ergänzt werden.
               </p>
             </section>
           </div>

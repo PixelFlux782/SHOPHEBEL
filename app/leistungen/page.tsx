@@ -1,11 +1,11 @@
 const services = [
   {
     title: "Shop Analyse",
-    description: "Wir pruefen deinen Shop auf Struktur, Angebotskommunikation und die groessten Conversion-Hebel.",
+    description: "Wir prüfen deinen Shop auf Struktur, Angebotskommunikation und die größten Conversion-Hebel.",
   },
   {
     title: "Conversion Optimierung",
-    description: "Wir identifizieren Reibungspunkte im Funnel und machen Kaufentscheidungen fuer Besucher leichter.",
+    description: "Wir identifizieren Reibungspunkte im Funnel und machen Kaufentscheidungen für Besucher leichter.",
   },
   {
     title: "SEO Verbesserung",
@@ -25,10 +25,10 @@ export default function ServicesPage() {
           Leistungen
         </p>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight text-[var(--foreground)]">
-          Analyse, Optimierung und Klarheit fuer deinen Shop
+          Analyse, Optimierung und Klarheit für deinen Shop
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted)]">
-          Shophebel fokussiert die Bereiche, die am staerksten auf Umsatz, Vertrauen und Sichtbarkeit einzahlen.
+          Shophebel fokussiert die Bereiche, die am stärksten auf Umsatz, Vertrauen und Sichtbarkeit einzahlen.
         </p>
       </section>
 

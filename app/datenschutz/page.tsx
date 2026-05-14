@@ -9,7 +9,7 @@ export default function DatenschutzPage() {
             <section>
               <h2 className="text-lg font-bold text-slate-950">Verantwortliche Stelle</h2>
               <p className="mt-3 leading-7">
-                Die finalen Betreiberangaben werden vor der Live-Schaltung mit den echten Unternehmensdaten ergaenzt.
+                Die finalen Betreiberangaben werden vor der Live-Schaltung mit den echten Unternehmensdaten ergänzt.
               </p>
               <p className="mt-3 leading-7">E-Mail: info@shophebel.de</p>
             </section>
@@ -23,9 +23,9 @@ export default function DatenschutzPage() {
             <section>
               <h2 className="text-lg font-bold text-slate-950">Hinweis</h2>
               <p className="mt-3 leading-7">
-                Diese Datenschutzhinweise sind bewusst knapp gehalten und ersetzen keine juristische Pruefung. Vor
-                Veroeffentlichung muessen Hosting, Speicherdauer, Rechtsgrundlagen und weitere Pflichtangaben final
-                ergaenzt werden.
+                Diese Datenschutzhinweise sind bewusst knapp gehalten und ersetzen keine juristische Prüfung. Vor
+                Veröffentlichung müssen Hosting, Speicherdauer, Rechtsgrundlagen und weitere Pflichtangaben final
+                ergänzt werden.
               </p>
             </section>
           </div>

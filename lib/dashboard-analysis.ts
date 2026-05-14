@@ -101,7 +101,7 @@ function valueFromStatus(status: AuditCheckStatus) {
 function getTopSignals(result: AnalysisResult): DashboardSignal[] {
   const namedChecks = [
     result.categories.trust.checks.find((check) => /vertrauens|kontakt|impressum/i.test(check.title)),
-    result.categories.conversion.checks.find((check) => /naechster|cta|anfrage/i.test(check.title)),
+    result.categories.conversion.checks.find((check) => /nächster|cta|anfrage/i.test(check.title)),
     result.categories.design.checks.find((check) => /blick|visuell|lesbarkeit/i.test(check.title)),
     result.categories.aiVisibility.checks.find((check) => /ki|daten|struktur|themen/i.test(check.title)),
   ].filter((check): check is NonNullable<typeof check> => Boolean(check));

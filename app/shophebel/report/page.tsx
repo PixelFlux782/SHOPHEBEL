@@ -15,14 +15,14 @@ const checks = [
 const sampleResults = [
   {
     title: "Priorisierte Schwachstellen",
-    text: "Sie sehen, welche Punkte zuerst angegangen werden sollten und warum diese fuer Sichtbarkeit, Vertrauen oder Kaufbereitschaft relevant sind.",
+    text: "Sie sehen, welche Punkte zuerst angegangen werden sollten und warum diese für Sichtbarkeit, Vertrauen oder Kaufbereitschaft relevant sind.",
   },
   {
     title: "Konkrete Handlungsempfehlungen",
-    text: "Der Report bleibt nicht bei allgemeinen Hinweisen stehen, sondern beschreibt nachvollziehbare naechste Schritte.",
+    text: "Der Report bleibt nicht bei allgemeinen Hinweisen stehen, sondern beschreibt nachvollziehbare nächste Schritte.",
   },
   {
-    title: "Schneller Ueberblick fuer Entscheidungen",
+    title: "Schneller Überblick für Entscheidungen",
     text: "Scores und kurze Zusammenfassungen helfen Ihnen, die wichtigsten Baustellen ohne lange Voranalyse zu erkennen.",
   },
 ] as const;
@@ -30,14 +30,14 @@ const sampleResults = [
 const deliverables = [
   "strukturierte Auswertung mit Scores",
   "konkrete Befunde statt allgemeiner Checkliste",
-  "Prioritaetenliste fuer die naechsten Schritte",
+  "Prioritätenliste für die nächsten Schritte",
   "Versand per E-Mail als Report",
 ] as const;
 
 const targetGroups = [
   "Shop-Betreiber, die wissen wollen, wo Besucher abspringen.",
-  "Teams, die vor einer Optimierung eine neutrale Einschaetzung brauchen.",
-  "Websites mit Traffic, aber zu wenig Vertrauen, Anfragen oder Kaeufen.",
+  "Teams, die vor einer Optimierung eine neutrale Einschätzung brauchen.",
+  "Websites mit Traffic, aber zu wenig Vertrauen, Anfragen oder Käufen.",
 ] as const;
 
 export default function PremiumReportPage() {
@@ -50,7 +50,7 @@ export default function PremiumReportPage() {
           <div>
             <p className="sh-eyebrow sh-eyebrow-dark">Premium Analyse Report</p>
             <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              Der {"49 \u20ac"} Report, der aus Website-Signalen konkrete Massnahmen macht.
+              Der {"49 \u20ac"} Report, der aus Website-Signalen konkrete Maßnahmen macht.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-200">
               Du bekommst keine Datenflut, sondern eine einfache Auswertung zu UX, visueller Wirkung, Technik,
@@ -90,8 +90,8 @@ export default function PremiumReportPage() {
 
                 <div className="grid gap-3">
           {[
-                    ["UX", "Der erste Eindruck erklaert Angebot und naechsten Schritt nicht schnell genug."],
-                    ["Trust", "Vertrauenssignale erscheinen zu spaet."],
+                    ["UX", "Der erste Eindruck erklärt Angebot und nächsten Schritt nicht schnell genug."],
+                    ["Trust", "Vertrauenssignale erscheinen zu spät."],
                     ["AI Visibility", "FAQ- und Schema-Potenzial wird noch nicht genutzt."],
                   ].map(([label, text]) => (
                     <div key={label} className="rounded-2xl border border-white/10 bg-white/8 p-3">
@@ -103,11 +103,11 @@ export default function PremiumReportPage() {
               </div>
 
               <div className="mt-4 rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-4">
-                <p className="text-sm font-semibold text-cyan-100">Prioritaetenliste</p>
+                <p className="text-sm font-semibold text-cyan-100">Prioritätenliste</p>
                 <ol className="mt-3 space-y-2 text-xs leading-5 text-slate-300">
                   <li>1. Hero und CTA klarer priorisieren</li>
                   <li>2. Trust-Elemente vor dem ersten Scroll sichtbar machen</li>
-                  <li>3. FAQ- und Schema-Potenzial fuer AI-Sichtbarkeit nutzen</li>
+                  <li>3. FAQ- und Schema-Potenzial für AI-Sichtbarkeit nutzen</li>
                 </ol>
               </div>
             </div>
@@ -116,9 +116,9 @@ export default function PremiumReportPage() {
       </section>
 
       <section id="umfang" className="relative border-t border-white/5 bg-zinc-950 px-6 py-12 lg:px-10">
-        <p className="sh-eyebrow">Was geprueft wird</p>
+        <p className="sh-eyebrow">Was geprüft wird</p>
         <h2 className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-white">
-          Die wichtigsten Hebel fuer Sichtbarkeit, Vertrauen und Kaufbereitschaft
+          Die wichtigsten Hebel für Sichtbarkeit, Vertrauen und Kaufbereitschaft
         </h2>
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {checks.map((item) => (
@@ -163,9 +163,9 @@ export default function PremiumReportPage() {
       </section>
 
       <section className="relative border-t border-white/5 bg-black px-6 py-12 lg:px-10">
-        <p className="sh-eyebrow">Fuer wen lohnt es sich?</p>
+        <p className="sh-eyebrow">Für wen lohnt es sich?</p>
         <h2 className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-white">
-          Fuer Shops, die Klarheit vor Umsetzung brauchen
+          Für Shops, die Klarheit vor Umsetzung brauchen
         </h2>
         <div className="mt-8 grid gap-4 lg:grid-cols-3">
           {targetGroups.map((item) => (
@@ -183,20 +183,20 @@ export default function PremiumReportPage() {
           <p className="mt-3 text-5xl font-bold text-white">{"49 \u20ac"}</p>
           <p className="mt-2 text-sm font-semibold text-cyan-200">Einmalige Analyseanfrage</p>
           <p className="mt-4 text-sm leading-7 text-slate-300">
-            Ideal, wenn Sie eine fundierte Einschaetzung brauchen, bevor Zeit oder Budget in Optimierungen fliesst.
+            Ideal, wenn Sie eine fundierte Einschätzung brauchen, bevor Zeit oder Budget in Optimierungen fliesst.
           </p>
           <Link href="#kontakt" className="sh-button-primary mt-6 w-full">
             Premium Report anfragen
           </Link>
           <p className="mt-3 text-center text-xs leading-5 text-slate-400">
-            Noch keine automatische Zahlung. Wir melden uns nach deiner Anfrage mit dem naechsten Schritt.
+            Noch keine automatische Zahlung. Wir melden uns nach deiner Anfrage mit dem nächsten Schritt.
           </p>
         </aside>
       </section>
 
       <CtaSection
         title="Premium Report anfragen"
-        description="Senden Sie uns Ihre Website-URL und waehlen Sie im Formular den Premium Report aus. Wir melden uns mit dem naechsten Schritt."
+        description="Senden Sie uns Ihre Website-URL und wählen Sie im Formular den Premium Report aus. Wir melden uns mit dem nächsten Schritt."
         primaryCta="premiumReport"
       />
     </main>

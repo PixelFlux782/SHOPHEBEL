@@ -34,7 +34,7 @@ const scoreParticles = Array.from({ length: 16 }, (_, index) => ({
 }));
 
 const scanSteps = [
-  "URL erreichbar pruefen",
+  "URL erreichbar prüfen",
   "Mobile Darstellung bewerten",
   "Trust-Signale erkennen",
   "CTA-Hierarchie analysieren",
@@ -640,7 +640,7 @@ export const DashboardPreview = ({
                     <div className="flex items-center justify-between gap-3">
                       <div className="min-w-0">
                         <p className={`text-[12px] font-medium leading-snug text-zinc-300 ${isScanning ? "h-4 w-3/4 rounded bg-white/[0.06] text-transparent" : ""}`}>
-                          {isScanning ? "Signal wird geprueft" : item.label}
+                          {isScanning ? "Signal wird geprüft" : item.label}
                         </p>
                         <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-zinc-600">
                           Task 0{index + 1}
@@ -686,7 +686,7 @@ export const DashboardPreview = ({
                     ? scanSteps[scanIndex]
                     : isDemo
                       ? "Demo-Daten - eigene URL eingeben. Echte Werte entstehen nach dem Website-Scan."
-                      : "Abgeleitet aus Findings, Prioritaeten und geschaetztem Umsetzungsaufwand."}
+                      : "Abgeleitet aus Findings, Prioritäten und geschätztem Umsetzungsaufwand."}
                 </p>
 
                 {mode === "result" && canOpenReport && (
@@ -694,7 +694,7 @@ export const DashboardPreview = ({
                     href={reportHref}
                     className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-blue-200/18 bg-blue-400/[0.11] px-4 py-3.5 text-xs font-semibold uppercase tracking-[0.17em] text-blue-50 shadow-[0_0_28px_rgba(37,99,235,0.08)] transition hover:-translate-y-0.5 hover:border-blue-200/32 hover:bg-blue-400/[0.16] hover:shadow-[0_18px_54px_rgba(37,99,235,0.14)]"
                   >
-                    Vollstaendige Analyse oeffnen
+                    Vollständige Analyse öffnen
                     <ChevronRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
                   </a>
                 )}
@@ -702,16 +702,16 @@ export const DashboardPreview = ({
                 {mode === "result" && !canOpenReport && (
                   <div className="mt-5 rounded-lg border border-white/[0.06] bg-white/[0.025] px-4 py-3 text-center">
                     <p className="font-mono text-[9px] uppercase tracking-[0.17em] text-zinc-500">
-                      Vollstaendiger Report nicht gespeichert
+                      Vollständiger Report nicht gespeichert
                     </p>
                     <p className="mt-1 text-[11px] text-zinc-600">
-                      Die kompakte Analyse ist sichtbar. Oeffne die Analyse-App mit der geprueften URL.
+                      Die kompakte Analyse ist sichtbar. Öffne die Analyse-App mit der geprüften URL.
                     </p>
                     <a
                       href={reportHref}
                       className="mt-3 inline-flex items-center justify-center gap-2 rounded-md border border-white/[0.08] bg-white/[0.035] px-3 py-2 font-mono text-[9px] uppercase tracking-[0.16em] text-zinc-400 transition hover:border-white/[0.14] hover:bg-white/[0.055]"
                     >
-                      Analyse-App oeffnen
+                      Analyse-App öffnen
                       <ChevronRight className="h-3 w-3" strokeWidth={1.5} />
                     </a>
                   </div>

@@ -12,7 +12,7 @@ const scoreItems = [
 
 const floatingKpis = [
   { label: "UX-Hebel", value: "8", position: "left-0 top-10 lg:-left-8" },
-  { label: "Trust-Luecken", value: "12", position: "right-3 top-28 lg:-right-6" },
+  { label: "Trust-Lücken", value: "12", position: "right-3 top-28 lg:-right-6" },
   { label: "Quick Wins", value: "27", position: "bottom-8 left-6 lg:-left-5" },
 ];
 
@@ -53,13 +53,13 @@ export function SaasHeroSection() {
       <div className="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
         <div className="max-w-3xl">
           <p className="inline-flex rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-cyan-100">
-            Plattform fuer kleine Shops, Websites und lokale Betriebe
+            Plattform für kleine Shops, Websites und lokale Betriebe
           </p>
           <h1 className="mt-6 text-4xl font-bold tracking-normal text-white sm:text-5xl lg:text-6xl">
             Sieh, warum deine Website nicht genug Vertrauen, Anfragen oder Umsatz bringt.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
-            Shophebel verbindet visuelle Website-Analyse, UX, Technik, Trust, Conversion und AI-Sichtbarkeit mit konkreten Massnahmen. Weniger Datenflut, mehr naechster Schritt.
+            Shophebel verbindet visuelle Website-Analyse, UX, Technik, Trust, Conversion und AI-Sichtbarkeit mit konkreten Maßnahmen. Weniger Datenflut, mehr nächster Schritt.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-8 rounded-2xl border border-white/14 bg-white/10 p-2 shadow-[0_24px_90px_-55px_rgba(34,211,238,0.85)] backdrop-blur-xl">
@@ -77,7 +77,7 @@ export function SaasHeroSection() {
                 />
               </label>
               <button className="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-cyan-300 px-6 text-sm font-bold text-slate-950 shadow-lg shadow-cyan-500/25 hover:-translate-y-0.5 hover:bg-cyan-200">
-                Website kostenlos pruefen
+                Website kostenlos prüfen
                 <ArrowIcon />
               </button>
             </div>
@@ -88,7 +88,7 @@ export function SaasHeroSection() {
               Einfachen Report ansehen
               <ArrowIcon />
             </Link>
-            <span className="text-sm text-slate-400">Keine Logins noetig. Erste Diagnose sofort.</span>
+            <span className="text-sm text-slate-400">Keine Logins nötig. Erste Diagnose sofort.</span>
           </div>
         </div>
 
@@ -147,8 +147,8 @@ export function SaasHeroSection() {
             </div>
 
             <div className="mt-4 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4">
-              <p className="text-sm font-bold text-amber-100">Naechster Hebel</p>
-              <p className="mt-1 text-sm leading-6 text-slate-300">Hero klarer machen, Trust sichtbar ergaenzen und mobile Ladezeit verbessern, bevor mehr Traffic eingekauft wird.</p>
+              <p className="text-sm font-bold text-amber-100">Nächster Hebel</p>
+              <p className="mt-1 text-sm leading-6 text-slate-300">Hero klarer machen, Trust sichtbar ergänzen und mobile Ladezeit verbessern, bevor mehr Traffic eingekauft wird.</p>
             </div>
           </div>
         </div>

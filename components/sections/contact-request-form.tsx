@@ -27,12 +27,6 @@ const INITIAL_STATE: FormState = {
   budgetTimeline: "",
 };
 
-const TRUST_POINTS = [
-  "Keine Zugangsdaten noetig",
-  "Erste Einschaetzung kostenlos",
-  "Konkreter naechster Schritt statt Agentur-Blabla",
-] as const;
-
 function isValidEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
@@ -62,11 +56,11 @@ export function ContactRequestForm() {
     }
 
     if (!current.email.trim() || !isValidEmail(current.email.trim())) {
-      nextErrors.email = "Bitte gueltige E-Mail eingeben.";
+      nextErrors.email = "Bitte gültige E-Mail eingeben.";
     }
 
     if (websiteUrl && !isValidWebsiteUrl(websiteUrl)) {
-      nextErrors.websiteUrl = "Bitte gueltige Website-URL mit http:// oder https:// eingeben.";
+      nextErrors.websiteUrl = "Bitte gültige Website-URL mit http:// oder https:// eingeben.";
     }
 
     if (!current.improvement.trim()) {
@@ -121,10 +115,10 @@ export function ContactRequestForm() {
       }
 
       setSuccessMessage(
-        "Danke! Deine Anfrage ist angekommen. Ich melde mich mit einer konkreten Einschaetzung und dem naechsten sinnvollen Schritt.",
+        "Danke! Deine Anfrage ist angekommen. Ich melde mich mit einer konkreten Einschätzung und dem nächsten sinnvollen Schritt.",
       );
       setForm(INITIAL_STATE);
-    } catch (error) {
+    } catch {
       setSubmitError("Deine Anfrage konnte gerade nicht gesendet werden. Bitte schreibe direkt an kontakt@shophebel.de.");
     } finally {
       setIsSubmitting(false);
@@ -135,23 +129,15 @@ export function ContactRequestForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="relative overflow-hidden rounded-[1.5rem] border border-white/15 bg-[linear-gradient(180deg,rgba(15,23,42,0.94),rgba(8,17,31,0.9))] p-5 text-sm shadow-[0_30px_100px_-58px_rgba(0,0,0,0.85)] backdrop-blur md:p-6"
+      className="relative overflow-hidden rounded-[1.35rem] border border-white/12 bg-[linear-gradient(180deg,rgba(15,23,42,0.78),rgba(2,6,23,0.88))] p-4 text-sm shadow-[0_30px_100px_-64px_rgba(0,0,0,0.95),inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl sm:p-5"
     >
-      <div className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-cyan-400/20 blur-3xl" />
+      <div className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-cyan-400/10 blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/35 to-transparent" />
       <div className="relative">
-        <p className="sh-eyebrow sh-eyebrow-dark">Projektanfrage</p>
-        <h3 className="mt-2 text-2xl font-bold tracking-tight text-white">Lass uns den besten Hebel finden.</h3>
+        <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-cyan-200/80">Potenzial-Prüfung</p>
+        <h3 className="mt-2 text-xl font-bold tracking-tight text-white">Kurze Anfrage. Klare Einschätzung.</h3>
 
-        <div className="mt-4 grid gap-2">
-          {TRUST_POINTS.map((item) => (
-            <div key={item} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/6 px-3 py-2 text-xs font-medium text-slate-200">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" />
-              {item}
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-5 grid gap-3 md:grid-cols-2">
+        <div className="mt-4 grid gap-3 md:grid-cols-2">
           <Field label="Name" required error={errors.name}>
             <input
               required
@@ -203,27 +189,27 @@ export function ContactRequestForm() {
 
           <Field label="Was soll verbessert werden?" required error={errors.improvement} className="md:col-span-2">
             <textarea
-              rows={5}
+              rows={3}
               required
               value={form.improvement}
               onChange={(event) => {
                 setForm((prev) => ({ ...prev, improvement: event.target.value }));
                 setSuccessMessage(null);
               }}
-              placeholder="z. B. Shop wirkt nicht vertrauenswuerdig, Relaunch geplant, Analyse-Ergebnisse sollen umgesetzt werden..."
+              placeholder="z. B. Shop wirkt nicht vertrauenswürdig, Relaunch geplant, Analyse-Ergebnisse sollen umgesetzt werden..."
               className="sh-input"
             />
           </Field>
 
           <Field label="Budget/Zeitrahmen optional" className="md:col-span-2">
             <textarea
-              rows={3}
+              rows={2}
               value={form.budgetTimeline}
               onChange={(event) => {
                 setForm((prev) => ({ ...prev, budgetTimeline: event.target.value }));
                 setSuccessMessage(null);
               }}
-              placeholder="z. B. Start im naechsten Monat, erstes Budget grob bekannt..."
+              placeholder="z. B. Start im nächsten Monat, erstes Budget grob bekannt..."
               className="sh-input"
             />
           </Field>
@@ -232,9 +218,9 @@ export function ContactRequestForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="sh-button-primary mt-4 min-h-12 w-full rounded-xl px-4 py-3 disabled:opacity-70"
+          className="sh-button-primary mt-4 min-h-11 w-full rounded-xl px-4 py-2.5 disabled:opacity-70"
         >
-          {isSubmitting ? "Projektanfrage wird gesendet..." : "Projektanfrage senden"}
+          {isSubmitting ? "Anfrage wird gesendet..." : "Website-Potenzial prüfen lassen"}
         </button>
 
         {submitError ? (

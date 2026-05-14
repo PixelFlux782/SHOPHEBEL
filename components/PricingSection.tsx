@@ -6,9 +6,9 @@ const pricingPackages = [
   {
     name: "Kostenloser Schnellcheck",
     price: "0 \u20ac",
-    microcopy: "Fuer den ersten Ueberblick",
-    description: "Ein kompakter erster Blick auf Ihre Website, damit Sie Potenziale schnell einordnen koennen.",
-    features: ["Erste Website-Einschaetzung", "Basis-Score", "3 Sofort-Hinweise", "ideal zum Einstieg"],
+    microcopy: "Für den ersten Überblick",
+    description: "Ein kompakter erster Blick auf Ihre Website, damit Sie Potenziale schnell einordnen können.",
+    features: ["Erste Website-Einschätzung", "Basis-Score", "3 Sofort-Hinweise", "ideal zum Einstieg"],
     cta: "Kostenlosen Schnellcheck starten",
     href: ANALYSE_APP_URL,
     highlighted: false,
@@ -16,12 +16,12 @@ const pricingPackages = [
   {
     name: "Premium Report",
     price: "49 \u20ac",
-    microcopy: "Fuer klare Prioritaeten",
-    description: "Der bezahlbare Analysebericht fuer klare Prioritaeten statt vager Bauchgefuehle.",
+    microcopy: "Für klare Prioritäten",
+    description: "Der bezahlbare Analysebericht für klare Prioritäten statt vager Bauchgefühle.",
     features: [
-      "ausfuehrlicher Analysebericht",
+      "ausführlicher Analysebericht",
       "SEO-, Technik-, UX- und Vertrauens-Check",
-      "konkrete Prioritaetenliste",
+      "konkrete Prioritätenliste",
       "Versand per E-Mail",
     ],
     cta: "Premium Report anfragen",
@@ -31,10 +31,10 @@ const pricingPackages = [
   {
     name: "Umsetzungspaket",
     price: "ab 999 \u20ac",
-    microcopy: "Fuer konkrete Verbesserung",
-    description: "Fuer Unternehmen, die nicht nur wissen wollen, was zu tun ist, sondern es erledigt haben moechten.",
+    microcopy: "Für konkrete Verbesserung",
+    description: "Für Unternehmen, die nicht nur wissen wollen, was zu tun ist, sondern es erledigt haben möchten.",
     features: [
-      "persoenliche Auswertung",
+      "persönliche Auswertung",
       "technische und inhaltliche Optimierung",
       "Produktseiten-/Landingpage-Verbesserung",
       "optional laufende Betreuung",
@@ -51,10 +51,10 @@ export function PricingSection() {
       <div className="mx-auto max-w-3xl text-center">
         <p className="sh-eyebrow sh-eyebrow-dark">Preise</p>
         <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Klare Pakete fuer Analyse und Umsetzung
+          Klare Pakete für Analyse und Umsetzung
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-300">
-          Starten Sie mit einer ersten Einschaetzung, kaufen Sie einen strukturierten Report oder lassen Sie die
+          Starten Sie mit einer ersten Einschätzung, kaufen Sie einen strukturierten Report oder lassen Sie die
           wichtigsten Verbesserungen direkt umsetzen.
         </p>
       </div>
