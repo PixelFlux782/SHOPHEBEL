@@ -14,7 +14,7 @@ export const shophebelTools: ShophebelTool[] = [
   {
     slug: "website-check",
     title: "Kostenloser Website-Check",
-    benefit: "Prüfe SEO, Technik, Vertrauen und Conversion-Potenzial deiner Website in einem ersten Schnellcheck.",
+    benefit: "Prüfe SEO, Technik, Vertrauen und Conversion-Potenzial deiner Website in einem ersten Analyse-Teaser.",
     status: "Kostenlos",
     href: "/tools/website-check",
     available: true,

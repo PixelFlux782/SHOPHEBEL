@@ -5,7 +5,7 @@ import { ContactRequestForm } from "@/components/sections/contact-request-form";
 const trustPoints = [
   "Klare Prioritäten statt Bauchgefühl",
   "UX, SEO & Conversion in einem Blick",
-  "Konkrete nächste Schritte statt langer Analyse-PDFs",
+  "Konkrete nächste Schritte statt unklarer Befundliste",
 ];
 
 interface CtaSectionProps {
@@ -30,8 +30,8 @@ export function CtaSection({}: CtaSectionProps) {
             Ihre Website hat bereits Potenzial. Die Frage ist, wie viel Umsatz gerade verloren geht.
           </h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-slate-300">
-            SHOPHEBEL zeigt, wo Nutzer abspringen, Vertrauen verloren geht und welche Optimierungen messbar mehr
-            Anfragen oder Verkäufe bringen können.
+            SHOPHEBEL zeigt, wo Nutzer abspringen, Vertrauen verloren geht und welche Optimierungen die nächste
+            Anfrage oder Kaufentscheidung klarer machen können.
           </p>
 
           <div className="mt-8 grid gap-3">

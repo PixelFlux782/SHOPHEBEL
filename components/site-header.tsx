@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-import { ANALYSE_APP_URL } from "@/lib/constants";
+import { FULL_ANALYSE_URL, PREMIUM_ANALYSE_URL, WEBSITE_ANALYSE_URL } from "@/lib/constants";
 
 type MenuItem = {
   label: string;
@@ -23,9 +23,9 @@ const menuGroups: MenuGroup[] = [
     label: "Plattform",
     items: [
       {
-        label: "Website Audit",
-        href: ANALYSE_APP_URL,
-        description: "Kostenloser Check für UX, Technik, Trust, Conversion und Sichtbarkeit.",
+        label: "Analyse-Teaser",
+        href: WEBSITE_ANALYSE_URL,
+        description: "Kostenloser Analyse-Teaser für Score, Ersteinschätzung und wichtigste Hinweise.",
       },
       {
         label: "Visuelle Analyse",
@@ -39,8 +39,8 @@ const menuGroups: MenuGroup[] = [
       },
       {
         label: "Reports",
-        href: "/shophebel/report",
-        description: "Einfache Reports mit Maßnahmen, Textideen und Entwickler-To-dos.",
+        href: PREMIUM_ANALYSE_URL,
+        description: "Premium Analyse als strategischer Report mit Prioritäten und Roadmap.",
       },
     ],
   },
@@ -48,14 +48,19 @@ const menuGroups: MenuGroup[] = [
     label: "Angebote",
     items: [
       {
-        label: "Free Audit",
-        href: ANALYSE_APP_URL,
-        description: "Schnelle Diagnose ohne Login und ohne Datenflut.",
+        label: "Analyse-Teaser",
+        href: WEBSITE_ANALYSE_URL,
+        description: "Kostenlos starten mit Score und 1-2 Hauptproblemen.",
       },
       {
-        label: "Premium Report",
-        href: "/shophebel/report",
-        description: "Priorisierte Maßnahmen und klare nächste Schritte.",
+        label: "Vollanalyse",
+        href: FULL_ANALYSE_URL,
+        description: "Vollständige Analyse für 5 EUR mit Detailbewertungen und ersten Empfehlungen.",
+      },
+      {
+        label: "Premium Analyse",
+        href: PREMIUM_ANALYSE_URL,
+        description: "Strategischer Report für 49 EUR mit Prioritäten, Visual Audit Notes und 7-Tage-Plan.",
       },
       {
         label: "Umsetzung & Service",
@@ -256,16 +261,16 @@ export function SiteHeader() {
             {/* CTAs */}
             <div className="flex items-center gap-3">
               <Link
-                href="/shophebel/report"
+                href={FULL_ANALYSE_URL}
                 className="hidden sm:inline-flex h-9 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 text-sm font-medium text-white backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/20"
               >
-                Report ansehen
+                Vollanalyse freischalten
               </Link>
               <Link
-                href={ANALYSE_APP_URL}
+                href={WEBSITE_ANALYSE_URL}
                 className="inline-flex h-9 items-center justify-center overflow-hidden rounded-full bg-white px-5 text-sm font-semibold text-slate-950 shadow-[0_0_20px_-5px_rgba(255,255,255,0.3)] transition-all hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98]"
               >
-                Website prüfen
+                Kostenlos analysieren
               </Link>
               
               {/* Mobile Menu Toggle */}
@@ -357,18 +362,18 @@ export function SiteHeader() {
 
               <div className="mt-auto pt-8 flex flex-col gap-3">
                 <Link 
-                  href="/shophebel/report" 
+                  href={PREMIUM_ANALYSE_URL} 
                   onClick={() => setIsOpen(false)} 
                   className="inline-flex h-12 w-full items-center justify-center rounded-xl border border-white/10 bg-white/5 text-sm font-medium text-white transition-colors hover:bg-white/10"
                 >
-                  Premium Report ansehen
+                  Premium Analyse starten
                 </Link>
                 <Link 
-                  href={ANALYSE_APP_URL}
+                  href={WEBSITE_ANALYSE_URL}
                   onClick={() => setIsOpen(false)} 
                   className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-white text-sm font-semibold text-slate-950 transition-colors hover:bg-slate-100"
                 >
-                  Kostenlose Analyse starten
+                  Kostenlos analysieren
                 </Link>
               </div>
             </motion.aside>

@@ -45,7 +45,7 @@ export const Navbar = () => {
           href={WEBSITE_ANALYSE_URL}
           className="hidden bg-blue-600/80 text-white text-sm px-4 py-2 rounded-lg font-semibold hover:bg-blue-600 transition-all shadow-lg shadow-blue-600/20 sm:inline-flex"
         >
-          Website analysieren
+          Kostenlos analysieren
         </Link>
         <button
           type="button"
@@ -77,7 +77,7 @@ export const Navbar = () => {
             onClick={() => setIsOpen(false)}
             className="mt-3 flex w-full items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20"
           >
-            Website analysieren
+            Kostenlos analysieren
           </Link>
         </div>
       ) : null}

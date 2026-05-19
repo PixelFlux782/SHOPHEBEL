@@ -17,19 +17,19 @@ export const FinalCTA = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-6xl font-bold tracking-tighter mb-8 leading-[1.1]"
         >
-          Lass deine Website analysieren und erkenne die wichtigsten Hebel.
+          Starte mit dem kostenlosen Analyse-Teaser.
         </motion.h2>
 
         <p className="text-brand-muted text-lg md:text-xl max-w-2xl mx-auto mb-12">
-          Du bekommst einen klaren Blick auf Vertrauen, Nutzerführung, Sichtbarkeit und die nächsten sinnvollen Verbesserungen.
+          Du bekommst einen ersten Score und die wichtigsten Hinweise. Wenn du mehr Tiefe brauchst, schaltest du danach die Vollanalyse frei.
         </p>
 
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Link href={WEBSITE_ANALYSE_URL} className="inline-flex justify-center bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-600/90 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-600/20">
-            Website analysieren
+            Kostenlos analysieren
           </Link>
           <Link href="/analyse-system" className="inline-flex justify-center border border-white/10 bg-white/[0.04] text-white px-10 py-4 rounded-xl font-bold text-lg hover:border-blue-400/40 hover:bg-white/[0.08] transition-all">
-            Methodik ansehen
+            So funktioniert Shophebel
           </Link>
         </div>
       </div>

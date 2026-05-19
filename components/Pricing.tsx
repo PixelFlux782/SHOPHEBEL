@@ -3,35 +3,35 @@
 import { Check } from "lucide-react";
 import Link from "next/link";
 
-import { CONVERSION_OPTIMIERUNG_URL, WEBSITE_ANALYSE_URL } from "@/lib/constants";
+import { FULL_ANALYSE_URL, PREMIUM_ANALYSE_URL, WEBSITE_ANALYSE_URL } from "@/lib/constants";
 
 const tiers = [
   {
-    name: "Website Analyse",
-    price: "Kostenlos",
-    desc: "Schneller Einstieg für UX, SEO, AI Visibility, Trust und mobile Wirkung.",
+    name: "Analyse-Teaser",
+    price: "0 EUR",
+    desc: "Erste Einschätzung deiner Website mit Score und den wichtigsten Hinweisen.",
     href: WEBSITE_ANALYSE_URL,
-    cta: "Website analysieren",
+    cta: "Kostenlos analysieren",
     recommended: false,
-    features: ["UX Analyse", "SEO & AI Visibility", "Mobile Experience"],
+    features: ["Gesamt-Score", "Ersteinschätzung", "1-2 Hauptprobleme"],
   },
   {
-    name: "Conversion Optimierung",
-    price: "Potenziale",
-    desc: "Für Websites mit Traffic, aber zu wenig Anfragen, Käufen oder Vertrauen.",
-    href: CONVERSION_OPTIMIERUNG_URL,
-    cta: "Potenziale entdecken",
+    name: "Vollanalyse",
+    price: "5 EUR",
+    desc: "Vollständige automatisierte Analyse mit Detailbewertungen und ersten Empfehlungen.",
+    href: FULL_ANALYSE_URL,
+    cta: "Vollanalyse freischalten",
     recommended: true,
-    features: ["Conversion Bottlenecks", "Trust & Positioning", "Revenue Opportunities"],
+    features: ["alle Scores", "UX-/Trust-/SEO-Breakdown", "Schwachstellen und Prioritäten light"],
   },
   {
-    name: "Premium Report",
+    name: "Premium Analyse",
     price: "49 EUR",
-    desc: "Priorisierte Handlungsempfehlungen mit visuellen Befunden und nächsten Schritten.",
-    href: "#kontakt",
-    cta: "Report anfragen",
+    desc: "Strategischer Premium-Report mit Prioritäten, Visual Audit Notes und 7-Tage-Plan.",
+    href: PREMIUM_ANALYSE_URL,
+    cta: "Premium Analyse starten",
     recommended: false,
-    features: ["Premium Handlungsempfehlungen", "Maßnahmenplan", "Umsetzungsprioritäten"],
+    features: ["Premium Report", "Conversion-Hypothesen", "PDF Export"],
   },
 ];
 
@@ -43,7 +43,7 @@ export const Pricing = () => {
           Klarer Einstieg. Klare Entscheidung.
         </h2>
         <p className="mt-4 text-brand-muted">
-          Starte mit der Analyse, vertiefe Conversion-Potenziale und buche den Premium Report, wenn du konkrete Umsetzung brauchst.
+          Starte kostenlos, schalte die Vollanalyse für 5 EUR frei oder nutze die Premium Analyse für strategische Prioritäten.
         </p>
       </div>
 

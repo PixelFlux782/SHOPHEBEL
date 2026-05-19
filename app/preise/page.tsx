@@ -2,42 +2,43 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 import { SiteFooter } from "@/components/site-footer";
-import { WEBSITE_ANALYSE_URL } from "@/lib/constants";
+import { FULL_ANALYSE_URL, PREMIUM_ANALYSE_URL, WEBSITE_ANALYSE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Preise | Shophebel",
-  description: "Preise für Website-Scan, Premium Analyse und Umsetzung mit Shophebel.",
+  description: "Preise für Analyse-Teaser, Vollanalyse für 5 EUR und Premium Analyse für 49 EUR mit Shophebel.",
 };
 
 const packages = [
   {
-    name: "Kostenloser Website-Scan",
+    name: "Analyse-Teaser",
     price: "0 EUR",
-    fit: "Für Unternehmen, die schnell eine erste Einschätzung wollen.",
-    description: "Du bekommst einen ersten Blick auf Vertrauen, Nutzerführung, Sichtbarkeit und Conversion.",
-    result: "Ergebnis: erste Diagnose und ein klarer Einstieg.",
-    cta: "Website analysieren",
+    fit: "Für den ersten Blick auf deine Website.",
+    description: "Gesamt-Score, Ersteinschätzung, 1-2 Hinweise und ein Teaser auf die Detailanalyse.",
+    result: "Nicht enthalten: komplette Detailanalyse, Prioritäten, Visual Audit oder konkrete Maßnahmen.",
+    cta: "Kostenlos starten",
     href: WEBSITE_ANALYSE_URL,
     highlight: false,
   },
   {
-    name: "Premium Website-Analyse",
-    price: "49 EUR",
-    fit: "Für Unternehmen, die nicht raten wollen, warum ihre Website zu wenig Anfragen oder Umsatz erzeugt.",
-    description: "Du bekommst einen priorisierten Report mit konkreten Hebeln, visuellen Hinweisen und nächsten Schritten.",
-    result: "Ergebnis: Klarheit, was zuerst verbessert werden sollte.",
-    cta: "Premium Analyse ansehen",
-    href: "/shophebel/report",
+    name: "Vollanalyse",
+    price: "5 EUR",
+    badge: "Bester Einstieg",
+    fit: "Für alle, die wirklich sehen wollen, wo ihre Website bremst.",
+    description: "Vollständige automatisierte Analyse mit Detailbewertungen, UX-/Trust-/SEO-/Conversion-Breakdown und visuellen Hinweisen.",
+    result: "Ergebnis: konkrete Schwachstellen und erste Handlungsempfehlungen mit Prioritäten light.",
+    cta: "Für 5 EUR freischalten",
+    href: FULL_ANALYSE_URL,
     highlight: true,
   },
   {
-    name: "Service & Umsetzung",
-    price: "auf Anfrage",
-    fit: "Für Unternehmen, die Analyse, Strategie und Umsetzung zusammen denken möchten.",
-    description: "Wir übertragen die Erkenntnisse in Struktur, Texte, Nutzerführung, Vertrauen und technische Umsetzung.",
-    result: "Ergebnis: eine hochwertigere Website mit klarerem Weg zur Anfrage oder zum Kauf.",
-    cta: "Kontakt aufnehmen",
-    href: "/shophebel/optimierung",
+    name: "Premium Analyse",
+    price: "49 EUR",
+    fit: "Für Unternehmen, die konkrete Prioritäten und nächste Schritte wollen.",
+    description: "Strategischer Premium Report mit Priorisierung, Visual Audit Notes, Conversion-Hypothesen, 7-Tage-Plan und PDF Export.",
+    result: "Ergebnis: Roadmap und Umsetzungsempfehlung statt nur automatisierter Detailanalyse.",
+    cta: "Premium Analyse starten",
+    href: PREMIUM_ANALYSE_URL,
     highlight: false,
   },
 ];
@@ -49,10 +50,10 @@ export default function PricingPage() {
         <section className="max-w-4xl">
           <p className="text-xs font-bold uppercase tracking-[0.24em] text-blue-300/80">Preise</p>
           <h1 className="mt-5 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
-            Klarer Einstieg. Tiefe Analyse. Umsetzung, wenn du sie brauchst.
+            Drei Analyse-Stufen. Ein klarer nächster Schritt.
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-300">
-            Shophebel verbindet Preise mit einem klaren nächsten Schritt: erst verstehen, warum die Website bremst, dann gezielt verbessern.
+            5 EUR bedeutet vollständige automatisierte Analyse. 49 EUR bedeutet strategischer Premium-Report mit Priorisierung, Roadmap und konkreten nächsten Schritten.
           </p>
         </section>
 
@@ -67,6 +68,11 @@ export default function PricingPage() {
               }`}
             >
               <div>
+                {"badge" in item ? (
+                  <span className="mb-4 inline-flex rounded-full border border-cyan-200/40 bg-cyan-300/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-cyan-100">
+                    {item.badge}
+                  </span>
+                ) : null}
                 <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyan-200">{item.name}</p>
                 <p className="mt-4 text-4xl font-bold text-white">{item.price}</p>
                 <p className="mt-5 text-sm font-semibold leading-7 text-white">{item.fit}</p>

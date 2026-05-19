@@ -1,18 +1,18 @@
 const faqs = [
   {
-    question: "Ist die Analyse kostenlos?",
+    question: "Was ist kostenlos?",
     answer:
-      "Der Schnellcheck ist kostenlos. Wenn Sie eine tiefere Auswertung möchten, können Sie den Premium Report anfragen.",
+      "Der Analyse-Teaser ist kostenlos. Er zeigt einen Gesamt-Score, eine kurze Ersteinschätzung und 1-2 Hauptprobleme.",
   },
   {
-    question: "Was ist im Premium Report enthalten?",
+    question: "Was ist der Unterschied zwischen Vollanalyse und Premium Analyse?",
     answer:
-      "Der Report prüft SEO, Technik, UX, Vertrauen und Conversion. Sie erhalten konkrete Hinweise und eine priorisierte Einschätzung per E-Mail.",
+      "Die Vollanalyse für 5 EUR ist die vollständige automatisierte Analyse. Die Premium Analyse für 49 EUR ist ein strategischer Report mit Priorisierung, Visual Audit Notes, 7-Tage-Plan und PDF Export.",
   },
   {
     question: "Muss ich meine Zugangsdaten angeben?",
     answer:
-      "Für den Schnellcheck und den Premium Report sind keine Zugangsdaten nötig. Für eine spätere Umsetzung klären wir Zugriffe nur, wenn sie wirklich gebraucht werden.",
+      "Für Analyse-Teaser, Vollanalyse und Premium Analyse sind keine Zugangsdaten nötig. Für eine spätere Umsetzung klären wir Zugriffe nur, wenn sie wirklich gebraucht werden.",
   },
   {
     question: "Für welche Shops ist Shophebel geeignet?",

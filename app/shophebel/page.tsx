@@ -4,7 +4,7 @@ import { FunnelSteps } from "@/components/FunnelSteps";
 import { PricingSection } from "@/components/PricingSection";
 import { ShophebelFAQ } from "@/components/ShophebelFAQ";
 import { CtaSection } from "@/components/sections/cta-section";
-import { ANALYSE_APP_URL } from "@/lib/constants";
+import { PREMIUM_ANALYSE_URL, WEBSITE_ANALYSE_URL } from "@/lib/constants";
 
 export default function ShophebelPage() {
   return (
@@ -21,15 +21,14 @@ export default function ShophebelPage() {
               Mach sichtbar, warum dein Shop nicht besser verkauft.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
-              Shophebel analysiert SEO, Technik, Vertrauen und Conversion - und zeigt dir konkrete Hebel für mehr
-              Wirkung.
+              Starte kostenlos, schalte bei Bedarf die Vollanalyse für 5 EUR frei und nutze die Premium Analyse für strategische Prioritäten.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href={ANALYSE_APP_URL} className="sh-button-primary">
-                Kostenlosen Schnellcheck starten
+              <Link href={WEBSITE_ANALYSE_URL} className="sh-button-primary">
+                Kostenlos analysieren
               </Link>
-              <Link href="/shophebel/report" className="sh-button-secondary sh-button-ghost">
-                Premium Report ansehen
+              <Link href={PREMIUM_ANALYSE_URL} className="sh-button-secondary sh-button-ghost">
+                Premium Analyse starten
               </Link>
             </div>
           </div>
@@ -94,7 +93,7 @@ export default function ShophebelPage() {
       <ShophebelFAQ />
       <CtaSection
         title="Bereit für eine klare Einschätzung Ihrer Website?"
-        description="Senden Sie uns Ihre URL und den passenden Anfrage-Typ. Wir speichern die Anfrage und melden uns mit dem nächsten sinnvollen Schritt."
+        description="Senden Sie uns Ihre URL und den passenden Anfrage-Typ. Wir melden uns mit dem nächsten sinnvollen Schritt."
       />
     </main>
   );

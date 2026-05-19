@@ -49,7 +49,7 @@ export const Hero = () => {
           transition={{ delay: 0.3 }}
           className="mt-6 text-zinc-300/90 text-lg md:text-xl text-center max-w-2xl font-light"
         >
-          Shophebel analysiert Vertrauen, Nutzerführung, Sichtbarkeit und Conversion - und zeigt, welche Hebel mehr Anfragen, Verkäufe und Klarheit bringen.
+          Starte kostenlos. Wenn du mehr Tiefe willst, schalte die Vollanalyse für 5 EUR frei. Für strategische Tiefe gibt es die Premium Analyse für 49 EUR.
         </motion.p>
 
         <motion.div
@@ -64,7 +64,7 @@ export const Hero = () => {
             href={WEBSITE_ANALYSE_URL}
             className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600/90 transition-all text-center shadow-lg shadow-blue-600/20"
           >
-            Website analysieren
+            Kostenlos analysieren
           </Link>
           <Link
             href="/analyse-system"

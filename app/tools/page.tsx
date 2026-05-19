@@ -32,7 +32,7 @@ export default function ToolsPage() {
               <ArrowIcon />
             </Link>
             <Link href="/shophebel/report" className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/14 bg-white/8 px-5 text-sm font-bold text-white hover:-translate-y-0.5 hover:bg-white/14">
-              Premium-Report ansehen
+              Premium Analyse starten
             </Link>
           </div>
         </div>

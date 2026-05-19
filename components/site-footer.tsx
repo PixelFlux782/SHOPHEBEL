@@ -11,18 +11,18 @@ export function SiteFooter() {
             Shophebel
           </Link>
           <p className="mt-4 max-w-xl text-sm leading-7 text-slate-400">
-            Shophebel analysiert Websites und Onlineshops, macht digitale Schwächen sichtbar und zeigt konkrete
-            Hebel für Sichtbarkeit, Vertrauen und Conversion.
+            Shophebel analysiert Websites und Onlineshops in drei Stufen: kostenloser Teaser, Vollanalyse für 5 EUR
+            und Premium Analyse als strategischer Report.
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">Shophebel</p>
             <div className="mt-4 grid gap-2 text-sm">
-              <Link href={WEBSITE_ANALYSE_URL} className="hover:text-white">Website analysieren</Link>
+              <Link href={WEBSITE_ANALYSE_URL} className="hover:text-white">Kostenlos analysieren</Link>
               <Link href="/analyse-system" className="hover:text-white">So funktioniert Shophebel</Link>
-              <Link href="/leistungen" className="hover:text-white">Leistungen</Link>
-              <Link href="/preise" className="hover:text-white">Preise</Link>
+              <Link href="/leistungen" className="hover:text-white">Leistungen ansehen</Link>
+              <Link href="/preise" className="hover:text-white">Preise ansehen</Link>
             </div>
           </div>
           <div>
@@ -30,13 +30,13 @@ export function SiteFooter() {
             <div className="mt-4 grid gap-2 text-sm">
               <Link href="/impressum" className="hover:text-white">Impressum</Link>
               <Link href="/datenschutz" className="hover:text-white">Datenschutz</Link>
-              <Link href="/#kontakt" className="hover:text-white">Kontakt</Link>
+              <Link href="/#kontakt" className="hover:text-white">Kontakt aufnehmen</Link>
             </div>
           </div>
         </div>
       </div>
       <div className="mx-auto mt-8 w-full max-w-7xl px-4 text-xs text-slate-500 sm:px-6 lg:px-8">
-        (C) Shophebel. Analyse, Report und Umsetzung für bessere digitale Wirkung.
+        (C) Shophebel. Analyse-Teaser, Vollanalyse, Premium Report und Umsetzung für bessere digitale Wirkung.
       </div>
     </footer>
   );

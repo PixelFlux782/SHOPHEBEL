@@ -680,7 +680,7 @@ export const DashboardPreview = ({
                   {isScanning
                     ? scanSteps[scanIndex]
                     : isDemo
-                      ? "Demo-Daten - eigene URL eingeben. Echte Werte entstehen nach dem Website-Scan."
+                      ? "Demo-Daten - eigene URL eingeben. Echte Werte entstehen nach dem Analyse-Teaser."
                       : "Abgeleitet aus Findings, Prioritäten und geschätztem Umsetzungsaufwand."}
                 </p>
 

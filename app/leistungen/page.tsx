@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Leistungen | Analyse, Optimierung und Umsetzung",
   description:
-    "Shophebel verbindet kostenlosen Website-Scan, Premium Analyse, Conversion Optimierung, Website- und Shop-Umsetzung sowie laufende Betreuung.",
+    "Shophebel verbindet Analyse-Teaser, Vollanalyse für 5 EUR, Premium Analyse, Conversion Optimierung und Website- oder Shop-Umsetzung.",
 };
 
 export default function ServicesPage() {

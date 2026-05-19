@@ -131,7 +131,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mx-auto mt-8 max-w-2xl text-lg text-slate-400 sm:text-xl leading-relaxed font-light"
         >
-          Verabschiede dich von endlosen Datenfriedhöfen. Shophebel analysiert UX, SEO und Technik mit <strong className="text-slate-200 font-medium">präziser AI</strong> – und liefert dir glasklare Handlungsempfehlungen für messbar mehr Umsatz.
+          Starte mit einem kostenlosen Analyse-Teaser. Wenn du mehr Tiefe willst, schaltest du die Vollanalyse für 5 EUR frei oder nutzt die Premium Analyse für strategische Prioritäten.
         </motion.p>
 
         {/* CTA Area */}
@@ -145,7 +145,7 @@ export function HeroSection() {
             href="/analyse"
             className="group relative inline-flex h-14 w-full sm:w-auto items-center justify-center gap-2 overflow-hidden rounded-full bg-white px-8 text-base font-semibold text-slate-950 transition-all hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
           >
-            Kostenlose Analyse starten
+            Kostenlos analysieren
             <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -155,7 +155,7 @@ export function HeroSection() {
             href="/shophebel/report"
             className="group relative inline-flex h-14 w-full sm:w-auto items-center justify-center gap-2 overflow-hidden rounded-full border border-white/10 bg-white/5 px-8 text-base font-medium text-white backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/20 hover:scale-[1.02] active:scale-[0.98]"
           >
-            Premium Report ansehen
+            Premium Analyse starten
           </Link>
         </motion.div>
 

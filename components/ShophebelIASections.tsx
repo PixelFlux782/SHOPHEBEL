@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-import { CONVERSION_OPTIMIERUNG_URL, WEBSITE_ANALYSE_URL } from "@/lib/constants";
+import { CONVERSION_OPTIMIERUNG_URL, FULL_ANALYSE_URL, PREMIUM_ANALYSE_URL, WEBSITE_ANALYSE_URL } from "@/lib/constants";
 
 const cardBase =
   "rounded-2xl border border-white/10 bg-white/[0.035] p-6 shadow-[0_18px_70px_-50px_rgba(37,99,235,0.55)] backdrop-blur-xl transition-all hover:-translate-y-1 hover:border-blue-300/30 hover:bg-white/[0.055]";
@@ -50,26 +50,26 @@ export const problemCards = [
 
 export const offers = [
   {
-    title: "Kostenloser Website-Scan",
-    description: "Erste Einschätzung, wo Vertrauen, Nutzerführung und Sichtbarkeit gerade bremsen.",
+    title: "Kostenloser Analyse-Teaser",
+    description: "Erste Einschätzung deiner Website mit Score und den wichtigsten Hinweisen.",
     href: WEBSITE_ANALYSE_URL,
-    cta: "Website analysieren",
+    cta: "Kostenlos analysieren",
   },
   {
-    title: "Premium Website-Analyse",
-    description: "Zeigt, wo Vertrauen, Nutzerführung und Sichtbarkeit bremsen - und welche Schritte zuerst sinnvoll sind.",
-    href: "/shophebel/report",
-    cta: "Analyse starten",
+    title: "Vollanalyse 5 EUR",
+    description: "Die vollständige Shophebel-Analyse mit Detailbewertungen, Schwachstellen und ersten Handlungsempfehlungen.",
+    href: FULL_ANALYSE_URL,
+    cta: "Vollanalyse freischalten",
   },
   {
-    title: "Conversion Optimierung",
-    description: "Für Seiten mit Traffic, aber zu wenig Anfragen, Käufen oder Vertrauen.",
-    href: CONVERSION_OPTIMIERUNG_URL,
-    cta: "Optimierung anfragen",
+    title: "Premium Analyse 49 EUR",
+    description: "Strategischer Premium-Report mit Prioritäten, Visual Audit Notes, 7-Tage-Plan und konkreten nächsten Schritten.",
+    href: PREMIUM_ANALYSE_URL,
+    cta: "Premium Analyse ansehen",
   },
   {
     title: "Website- & Shop-Umsetzung",
-    description: "Hochwertige Umsetzung auf Basis der Analyse: klarer Aufbau, bessere Führung, stärkere Wirkung.",
+    description: "Auf Wunsch setzen wir die wichtigsten Hebel direkt mit dir um.",
     href: "/shophebel/optimierung",
     cta: "Umsetzung anfragen",
   },
@@ -77,11 +77,19 @@ export const offers = [
 
 const offerFitGuides = [
   {
-    need: "Ich möchte erstmal wissen, wo meine Website steht.",
-    recommendation: "Kostenloser Website-Scan oder Premium Analyse",
+    need: "Ich möchte erstmal wissen, ob meine Website offensichtliche Bremsen hat.",
+    recommendation: "Kostenloser Analyse-Teaser",
   },
   {
-    need: "Ich weiß, dass meine Website besser verkaufen müsste.",
+    need: "Ich möchte die vollständige Analyse sehen, aber noch keine große Beratung buchen.",
+    recommendation: "Vollanalyse für 5 EUR",
+  },
+  {
+    need: "Ich möchte nicht raten, sondern wissen, welche Schritte zuerst sinnvoll sind.",
+    recommendation: "Premium Analyse für 49 EUR",
+  },
+  {
+    need: "Ich weiß, dass meine Website besser verkaufen muss.",
     recommendation: "Conversion Optimierung",
   },
   {
@@ -115,9 +123,9 @@ export function ProblemSection() {
 
 export function WhatShophebelDoes() {
   const steps = [
-    { title: "Website analysieren", icon: MousePointer2 },
-    { title: "Schwachstellen sichtbar machen", icon: BarChart3 },
-    { title: "Optimierung umsetzen", icon: CheckCircle2 },
+    { title: "Kostenlos starten", icon: MousePointer2 },
+    { title: "Vollanalyse freischalten", icon: BarChart3 },
+    { title: "Prioritäten ableiten", icon: CheckCircle2 },
   ];
 
   return (
@@ -129,7 +137,7 @@ export function WhatShophebelDoes() {
             Analyse und Optimierung für Websites und Onlineshops.
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
-            Shophebel zeigt, warum Besucher nicht anfragen, wo Vertrauen verloren geht und welche Optimierung zuerst sinnvoll ist.
+            Starte kostenlos. Wenn du mehr Tiefe willst, schalte die Vollanalyse für 5 EUR frei. Für strategische Tiefe gibt es die Premium Analyse für 49 EUR.
           </p>
         </div>
 
@@ -388,8 +396,11 @@ export function WebsiteXraySection() {
       <div className="mb-10 max-w-4xl">
         <p className="text-xs font-bold uppercase tracking-[0.24em] text-blue-300/80">Website-Xray</p>
         <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
-          Der Website-Xray: Was Besucher oft spüren, aber Unternehmer selten sehen.
+          Der Website-Xray: vom ersten Signal zur priorisierten Entscheidung.
         </h2>
+        <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-300">
+          Der kostenlose Teaser erkennt erste Signale. Die Vollanalyse macht die Probleme sichtbar. Die Premium Analyse priorisiert die nächsten Schritte.
+        </p>
       </div>
 
       <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#030712] p-4 shadow-[0_28px_120px_-70px_rgba(37,99,235,0.85)] backdrop-blur-xl md:p-8">
@@ -453,7 +464,7 @@ export function WebsiteXraySection() {
 
           <aside className="rounded-2xl border border-white/10 bg-white/[0.035] p-6 backdrop-blur-xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-200/80">Analyse statt Bauchgefühl</p>
-            <h3 className="mt-4 text-2xl font-bold tracking-tight text-white">Shophebel sucht nicht nur Fehler. Es zeigt, wo Umsatzbremsen zuerst entstehen.</h3>
+            <h3 className="mt-4 text-2xl font-bold tracking-tight text-white">Shophebel arbeitet in Stufen: erst erkennen, dann vollständig sehen, dann priorisieren.</h3>
             <div className="mt-8 space-y-3">
               {["Vertrauen verlieren", "Nutzerführung brechen", "Angebot unklar lassen", "mobile Reibung erzeugen", "für Google und KI unscharf bleiben"].map((item) => (
                 <div key={item} className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 p-3 text-sm font-semibold text-zinc-200">
@@ -567,7 +578,7 @@ export function PriorityMatrixSection() {
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">Nicht alles ist gleich wichtig.</h2>
         </div>
         <p className="max-w-2xl text-lg leading-8 text-zinc-300">
-          Shophebel priorisiert Maßnahmen danach, was zuerst Klarheit, Vertrauen und Conversion verbessert.
+          Die Vollanalyse zeigt alle Bremsen. Die Premium Analyse sortiert daraus die Reihenfolge, damit du nicht rätst, sondern priorisierst.
         </p>
       </div>
 
@@ -607,11 +618,11 @@ export function PriorityMatrixSection() {
 
 export function ResultSection() {
   const results = [
-    "Wo Vertrauen verloren geht",
-    "Welche Seiten Nutzer nicht führen",
-    "Welche Inhalte Google und KI nicht klar verstehen",
-    "Welche CTAs zu schwach sind",
-    "Welche Maßnahmen zuerst sinnvoll sind",
+    "Kostenloser Teaser mit Gesamt-Score und ersten Hinweisen",
+    "Vollanalyse mit allen Scores und Detailbewertungen",
+    "UX-, Trust-, SEO- und Conversion-Breakdown",
+    "Premium Report mit Prioritäten und 7-Tage-Plan",
+    "Konkrete nächste Schritte statt langer Raterei",
   ];
 
   return (
@@ -622,7 +633,7 @@ export function ResultSection() {
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-blue-300/80">Ergebnis</p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">Was am Ende sichtbar wird.</h2>
             <p className="mt-6 text-lg leading-8 text-zinc-300">
-              Das Ziel ist nicht mehr Information - sondern die richtige Reihenfolge.
+              Das Ziel ist nicht mehr kostenlose Datenflut, sondern die passende Tiefe für die nächste Entscheidung.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -648,17 +659,17 @@ export function AnalysisSystemHero() {
           Wie Shophebel Websites analysiert.
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-300 md:text-xl">
-          Wir machen unsichtbare Umsatzbremsen sichtbar - von Vertrauen und Nutzerführung bis SEO, KI-Sichtbarkeit und Conversion.
+          Shophebel arbeitet in drei Stufen: Der Teaser erkennt erste Signale, die Vollanalyse macht die Probleme sichtbar und die Premium Analyse priorisiert die nächsten Schritte.
         </p>
         <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-400">
-          Nicht als Bauchgefühl, sondern als strukturierte Bewertung mit klaren Prioritäten.
+          So bekommst du erst einen kostenlosen Einstieg, dann die vollständige Analyse für 5 EUR und bei Bedarf einen strategischen Report für 49 EUR.
         </p>
         <div className="mt-9 flex flex-col gap-4 sm:flex-row">
           <Link
             href={WEBSITE_ANALYSE_URL}
             className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-blue-600/20 hover:bg-blue-600/90"
           >
-            Website analysieren
+            Kostenlos analysieren
           </Link>
           <Link
             href="/leistungen"
@@ -681,7 +692,7 @@ export function ServicesHero() {
           Analyse, Optimierung und Umsetzung aus einer Hand.
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-300 md:text-xl">
-          Shophebel ist nicht nur ein Tool. Wir verbinden Analyse, Strategie und Umsetzung, damit aus Befunden echte Verbesserungen werden.
+          Vom kostenlosen Analyse-Teaser über die Vollanalyse für 5 EUR bis zur Premium Analyse als strategischem Report: Du wählst die Tiefe, die gerade zu deiner Entscheidung passt.
         </p>
       </div>
     </section>
@@ -691,34 +702,42 @@ export function ServicesHero() {
 export function ServiceDetailCards() {
   const serviceDetails = [
     {
-      title: "Kostenloser Website-Scan",
-      included: "Eine erste Einschätzung zu Vertrauen, Nutzerführung, Sichtbarkeit und Conversion.",
-      audience: "Für Unternehmen, die schnell verstehen wollen, wo ihre Website steht.",
-      result: "Ein klarer Einstieg mit den auffälligsten Bremsen und dem nächsten sinnvollen Schritt.",
+      title: "Kostenloser Analyse-Teaser",
+      included: "Score, Ersteinschätzung und 1-2 Hauptprobleme.",
+      audience: "Ich möchte erstmal wissen, ob meine Website offensichtliche Bremsen hat.",
+      result: "Ein klarer erster Blick mit Teaser auf die Detailanalyse.",
       href: WEBSITE_ANALYSE_URL,
-      cta: "Website analysieren",
+      cta: "Kostenlos analysieren",
     },
     {
-      title: "Premium Website-Analyse",
-      included: "Vertiefte Prüfung, visuelle Hinweise, priorisierte Empfehlungen und Maßnahmenplan.",
-      audience: "Für Unternehmen, die nicht aus Bauchgefühl optimieren wollen.",
-      result: "Klarheit darüber, wo Vertrauen, Nutzerführung und Sichtbarkeit bremsen - und welche Schritte zuerst sinnvoll sind.",
-      href: "/shophebel/report",
-      cta: "Analyse starten",
+      title: "Vollanalyse 5 EUR",
+      included: "Detailanalyse mit Schwachstellen, Scores, visuellen Hinweisen und ersten Empfehlungen.",
+      audience: "Ich möchte die vollständige Analyse sehen, aber noch keine große Beratung buchen.",
+      result: "Alle relevanten Befunde inklusive UX-, Trust-, SEO- und Conversion-Breakdown.",
+      href: FULL_ANALYSE_URL,
+      cta: "Vollanalyse freischalten",
+    },
+    {
+      title: "Premium Analyse 49 EUR",
+      included: "Strategischer Report mit Prioritäten, Conversion-Hypothesen, Visual Audit Notes und 7-Tage-Plan.",
+      audience: "Ich möchte nicht raten, sondern wissen, welche Schritte zuerst sinnvoll sind.",
+      result: "Ein priorisierter Fahrplan mit konkreten nächsten Schritten und PDF Export.",
+      href: PREMIUM_ANALYSE_URL,
+      cta: "Premium Analyse starten",
     },
     {
       title: "Conversion Optimierung",
       included: "Analyse von Angebot, CTA, Vertrauen, Mobile Flow und Entscheidungswegen.",
-      audience: "Für Seiten mit Besuchern, aber zu wenig Anfragen, Verkäufen oder Abschlüssen.",
-      result: "Weniger Reibung und klarere Wege zur Anfrage oder zum Kauf.",
+      audience: "Ich weiß, dass meine Website besser verkaufen muss.",
+      result: "Verbesserte Nutzerführung, Vertrauen, CTAs und Angebotsklarheit.",
       href: CONVERSION_OPTIMIERUNG_URL,
       cta: "Optimierung anfragen",
     },
     {
       title: "Website- und Shop-Umsetzung",
       included: "Struktur, Texte, UX-Verbesserungen, technische Umsetzung und klare Prioritäten.",
-      audience: "Für Unternehmen, die Analyse und Umsetzung nicht trennen möchten.",
-      result: "Eine Website, die verständlicher führt und stärker auf Anfrage oder Kauf ausgerichtet ist.",
+      audience: "Ich brauche eine neue Website oder einen besseren Shop.",
+      result: "Hochwertige Umsetzung auf Basis der Analyse.",
       href: "/shophebel/optimierung",
       cta: "Umsetzung anfragen",
     },
@@ -764,7 +783,7 @@ export function ServicesToolNote() {
             <Layers3 className="h-7 w-7 text-cyan-300" strokeWidth={1.6} />
             <h2 className="mt-5 text-3xl font-bold tracking-tight text-white">Analyse, Strategie und Umsetzung gehören zusammen.</h2>
             <p className="mt-4 text-base leading-8 text-zinc-300">
-              Die Analyse ist der Einstieg, damit Optimierung nicht aus Bauchgefühl entsteht. Der Report sortiert die Hebel. Die Umsetzung bringt sie auf die Seite.
+              Der Teaser öffnet den Blick. Die Vollanalyse zeigt die Bremsen im Detail. Der Premium Report sortiert die Hebel und macht daraus konkrete nächste Schritte.
             </p>
           </div>
           <Lightbulb className="hidden h-16 w-16 text-blue-200/40 md:block" strokeWidth={1.2} />

@@ -6,7 +6,7 @@ interface CtaButtonProps {
   href?: string;
 }
 
-export function CtaButton({ label = "Kostenlosen Schnellcheck starten", className = "", href = "/analyse" }: CtaButtonProps) {
+export function CtaButton({ label = "Kostenlos analysieren", className = "", href = "/analyse" }: CtaButtonProps) {
   return (
     <Link
       href={href}

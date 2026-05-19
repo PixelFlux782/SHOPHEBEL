@@ -7,21 +7,21 @@ const funnelSteps = [
   },
   {
     number: "02",
-    symbol: "SCAN",
-    title: "Analyse starten",
-    text: "Shophebel prüft Technik, Struktur, Inhalte und Vertrauen.",
+    symbol: "FREE",
+    title: "Teaser sehen",
+    text: "Der kostenlose Teaser zeigt Score, Ersteinschätzung und 1-2 Hauptprobleme.",
   },
   {
     number: "03",
-    symbol: "!",
-    title: "Chancen erkennen",
-    text: "Du bekommst konkrete Hinweise, wo Umsatz und Sichtbarkeit verloren gehen.",
+    symbol: "5 EUR",
+    title: "Vollanalyse freischalten",
+    text: "Für 5 EUR bekommst du alle Scores, Detailbewertungen, Schwachstellen und erste Empfehlungen.",
   },
   {
     number: "04",
-    symbol: "OK",
-    title: "Optimierung umsetzen",
-    text: "Auf Wunsch setzen wir die wichtigsten Verbesserungen direkt für dich um.",
+    symbol: "49 EUR",
+    title: "Premium priorisieren",
+    text: "Die Premium Analyse macht daraus Roadmap, 7-Tage-Plan und konkrete nächste Schritte.",
   },
 ] as const;
 
@@ -36,7 +36,7 @@ export function FunnelSteps() {
           Von der Analyse zur konkreten Verbesserung
         </h2>
         <p className="mt-4 text-base leading-8 text-slate-300">
-          Der Prozess bleibt bewusst einfach: erst verstehen, dann priorisieren, danach gezielt verbessern.
+          Der Prozess bleibt bewusst einfach: erst kostenlos prüfen, dann vollständig analysieren, danach strategisch priorisieren.
         </p>
       </div>
 

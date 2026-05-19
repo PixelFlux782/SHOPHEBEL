@@ -15,23 +15,23 @@ const checks = [
 const sampleResults = [
   {
     title: "Priorisierte Schwachstellen",
-    text: "Sie sehen, welche Punkte zuerst angegangen werden sollten und warum diese für Sichtbarkeit, Vertrauen oder Kaufbereitschaft relevant sind.",
+    text: "Du siehst, welche Punkte zuerst angegangen werden sollten und warum diese für Sichtbarkeit, Vertrauen oder Kaufbereitschaft relevant sind.",
   },
   {
-    title: "Konkrete Handlungsempfehlungen",
-    text: "Der Report bleibt nicht bei allgemeinen Hinweisen stehen, sondern beschreibt nachvollziehbare nächste Schritte.",
+    title: "Conversion-Hypothesen",
+    text: "Der Report leitet ab, welche Änderungen voraussichtlich Klarheit, Vertrauen oder Anfragebereitschaft verbessern können.",
   },
   {
-    title: "Schneller Überblick für Entscheidungen",
-    text: "Scores und kurze Zusammenfassungen helfen Ihnen, die wichtigsten Baustellen ohne lange Voranalyse zu erkennen.",
+    title: "7-Tage-Plan",
+    text: "Du bekommst eine kompakte Roadmap, welche nächsten Schritte zuerst sinnvoll sind.",
   },
 ] as const;
 
 const deliverables = [
-  "strukturierte Auswertung mit Scores",
-  "konkrete Befunde statt allgemeiner Checkliste",
-  "Prioritätenliste für die nächsten Schritte",
-  "Versand per E-Mail als Report",
+  "Premium Intelligence Report",
+  "strategische Priorisierung",
+  "Visual Audit Notes",
+  "7-Tage-Plan und PDF Export",
 ] as const;
 
 const targetGroups = [
@@ -50,15 +50,14 @@ export default function PremiumReportPage() {
           <div>
             <p className="sh-eyebrow sh-eyebrow-dark">Premium Analyse Report</p>
             <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              Der {"49 \u20ac"} Report, der aus Website-Signalen konkrete Maßnahmen macht.
+              Die {"49 \u20ac"} Premium Analyse, die aus Website-Signalen Prioritäten macht.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-200">
-              Du bekommst keine Datenflut, sondern eine einfache Auswertung zu UX, visueller Wirkung, Technik,
-              Vertrauen, Conversion und AI-Sichtbarkeit.
+              Du bekommst keinen zweiten Datenstapel, sondern einen strategischen Report mit Priorisierung, Conversion-Hypothesen, Visual Audit Notes und 7-Tage-Plan.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link href="#kontakt" className="sh-button-primary">
-                Premium Report anfragen
+                Premium Analyse starten
               </Link>
               <Link href="#umfang" className="sh-button-secondary sh-button-ghost">
                 Umfang ansehen
@@ -135,7 +134,7 @@ export default function PremiumReportPage() {
       <section className="relative border-t border-white/5 bg-black px-6 py-12 lg:px-10">
         <p className="sh-eyebrow">Was bekomme ich?</p>
         <h2 className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-white">
-          Ein Report, der Entscheidungen leichter macht
+          Ein strategischer Report, der Entscheidungen leichter macht
         </h2>
         <div className="mt-8 grid gap-4 lg:grid-cols-4">
           {deliverables.map((item) => (
@@ -181,12 +180,12 @@ export default function PremiumReportPage() {
         <aside className="sh-section-dark p-6 lg:self-start">
           <p className="sh-eyebrow">Premium Report</p>
           <p className="mt-3 text-5xl font-bold text-white">{"49 \u20ac"}</p>
-          <p className="mt-2 text-sm font-semibold text-cyan-200">Einmalige Analyseanfrage</p>
+          <p className="mt-2 text-sm font-semibold text-cyan-200">Strategische Premium Analyse</p>
           <p className="mt-4 text-sm leading-7 text-slate-300">
-            Ideal, wenn Sie eine fundierte Einschätzung brauchen, bevor Zeit oder Budget in Optimierungen fliesst.
+            Ideal, wenn du nach der Analyse konkrete Prioritäten, eine Roadmap und bessere Grundlage für Umsetzung oder Beratung brauchst.
           </p>
           <Link href="#kontakt" className="sh-button-primary mt-6 w-full">
-            Premium Report anfragen
+            Premium Analyse starten
           </Link>
           <p className="mt-3 text-center text-xs leading-5 text-slate-400">
             Noch keine automatische Zahlung. Wir melden uns nach deiner Anfrage mit dem nächsten Schritt.
@@ -195,8 +194,8 @@ export default function PremiumReportPage() {
       </section>
 
       <CtaSection
-        title="Premium Report anfragen"
-        description="Senden Sie uns Ihre Website-URL und wählen Sie im Formular den Premium Report aus. Wir melden uns mit dem nächsten Schritt."
+        title="Premium Analyse starten"
+        description="Sende uns deine Website-URL und wähle im Formular die Premium Analyse aus. Wir melden uns mit dem nächsten Schritt."
         primaryCta="premiumReport"
       />
     </main>

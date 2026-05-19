@@ -77,7 +77,7 @@ export function SaasHeroSection() {
                 />
               </label>
               <button className="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-cyan-300 px-6 text-sm font-bold text-slate-950 shadow-lg shadow-cyan-500/25 hover:-translate-y-0.5 hover:bg-cyan-200">
-                Website kostenlos prüfen
+                Kostenlos analysieren
                 <ArrowIcon />
               </button>
             </div>
@@ -85,10 +85,10 @@ export function SaasHeroSection() {
 
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <Link href="/shophebel/report" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/18 bg-white/8 px-5 text-sm font-bold text-white hover:-translate-y-0.5 hover:bg-white/14">
-              Einfachen Report ansehen
+              Premium Analyse starten
               <ArrowIcon />
             </Link>
-            <span className="text-sm text-slate-400">Keine Logins nötig. Erste Diagnose sofort.</span>
+            <span className="text-sm text-slate-400">Keine Logins nötig. Teaser kostenlos, Vollanalyse für 5 EUR.</span>
           </div>
         </div>
 

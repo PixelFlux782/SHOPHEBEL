@@ -1,46 +1,46 @@
 import Link from "next/link";
 
-import { ANALYSE_APP_URL } from "@/lib/constants";
+import { FULL_ANALYSE_URL, PREMIUM_ANALYSE_URL, WEBSITE_ANALYSE_URL } from "@/lib/constants";
 
 const pricingPackages = [
   {
-    name: "Kostenloser Schnellcheck",
+    name: "Analyse-Teaser",
     price: "0 \u20ac",
-    microcopy: "Für den ersten Überblick",
-    description: "Ein kompakter erster Blick auf Ihre Website, damit Sie Potenziale schnell einordnen können.",
-    features: ["Erste Website-Einschätzung", "Basis-Score", "3 Sofort-Hinweise", "ideal zum Einstieg"],
-    cta: "Kostenlosen Schnellcheck starten",
-    href: ANALYSE_APP_URL,
+    microcopy: "Für den ersten Blick",
+    description: "Ein kompakter Teaser mit Score, Ersteinschätzung und den wichtigsten Hinweisen.",
+    features: ["Gesamt-Score", "Ersteinschätzung", "1-2 Hinweise", "Teaser auf Detailanalyse"],
+    cta: "Kostenlos starten",
+    href: WEBSITE_ANALYSE_URL,
     highlighted: false,
   },
   {
-    name: "Premium Report",
-    price: "49 \u20ac",
-    microcopy: "Für klare Prioritäten",
-    description: "Der bezahlbare Analysebericht für klare Prioritäten statt vager Bauchgefühle.",
+    name: "Vollanalyse",
+    price: "5 \u20ac",
+    microcopy: "Bester Einstieg",
+    description: "Die vollständige automatisierte Shophebel-Analyse mit Detailbewertungen und ersten Empfehlungen.",
     features: [
-      "ausführlicher Analysebericht",
-      "SEO-, Technik-, UX- und Vertrauens-Check",
-      "konkrete Prioritätenliste",
-      "Versand per E-Mail",
+      "vollständige Analyse",
+      "UX-/Trust-/SEO-/Conversion-Breakdown",
+      "visuelle Hinweise",
+      "erste Handlungsempfehlungen",
     ],
-    cta: "Premium Report anfragen",
-    href: "/shophebel/report#kontakt",
+    cta: "Für 5 \u20ac freischalten",
+    href: FULL_ANALYSE_URL,
     highlighted: true,
   },
   {
-    name: "Umsetzungspaket",
-    price: "ab 999 \u20ac",
-    microcopy: "Für konkrete Verbesserung",
-    description: "Für Unternehmen, die nicht nur wissen wollen, was zu tun ist, sondern es erledigt haben möchten.",
+    name: "Premium Analyse",
+    price: "49 \u20ac",
+    microcopy: "Für strategische Prioritäten",
+    description: "Der Premium Report für Unternehmen, die nicht raten, sondern priorisieren wollen.",
     features: [
-      "persönliche Auswertung",
-      "technische und inhaltliche Optimierung",
-      "Produktseiten-/Landingpage-Verbesserung",
-      "optional laufende Betreuung",
+      "strategische Priorisierung",
+      "Visual Audit Notes",
+      "Conversion-Hypothesen",
+      "7-Tage-Plan und PDF Export",
     ],
-    cta: "Optimierungsgespr\u00e4ch anfragen",
-    href: "/shophebel/optimierung#kontakt",
+    cta: "Premium Analyse starten",
+    href: PREMIUM_ANALYSE_URL,
     highlighted: false,
   },
 ] as const;
@@ -54,8 +54,7 @@ export function PricingSection() {
           Klare Pakete für Analyse und Umsetzung
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-300">
-          Starten Sie mit einer ersten Einschätzung, kaufen Sie einen strukturierten Report oder lassen Sie die
-          wichtigsten Verbesserungen direkt umsetzen.
+          Starten Sie kostenlos, schalten Sie die vollständige Analyse für 5 EUR frei oder nutzen Sie den strategischen Premium Report für 49 EUR.
         </p>
       </div>
 
@@ -72,7 +71,7 @@ export function PricingSection() {
             <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-cyan-300/10 blur-3xl" />
             {item.highlighted ? (
               <span className="mb-5 inline-flex w-fit rounded-full border border-cyan-200/40 bg-cyan-300/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-cyan-100">
-                Beliebtester Einstieg
+                Bester Einstieg
               </span>
             ) : null}
 
