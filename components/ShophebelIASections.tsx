@@ -57,21 +57,36 @@ export const offers = [
   },
   {
     title: "Premium Website-Analyse",
-    description: "Priorisierter Report mit konkreten Hebeln, damit Optimierung nicht aus Bauchgefühl entsteht.",
+    description: "Zeigt, wo Vertrauen, Nutzerführung und Sichtbarkeit bremsen - und welche Schritte zuerst sinnvoll sind.",
     href: "/shophebel/report",
-    cta: "Premium Analyse ansehen",
+    cta: "Analyse starten",
   },
   {
     title: "Conversion Optimierung",
     description: "Für Seiten mit Traffic, aber zu wenig Anfragen, Käufen oder Vertrauen.",
     href: CONVERSION_OPTIMIERUNG_URL,
-    cta: "Leistungen ansehen",
+    cta: "Optimierung anfragen",
   },
   {
     title: "Website- & Shop-Umsetzung",
     description: "Hochwertige Umsetzung auf Basis der Analyse: klarer Aufbau, bessere Führung, stärkere Wirkung.",
     href: "/shophebel/optimierung",
-    cta: "Kontakt aufnehmen",
+    cta: "Umsetzung anfragen",
+  },
+];
+
+const offerFitGuides = [
+  {
+    need: "Ich möchte erstmal wissen, wo meine Website steht.",
+    recommendation: "Kostenloser Website-Scan oder Premium Analyse",
+  },
+  {
+    need: "Ich weiß, dass meine Website besser verkaufen müsste.",
+    recommendation: "Conversion Optimierung",
+  },
+  {
+    need: "Ich brauche eine neue Website oder einen besseren Shop.",
+    recommendation: "Website- & Shop-Umsetzung",
   },
 ];
 
@@ -134,7 +149,13 @@ export function WhatShophebelDoes() {
   );
 }
 
-export function OfferOverview() {
+export function OfferOverview({
+  showAllLink = true,
+  showFitGuide = false,
+}: {
+  showAllLink?: boolean;
+  showFitGuide?: boolean;
+}) {
   return (
     <section id="leistungen" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-20">
       <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
@@ -144,9 +165,11 @@ export function OfferOverview() {
             Der passende nächste Schritt für deine Website.
           </h2>
         </div>
-        <Link href="/leistungen" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-200 hover:text-white">
-          Alle Leistungen ansehen <ArrowRight className="h-4 w-4" />
-        </Link>
+        {showAllLink ? (
+          <Link href="/leistungen" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-200 hover:text-white">
+            Alle Leistungen ansehen <ArrowRight className="h-4 w-4" />
+          </Link>
+        ) : null}
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -160,6 +183,20 @@ export function OfferOverview() {
           </article>
         ))}
       </div>
+
+      {showFitGuide ? (
+        <div className="mt-8 rounded-3xl border border-white/10 bg-white/[0.025] p-6 backdrop-blur-xl md:p-8">
+          <h3 className="text-2xl font-bold tracking-tight text-white">Welches Angebot passt zu mir?</h3>
+          <div className="mt-5 grid gap-3 lg:grid-cols-3">
+            {offerFitGuides.map((item) => (
+              <article key={item.need} className="rounded-2xl border border-white/10 bg-zinc-950/50 p-5">
+                <p className="text-sm font-semibold leading-6 text-white">{item.need}</p>
+                <p className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-blue-200">{item.recommendation}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 }
@@ -234,6 +271,49 @@ export const frameworkPillars = [
   },
 ];
 
+const analysisFrameworkPillars = [
+  {
+    title: "Vertrauen",
+    icon: ShieldCheck,
+    description: "Positionierung, Glaubwürdigkeit, Klarheit und Kontaktpunkte.",
+    why: "Nutzer entscheiden sehr schnell, ob sie einer Seite vertrauen.",
+    checks: ["klare Aussagen", "Belege", "Kontaktwege"],
+    benefit: "Mehr Sicherheit und weniger Absprünge.",
+  },
+  {
+    title: "Conversion",
+    icon: Target,
+    description: "Angebot, CTA-Hierarchie, Nutzerführung und Reibung bis zur Anfrage.",
+    why: "Wenn der nächste Schritt unklar ist, bleiben gute Besucher passiv.",
+    checks: ["CTAs", "Formulare", "Entscheidungswege"],
+    benefit: "Mehr Anfragen, Verkäufe oder qualifizierte nächste Schritte.",
+  },
+  {
+    title: "Sichtbarkeit",
+    icon: Search,
+    description: "SEO-Grundlagen, Seitenstruktur, Themenklarheit und KI-Verständnis.",
+    why: "Google und KI-Systeme müssen klar erkennen, wofür die Seite relevant ist.",
+    checks: ["Seitentitel", "Struktur", "Suchintention"],
+    benefit: "Bessere Einordnung in Suche und KI-Antworten.",
+  },
+  {
+    title: "Wirkung",
+    icon: Sparkles,
+    description: "Sprache, Gestaltung, Reihenfolge und Gewichtung der Inhalte.",
+    why: "Eine Seite wirkt nur, wenn Nutzen und Angebot sofort verständlich werden.",
+    checks: ["Hero", "Nutzenargumente", "visuelle Gewichtung"],
+    benefit: "Besucher verstehen schneller, warum sie bleiben sollten.",
+  },
+  {
+    title: "Wachstum",
+    icon: TrendingUp,
+    description: "Welche Maßnahmen zuerst sinnvoll sind und welchen Hebel sie haben.",
+    why: "Optimierung braucht Reihenfolge, sonst wird sie teuer und beliebig.",
+    checks: ["Prioritäten", "Aufwand", "Wirkung"],
+    benefit: "Ein klarer Fahrplan statt einer langen Fehlerliste.",
+  },
+];
+
 export function FrameworkSection() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
@@ -244,7 +324,7 @@ export function FrameworkSection() {
         </h2>
       </div>
       <div className="grid gap-4 lg:grid-cols-5">
-        {frameworkPillars.map((pillar) => (
+        {analysisFrameworkPillars.map((pillar) => (
           <article key={pillar.title} className={`${cardBase} flex flex-col`}>
             <pillar.icon className="h-6 w-6 text-cyan-300" strokeWidth={1.6} />
             <h3 className="mt-5 text-xl font-bold text-white">{pillar.title}</h3>
@@ -264,6 +344,126 @@ export function FrameworkSection() {
             <p className="mt-2 text-sm font-semibold leading-6 text-white">{pillar.benefit}</p>
           </article>
         ))}
+      </div>
+    </section>
+  );
+}
+
+const xrayMarkers = [
+  {
+    label: "Trust Gap",
+    text: "Besucher verstehen nicht sofort, warum sie bleiben oder anfragen sollten.",
+    position: "left-[8%] top-[22%]",
+    line: "left-[18%] top-[30%] h-px w-[24%]",
+  },
+  {
+    label: "CTA-Hierarchie unklar",
+    text: "Der wichtigste nächste Schritt konkurriert mit zu vielen Nebenwegen.",
+    position: "right-[7%] top-[18%]",
+    line: "right-[22%] top-[31%] h-px w-[22%]",
+  },
+  {
+    label: "Mobile Friction",
+    text: "Auf kleinen Screens wird Orientierung langsamer und der Weg zur Anfrage schwerer.",
+    position: "left-[6%] bottom-[18%]",
+    line: "left-[20%] bottom-[31%] h-px w-[23%]",
+  },
+  {
+    label: "Angebotsklarheit fehlt",
+    text: "Nutzen, Leistung und Zielgruppe sind nicht schnell genug greifbar.",
+    position: "right-[6%] bottom-[24%]",
+    line: "right-[23%] bottom-[36%] h-px w-[21%]",
+  },
+  {
+    label: "AI Visibility schwach",
+    text: "Themen und Expertise sind für Suche und KI nicht eindeutig genug strukturiert.",
+    position: "left-1/2 top-[49%] -translate-x-1/2",
+    line: "left-1/2 top-[47%] h-12 w-px",
+  },
+];
+
+export function WebsiteXraySection() {
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mb-10 max-w-4xl">
+        <p className="text-xs font-bold uppercase tracking-[0.24em] text-blue-300/80">Website-Xray</p>
+        <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
+          Der Website-Xray: Was Besucher oft spüren, aber Unternehmer selten sehen.
+        </h2>
+      </div>
+
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#030712] p-4 shadow-[0_28px_120px_-70px_rgba(37,99,235,0.85)] backdrop-blur-xl md:p-8">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(37,99,235,0.22),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.05),transparent_55%)]" />
+        <div className="relative grid gap-6 lg:grid-cols-[1fr_0.72fr] lg:items-stretch">
+          <div className="relative min-h-[640px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025] p-4 md:min-h-[580px] md:p-6">
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:34px_34px] opacity-30" />
+            <div className="relative mx-auto mt-12 max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/80 shadow-[0_24px_90px_-50px_rgba(0,0,0,0.9)]">
+              <div className="flex items-center gap-2 border-b border-white/10 bg-white/[0.04] px-4 py-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                <span className="h-2.5 w-2.5 rounded-full bg-blue-300/70" />
+                <span className="ml-3 h-5 flex-1 rounded-full border border-white/10 bg-black/30" />
+              </div>
+              <div className="space-y-5 p-5">
+                <div className="grid gap-5 md:grid-cols-[1.1fr_0.9fr]">
+                  <div className="space-y-3">
+                    <span className="block h-3 w-24 rounded-full bg-blue-300/35" />
+                    <span className="block h-8 w-full rounded-lg bg-white/16" />
+                    <span className="block h-8 w-4/5 rounded-lg bg-white/10" />
+                    <span className="block h-3 w-11/12 rounded-full bg-white/12" />
+                    <span className="block h-3 w-2/3 rounded-full bg-white/10" />
+                    <div className="flex gap-3 pt-2">
+                      <span className="h-10 w-36 rounded-xl bg-blue-500/80 shadow-[0_0_35px_rgba(37,99,235,0.35)]" />
+                      <span className="h-10 w-28 rounded-xl border border-white/12 bg-white/[0.04]" />
+                    </div>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-4">
+                    <span className="block h-28 rounded-xl bg-white/[0.06]" />
+                    <span className="mt-4 block h-3 w-3/4 rounded-full bg-white/12" />
+                    <span className="mt-3 block h-3 w-1/2 rounded-full bg-white/10" />
+                  </div>
+                </div>
+                <div className="grid gap-3 md:grid-cols-3">
+                  <span className="h-24 rounded-xl border border-white/10 bg-white/[0.035]" />
+                  <span className="h-24 rounded-xl border border-blue-300/20 bg-blue-500/[0.08]" />
+                  <span className="h-24 rounded-xl border border-white/10 bg-white/[0.035]" />
+                </div>
+                <div className="grid gap-3 md:grid-cols-[0.65fr_1fr]">
+                  <span className="h-40 rounded-xl border border-white/10 bg-white/[0.035]" />
+                  <span className="h-40 rounded-xl border border-white/10 bg-white/[0.025]" />
+                </div>
+              </div>
+            </div>
+
+            {xrayMarkers.map((marker, index) => (
+              <div key={marker.label}>
+                <span className={`absolute ${marker.line} hidden bg-blue-300/40 md:block`} />
+                <article className={`absolute ${marker.position} w-[min(13rem,42vw)] rounded-2xl border border-blue-300/20 bg-[#07111f]/75 p-3 shadow-[0_18px_60px_-35px_rgba(37,99,235,0.9)] backdrop-blur-xl md:w-56 md:p-4`}>
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full border border-blue-300/30 bg-blue-500/15 font-mono text-[10px] text-blue-100">
+                      {index + 1}
+                    </span>
+                    <h3 className="text-sm font-bold text-white">{marker.label}</h3>
+                  </div>
+                  <p className="mt-2 text-xs leading-5 text-zinc-300">{marker.text}</p>
+                </article>
+              </div>
+            ))}
+          </div>
+
+          <aside className="rounded-2xl border border-white/10 bg-white/[0.035] p-6 backdrop-blur-xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-200/80">Analyse statt Bauchgefühl</p>
+            <h3 className="mt-4 text-2xl font-bold tracking-tight text-white">Shophebel sucht nicht nur Fehler. Es zeigt, wo Umsatzbremsen zuerst entstehen.</h3>
+            <div className="mt-8 space-y-3">
+              {["Vertrauen verlieren", "Nutzerführung brechen", "Angebot unklar lassen", "mobile Reibung erzeugen", "für Google und KI unscharf bleiben"].map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 p-3 text-sm font-semibold text-zinc-200">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-blue-300" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
   );
@@ -331,8 +531,88 @@ export function ProcessSection() {
   );
 }
 
+export function PriorityMatrixSection() {
+  const quadrants = [
+    {
+      title: "Sofort-Hebel",
+      meta: "Hohe Wirkung, geringer Aufwand",
+      description: "Kleine Änderungen, die schnell Klarheit, Vertrauen oder CTA-Stärke verbessern.",
+      highlight: true,
+    },
+    {
+      title: "Strategische Projekte",
+      meta: "Hohe Wirkung, höherer Aufwand",
+      description: "Größere Arbeiten an Struktur, Angebot, Seitenaufbau oder technischer Basis.",
+      highlight: false,
+    },
+    {
+      title: "Später optimieren",
+      meta: "Geringere Wirkung, geringer Aufwand",
+      description: "Saubere Feinarbeit, aber nicht der erste Hebel für bessere Ergebnisse.",
+      highlight: false,
+    },
+    {
+      title: "Nicht zuerst",
+      meta: "Geringere Wirkung, hoher Aufwand",
+      description: "Aufgaben, die Energie binden, bevor die wichtigsten Bremsen gelöst sind.",
+      highlight: false,
+    },
+  ];
+
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mb-10 grid gap-6 lg:grid-cols-[0.9fr_1fr] lg:items-end">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-blue-300/80">Prioritäten</p>
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">Nicht alles ist gleich wichtig.</h2>
+        </div>
+        <p className="max-w-2xl text-lg leading-8 text-zinc-300">
+          Shophebel priorisiert Maßnahmen danach, was zuerst Klarheit, Vertrauen und Conversion verbessert.
+        </p>
+      </div>
+
+      <div className="relative rounded-3xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl md:p-8">
+        <div className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_24%_24%,rgba(37,99,235,0.18),transparent_34%)]" />
+        <div className="relative grid gap-4 lg:grid-cols-2">
+          {quadrants.map((quadrant, index) => (
+            <article
+              key={quadrant.title}
+              className={`min-h-48 rounded-2xl border p-6 ${
+                quadrant.highlight
+                  ? "border-blue-300/30 bg-blue-500/[0.09] shadow-[0_20px_80px_-55px_rgba(37,99,235,0.9)]"
+                  : "border-white/10 bg-zinc-950/45"
+              }`}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-200/80">{quadrant.meta}</p>
+                  <h3 className="mt-3 text-2xl font-bold tracking-tight text-white">{quadrant.title}</h3>
+                </div>
+                <span className="font-mono text-sm text-zinc-500">0{index + 1}</span>
+              </div>
+              <p className="mt-5 text-sm leading-7 text-zinc-300">{quadrant.description}</p>
+            </article>
+          ))}
+        </div>
+        <div className="relative mt-5 grid gap-3 text-xs font-bold uppercase tracking-[0.18em] text-zinc-500 md:grid-cols-2">
+          <span>Aufwand niedrig</span>
+          <span className="md:text-right">Aufwand hoch</span>
+          <span>Wirkung hoch</span>
+          <span className="md:text-right">Wirkung niedrig</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function ResultSection() {
-  const results = ["Score", "Befunde", "visuelle Hinweise", "priorisierte Empfehlungen", "nächster sinnvoller Schritt"];
+  const results = [
+    "Wo Vertrauen verloren geht",
+    "Welche Seiten Nutzer nicht führen",
+    "Welche Inhalte Google und KI nicht klar verstehen",
+    "Welche CTAs zu schwach sind",
+    "Welche Maßnahmen zuerst sinnvoll sind",
+  ];
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
@@ -340,12 +620,15 @@ export function ResultSection() {
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-blue-300/80">Ergebnis</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">Was du aus der Analyse mitnimmst.</h2>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">Was am Ende sichtbar wird.</h2>
+            <p className="mt-6 text-lg leading-8 text-zinc-300">
+              Das Ziel ist nicht mehr Information - sondern die richtige Reihenfolge.
+            </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {results.map((item) => (
               <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm font-semibold text-zinc-200">
-                <CheckCircle2 className="h-5 w-5 text-cyan-300" />
+                <CheckCircle2 className="h-5 w-5 shrink-0 text-cyan-300" />
                 {item}
               </div>
             ))}
@@ -367,6 +650,23 @@ export function AnalysisSystemHero() {
         <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-300 md:text-xl">
           Wir machen unsichtbare Umsatzbremsen sichtbar - von Vertrauen und Nutzerführung bis SEO, KI-Sichtbarkeit und Conversion.
         </p>
+        <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-400">
+          Nicht als Bauchgefühl, sondern als strukturierte Bewertung mit klaren Prioritäten.
+        </p>
+        <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+          <Link
+            href={WEBSITE_ANALYSE_URL}
+            className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-blue-600/20 hover:bg-blue-600/90"
+          >
+            Website analysieren
+          </Link>
+          <Link
+            href="/leistungen"
+            className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] px-7 py-4 text-sm font-bold text-white hover:border-blue-300/40 hover:bg-white/[0.08]"
+          >
+            Leistungen ansehen
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -401,10 +701,10 @@ export function ServiceDetailCards() {
     {
       title: "Premium Website-Analyse",
       included: "Vertiefte Prüfung, visuelle Hinweise, priorisierte Empfehlungen und Maßnahmenplan.",
-      audience: "Für Websites, Shops und Dienstleister mit konkretem Optimierungsbedarf.",
-      result: "Ein Report, der zeigt, was zuerst verbessert werden sollte.",
+      audience: "Für Unternehmen, die nicht aus Bauchgefühl optimieren wollen.",
+      result: "Klarheit darüber, wo Vertrauen, Nutzerführung und Sichtbarkeit bremsen - und welche Schritte zuerst sinnvoll sind.",
       href: "/shophebel/report",
-      cta: "Premium Analyse ansehen",
+      cta: "Analyse starten",
     },
     {
       title: "Conversion Optimierung",
@@ -412,7 +712,7 @@ export function ServiceDetailCards() {
       audience: "Für Seiten mit Besuchern, aber zu wenig Anfragen, Verkäufen oder Abschlüssen.",
       result: "Weniger Reibung und klarere Wege zur Anfrage oder zum Kauf.",
       href: CONVERSION_OPTIMIERUNG_URL,
-      cta: "Leistungen ansehen",
+      cta: "Optimierung anfragen",
     },
     {
       title: "Website- und Shop-Umsetzung",
@@ -420,7 +720,7 @@ export function ServiceDetailCards() {
       audience: "Für Unternehmen, die Analyse und Umsetzung nicht trennen möchten.",
       result: "Eine Website, die verständlicher führt und stärker auf Anfrage oder Kauf ausgerichtet ist.",
       href: "/shophebel/optimierung",
-      cta: "Kontakt aufnehmen",
+      cta: "Umsetzung anfragen",
     },
     {
       title: "Laufende Betreuung",
@@ -428,7 +728,7 @@ export function ServiceDetailCards() {
       audience: "Für Teams, die ihre Website kontinuierlich verbessern möchten.",
       result: "Kontinuierliche Verbesserung statt Einmalprojekt.",
       href: "/#kontakt",
-      cta: "Kontakt aufnehmen",
+      cta: "Betreuung anfragen",
     },
   ];
 

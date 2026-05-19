@@ -28,8 +28,8 @@ export const FinalCTA = () => {
           <Link href={WEBSITE_ANALYSE_URL} className="inline-flex justify-center bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-600/90 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-600/20">
             Website analysieren
           </Link>
-          <Link href="/leistungen" className="inline-flex justify-center border border-white/10 bg-white/[0.04] text-white px-10 py-4 rounded-xl font-bold text-lg hover:border-blue-400/40 hover:bg-white/[0.08] transition-all">
-            Leistungen ansehen
+          <Link href="/analyse-system" className="inline-flex justify-center border border-white/10 bg-white/[0.04] text-white px-10 py-4 rounded-xl font-bold text-lg hover:border-blue-400/40 hover:bg-white/[0.08] transition-all">
+            Methodik ansehen
           </Link>
         </div>
       </div>

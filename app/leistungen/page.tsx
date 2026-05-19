@@ -19,7 +19,7 @@ export default function ServicesPage() {
   return (
     <div className="bg-zinc-950 text-zinc-100">
       <ServicesHero />
-      <OfferOverview />
+      <OfferOverview showAllLink={false} showFitGuide />
       <ServiceDetailCards />
       <ServicesToolNote />
       <FinalCTA />

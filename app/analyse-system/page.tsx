@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { DashboardPreview } from "@/components/DashboardPreview";
 import { SiteFooter } from "@/components/site-footer";
 import {
   AnalysisSystemHero,
   FrameworkSection,
-  ProcessSection,
+  PriorityMatrixSection,
   ResultSection,
-  SimulatedAnalysisVisual,
+  WebsiteXraySection,
 } from "@/components/ShophebelIASections";
 import { WEBSITE_ANALYSE_URL } from "@/lib/constants";
 
@@ -22,21 +21,29 @@ export default function AnalysisSystemPage() {
   return (
     <div className="bg-zinc-950 text-zinc-100">
       <AnalysisSystemHero />
+      <WebsiteXraySection />
       <FrameworkSection />
-      <DashboardPreview />
-      <SimulatedAnalysisVisual />
-      <ProcessSection />
+      <PriorityMatrixSection />
       <ResultSection />
       <section className="mx-auto max-w-7xl px-6 py-24 text-center">
-        <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-white md:text-6xl">
-          Starte mit deiner Website und sieh, welche Hebel zuerst zählen.
+        <p className="text-xs font-bold uppercase tracking-[0.24em] text-blue-300/80">Nächster Schritt</p>
+        <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-bold tracking-tight text-white md:text-6xl">
+          Starte mit der Analyse und erkenne, welche Hebel deine Website zuerst verbessern.
         </h2>
-        <Link
-          href={WEBSITE_ANALYSE_URL}
-          className="mt-10 inline-flex items-center justify-center rounded-xl bg-blue-600 px-8 py-4 text-base font-bold text-white shadow-lg shadow-blue-600/20 hover:bg-blue-600/90"
-        >
-          Website analysieren
-        </Link>
+        <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+          <Link
+            href={WEBSITE_ANALYSE_URL}
+            className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-8 py-4 text-base font-bold text-white shadow-lg shadow-blue-600/20 hover:bg-blue-600/90"
+          >
+            Website analysieren
+          </Link>
+          <Link
+            href="/leistungen"
+            className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] px-8 py-4 text-base font-bold text-white hover:border-blue-300/40 hover:bg-white/[0.08]"
+          >
+            Leistungen ansehen
+          </Link>
+        </div>
       </section>
       <SiteFooter />
     </div>
