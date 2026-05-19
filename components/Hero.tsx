@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-import { CONVERSION_OPTIMIERUNG_URL, WEBSITE_ANALYSE_URL } from "@/lib/constants";
+import { WEBSITE_ANALYSE_URL } from "@/lib/constants";
 import SplineHeroBackground from "./SplineHeroBackground";
 
 export const Hero = () => {
@@ -40,10 +40,7 @@ export const Hero = () => {
           transition={{ delay: 0.2 }}
           className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-center max-w-4xl leading-[1.05] bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70"
         >
-          Website Intelligence für <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
-            Shops, die wirklich skalieren.
-          </span>
+          Wir machen sichtbar, warum Websites nicht verkaufen.
         </motion.h1>
 
         <motion.p
@@ -52,7 +49,7 @@ export const Hero = () => {
           transition={{ delay: 0.3 }}
           className="mt-6 text-zinc-300/90 text-lg md:text-xl text-center max-w-2xl font-light"
         >
-          Shophebel analysiert Sichtbarkeit, Vertrauen, UX und Conversion - und macht daraus konkrete Maßnahmen statt Datenflut.
+          Shophebel analysiert Vertrauen, Nutzerführung, Sichtbarkeit und Conversion - und zeigt, welche Hebel mehr Anfragen, Verkäufe und Klarheit bringen.
         </motion.p>
 
         <motion.div
@@ -67,13 +64,13 @@ export const Hero = () => {
             href={WEBSITE_ANALYSE_URL}
             className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600/90 transition-all text-center shadow-lg shadow-blue-600/20"
           >
-            Website kostenlos analysieren
+            Website analysieren
           </Link>
           <Link
-            href={CONVERSION_OPTIMIERUNG_URL}
+            href="/analyse-system"
             className="bg-white/[0.03] border border-white/10 px-8 py-4 rounded-xl font-semibold hover:border-blue-500/50 transition-all text-center backdrop-blur"
           >
-            Conversion-Potenziale entdecken
+            So funktioniert Shophebel
           </Link>
         </motion.div>
       </div>

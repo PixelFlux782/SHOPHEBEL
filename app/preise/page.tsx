@@ -1,6 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 
-import { ANALYSE_APP_URL } from "@/lib/constants";
+import { WEBSITE_ANALYSE_URL } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Preise | Shophebel",
+  description: "Preise für Website-Scan, Premium Report und Umsetzung mit Shophebel.",
+};
 
 const packages = [
   {
@@ -8,7 +14,7 @@ const packages = [
     price: "0 EUR",
     description: "Kostenloser Website-Check mit Score, kurzer Diagnose, Quick Wins und kritischen Punkten.",
     cta: "Website prüfen",
-    href: ANALYSE_APP_URL,
+    href: WEBSITE_ANALYSE_URL,
     highlight: false,
   },
   {

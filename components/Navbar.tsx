@@ -4,14 +4,14 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
-import { CONVERSION_OPTIMIERUNG_URL, WEBSITE_ANALYSE_URL } from "@/lib/constants";
+import { WEBSITE_ANALYSE_URL } from "@/lib/constants";
 
 const navLinks = [
-  { label: "Website Analyse", href: WEBSITE_ANALYSE_URL },
-  { label: "Conversion Optimierung", href: CONVERSION_OPTIMIERUNG_URL },
-  { label: "Plattform", href: "/#analyse" },
-  { label: "Leistungen", href: "/#leistungen" },
-  { label: "Preise", href: "/#preise" },
+  { label: "Analyse", href: WEBSITE_ANALYSE_URL },
+  { label: "Methodik", href: "/analyse-system" },
+  { label: "Leistungen", href: "/leistungen" },
+  { label: "Preise", href: "/preise" },
+  { label: "Kontakt", href: "/#kontakt" },
 ];
 
 export const Navbar = () => {
@@ -45,7 +45,7 @@ export const Navbar = () => {
           href={WEBSITE_ANALYSE_URL}
           className="hidden bg-blue-600/80 text-white text-sm px-4 py-2 rounded-lg font-semibold hover:bg-blue-600 transition-all shadow-lg shadow-blue-600/20 sm:inline-flex"
         >
-          Kostenlos analysieren
+          Website analysieren
         </Link>
         <button
           type="button"
@@ -77,7 +77,7 @@ export const Navbar = () => {
             onClick={() => setIsOpen(false)}
             className="mt-3 flex w-full items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20"
           >
-            Website kostenlos analysieren
+            Website analysieren
           </Link>
         </div>
       ) : null}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { CONVERSION_OPTIMIERUNG_URL, WEBSITE_ANALYSE_URL } from "@/lib/constants";
+import { WEBSITE_ANALYSE_URL } from "@/lib/constants";
 
 export function SiteFooter() {
   return (
@@ -19,10 +19,10 @@ export function SiteFooter() {
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">Shophebel</p>
             <div className="mt-4 grid gap-2 text-sm">
-              <Link href={WEBSITE_ANALYSE_URL} className="hover:text-white">Website Analyse</Link>
-              <Link href={CONVERSION_OPTIMIERUNG_URL} className="hover:text-white">Conversion Optimierung</Link>
-              <Link href="/shophebel/report" className="hover:text-white">Premium Report</Link>
-              <Link href="/shophebel/optimierung" className="hover:text-white">Umsetzung</Link>
+              <Link href={WEBSITE_ANALYSE_URL} className="hover:text-white">Website analysieren</Link>
+              <Link href="/analyse-system" className="hover:text-white">Methodik</Link>
+              <Link href="/leistungen" className="hover:text-white">Leistungen</Link>
+              <Link href="/preise" className="hover:text-white">Preise</Link>
             </div>
           </div>
           <div>

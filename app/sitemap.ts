@@ -6,6 +6,7 @@ import { shophebelTools } from "@/lib/tools";
 const staticRoutes = [
   "",
   "/analyse",
+  "/analyse-system",
   "/datenschutz",
   "/impressum",
   "/ki-sichtbarkeit",

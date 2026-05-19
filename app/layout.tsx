@@ -12,8 +12,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "Shophebel | Growth OS for E-Commerce Brands",
-  description: "Das Betriebssystem für ambitionierte E-Commerce Marken.",
+  title: "Shophebel | Website Analyse für mehr Vertrauen und Conversion",
+  description:
+    "Shophebel analysiert Websites und Onlineshops auf Vertrauen, Nutzerführung, Sichtbarkeit und Conversion - und zeigt die wichtigsten Hebel für mehr Anfragen und Verkäufe.",
 };
 
 export default function RootLayout({

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   Activity,
@@ -95,15 +95,10 @@ function VisualCapturePreview({
   preview: DashboardPreviewCapture;
   urlLabel: string;
 }) {
-  const [primaryFailed, setPrimaryFailed] = useState(false);
-  const [mobileFailed, setMobileFailed] = useState(false);
-  const showPrimaryImage = preview.primary && !primaryFailed;
-  const showMobileImage = preview.mobileUrl && !mobileFailed;
-
-  useEffect(() => {
-    setPrimaryFailed(false);
-    setMobileFailed(false);
-  }, [preview.primary, preview.mobileUrl]);
+  const [failedPrimaryUrl, setFailedPrimaryUrl] = useState("");
+  const [failedMobileUrl, setFailedMobileUrl] = useState("");
+  const showPrimaryImage = preview.primary && failedPrimaryUrl !== preview.primary;
+  const showMobileImage = preview.mobileUrl && failedMobileUrl !== preview.mobileUrl;
 
   return (
     <div className="group relative z-10 mt-5 overflow-visible rounded-xl border border-white/[0.075] bg-[#05070b]/92 p-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.045),inset_0_0_22px_rgba(255,255,255,0.018),0_18px_54px_rgba(0,0,0,0.48)]">
@@ -135,7 +130,7 @@ function VisualCapturePreview({
               src={preview.primary}
               alt={`Website-Vorschau von ${urlLabel}`}
               loading="lazy"
-              onError={() => setPrimaryFailed(true)}
+              onError={() => setFailedPrimaryUrl(preview.primary)}
               className="h-[calc(100%-1.25rem)] w-full object-cover object-top opacity-[0.86] saturate-[0.86] transition duration-500 group-hover:scale-[1.012] group-hover:opacity-[0.9]"
             />
           ) : (
@@ -164,7 +159,7 @@ function VisualCapturePreview({
                   src={preview.mobileUrl}
                   alt={`Mobile Website-Signal von ${urlLabel}`}
                   loading="lazy"
-                  onError={() => setMobileFailed(true)}
+                  onError={() => setFailedMobileUrl(preview.mobileUrl ?? "")}
                   className="h-[98px] max-h-[98px] w-full object-cover object-top opacity-[0.82] saturate-[0.84] sm:h-[112px] sm:max-h-[112px]"
                 />
               ) : (
@@ -207,32 +202,30 @@ export const DashboardPreview = ({
   const [localError, setLocalError] = useState("");
   const [scanIndex, setScanIndex] = useState(0);
   const [displayScore, setDisplayScore] = useState(84);
+  const displayScoreRef = useRef(84);
+  const currentMode = controlledMode ?? mode;
+  const currentInputUrl = isControlled ? controlledUrl ?? "" : inputUrl;
+  const currentActiveUrl = isControlled ? controlledUrl ?? "" : activeUrl;
+  const currentResult = isControlled ? controlledResult : result;
+  const currentError = isControlled ? errorMessage ?? "" : localError;
 
   useEffect(() => {
-    if (!isControlled) return;
-    setMode(controlledMode);
-    setActiveUrl(controlledUrl ?? "");
-    setResult(controlledResult);
-    setLocalError(errorMessage ?? "");
-  }, [controlledMode, controlledUrl, controlledResult, errorMessage, isControlled]);
-
-  useEffect(() => {
-    if (mode !== "scanning" || reducedMotion) return;
+    if (currentMode !== "scanning" || reducedMotion) return;
 
     const timer = window.setInterval(() => {
       setScanIndex((index) => (index + 1) % scanSteps.length);
     }, 620);
 
     return () => window.clearInterval(timer);
-  }, [mode, reducedMotion]);
+  }, [currentMode, reducedMotion]);
 
   const view: DashboardView = useMemo(() => {
-    if (mode === "result" && result) return mapAnalysisResultToDashboardView(result);
-    if (mode === "scanning") {
+    if (currentMode === "result" && currentResult) return mapAnalysisResultToDashboardView(currentResult);
+    if (currentMode === "scanning") {
       return {
         ...getDemoDashboardView(),
         score: scanningScores[scanIndex],
-        urlLabel: activeUrl || inputUrl || "analyse läuft",
+        urlLabel: currentActiveUrl || currentInputUrl || "analyse läuft",
         summary: "Live-Analyse läuft. Die Werte werden aus erreichbaren Seiten-, UX- und Trust-Signalen verdichtet.",
         conversionSignal: scanSteps[scanIndex],
         conversionValue: "scan",
@@ -250,15 +243,12 @@ export const DashboardPreview = ({
       };
     }
     return getDemoDashboardView();
-  }, [mode, result, scanIndex, activeUrl, inputUrl]);
+  }, [currentMode, currentResult, scanIndex, currentActiveUrl, currentInputUrl]);
 
   useEffect(() => {
-    if (reducedMotion) {
-      setDisplayScore(view.score);
-      return;
-    }
+    if (reducedMotion) return;
 
-    const start = displayScore;
+    const start = displayScoreRef.current;
     const target = view.score;
     const startedAt = performance.now();
     const duration = 650;
@@ -267,7 +257,9 @@ export const DashboardPreview = ({
     const tick = (now: number) => {
       const progress = Math.min(1, (now - startedAt) / duration);
       const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplayScore(Math.round(start + (target - start) * eased));
+      const nextScore = Math.round(start + (target - start) * eased);
+      displayScoreRef.current = nextScore;
+      setDisplayScore(nextScore);
       if (progress < 1) frame = window.requestAnimationFrame(tick);
     };
 
@@ -323,19 +315,22 @@ export const DashboardPreview = ({
     }
   }
 
-  const isScanning = mode === "scanning";
-  const isDemo = mode === "demo";
-  const isError = mode === "error";
-  const progressWidth = isScanning ? `${Math.max(12, displayScore)}%` : `${view.score}%`;
-  const reportHref = result?.id ? reportHrefFor(result) : buildAnalyseToolUrl(result?.requestedUrl || result?.url || activeUrl || inputUrl);
-  const canOpenReport = mode === "result" && Boolean(result?.id);
+  const isScanning = currentMode === "scanning";
+  const isDemo = currentMode === "demo";
+  const isError = currentMode === "error";
+  const visibleScore = reducedMotion ? view.score : displayScore;
+  const progressWidth = isScanning ? `${Math.max(12, visibleScore)}%` : `${view.score}%`;
+  const reportHref = currentResult?.id
+    ? reportHrefFor(currentResult)
+    : buildAnalyseToolUrl(currentResult?.requestedUrl || currentResult?.url || currentActiveUrl || currentInputUrl);
+  const canOpenReport = currentMode === "result" && Boolean(currentResult?.id);
   const systemMeta = [
-    { label: "Analyse-Zeitpunkt", value: mode === "result" ? formatScanTime(result) : isScanning ? "jetzt" : "Demo Lauf" },
-    { label: "Render-Status", value: mode === "result" ? result?.analysisMode ?? "static" : isScanning ? scanSteps[scanIndex] : "preview" },
+    { label: "Analyse-Zeitpunkt", value: currentMode === "result" ? formatScanTime(currentResult) : isScanning ? "jetzt" : "Demo Lauf" },
+    { label: "Render-Status", value: currentMode === "result" ? currentResult?.analysisMode ?? "static" : isScanning ? scanSteps[scanIndex] : "preview" },
     { label: "Mobile clarity signal", value: `${view.signals.find((signal) => /mobile/i.test(signal.label))?.value ?? view.signals[1]?.value ?? 58}/100` },
-    { label: "Above-the-fold scan", value: isScanning ? "aktiv" : mode === "result" ? "verdichtet" : "Demo" },
+    { label: "Above-the-fold scan", value: isScanning ? "aktiv" : currentMode === "result" ? "verdichtet" : "Demo" },
   ];
-  const frictionSignals = ["Trust friction detected", "CTA path mapped", "Viewport checks online"];
+  const frictionSignals = ["Trust Gap erkannt", "CTA-Pfad geprüft", "Mobile Ansicht geprüft"];
 
   return (
     <section
@@ -431,7 +426,7 @@ export const DashboardPreview = ({
                   <div className="max-w-xl">
                     <div className="mb-4 flex flex-wrap items-center gap-3">
                       <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-blue-300/82">
-                        Compressed Intelligence View
+                        Analyse-Überblick
                       </p>
                       <span className="h-px w-12 bg-white/[0.08]" />
                       <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-zinc-700">
@@ -441,7 +436,7 @@ export const DashboardPreview = ({
 
                     <div className="flex items-end gap-3">
                       <h2 className="font-mono text-6xl font-semibold leading-none text-white tabular-nums drop-shadow-[0_0_34px_rgba(255,255,255,0.045)] sm:text-7xl lg:text-8xl">
-                        {displayScore}
+                        {visibleScore}
                       </h2>
                       <span className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500 sm:text-xs">
                         /100 Klarheitsindex
@@ -449,7 +444,7 @@ export const DashboardPreview = ({
                     </div>
 
                     <p className="mt-4 max-w-md text-[13px] font-light leading-relaxed text-zinc-400">
-                      {isError ? localError || errorMessage || "Analyse konnte nicht geladen werden." : view.summary}
+                      {isError ? currentError || "Analyse konnte nicht geladen werden." : view.summary}
                     </p>
 
                     {isDemo && !isControlled && (
@@ -546,7 +541,7 @@ export const DashboardPreview = ({
                   </div>
                 )}
 
-                {mode === "result" && view.preview && (
+                {currentMode === "result" && view.preview && (
                   <VisualCapturePreview preview={view.preview} urlLabel={view.urlLabel} />
                 )}
 
@@ -626,7 +621,7 @@ export const DashboardPreview = ({
               <div className="mb-6 flex items-center justify-between gap-4">
                 <h4 className="flex items-center gap-2 text-[9px] font-medium uppercase tracking-[0.3em] text-blue-300/82">
                   <Activity className="h-3 w-3" strokeWidth={1.5} />
-                  Growth Levers
+                  Wichtigste Hebel
                 </h4>
                 <Sparkles className="h-3.5 w-3.5 text-zinc-700" strokeWidth={1.5} />
               </div>
@@ -669,7 +664,7 @@ export const DashboardPreview = ({
                 >
                   <div className="space-y-1">
                     <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-zinc-500">
-                      Projected Lift
+                      Mögliche Wirkung
                     </p>
                     <span className="font-mono text-4xl font-semibold text-white tabular-nums">
                       +{view.projectedLift}<span className="text-zinc-600">%</span>
@@ -689,7 +684,7 @@ export const DashboardPreview = ({
                       : "Abgeleitet aus Findings, Prioritäten und geschätztem Umsetzungsaufwand."}
                 </p>
 
-                {mode === "result" && canOpenReport && (
+                {currentMode === "result" && canOpenReport && (
                   <a
                     href={reportHref}
                     className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-blue-200/18 bg-blue-400/[0.11] px-4 py-3.5 text-xs font-semibold uppercase tracking-[0.17em] text-blue-50 shadow-[0_0_28px_rgba(37,99,235,0.08)] transition hover:-translate-y-0.5 hover:border-blue-200/32 hover:bg-blue-400/[0.16] hover:shadow-[0_18px_54px_rgba(37,99,235,0.14)]"
@@ -699,7 +694,7 @@ export const DashboardPreview = ({
                   </a>
                 )}
 
-                {mode === "result" && !canOpenReport && (
+                {currentMode === "result" && !canOpenReport && (
                   <div className="mt-5 rounded-lg border border-white/[0.06] bg-white/[0.025] px-4 py-3 text-center">
                     <p className="font-mono text-[9px] uppercase tracking-[0.17em] text-zinc-500">
                       Vollständiger Report nicht gespeichert
