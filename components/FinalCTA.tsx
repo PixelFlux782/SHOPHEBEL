@@ -17,7 +17,7 @@ export const FinalCTA = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-6xl font-bold tracking-tighter mb-8 leading-[1.1]"
         >
-          Lass deine Website prüfen und erkenne die wichtigsten Hebel.
+          Lass deine Website analysieren und erkenne die wichtigsten Hebel.
         </motion.h2>
 
         <p className="text-brand-muted text-lg md:text-xl max-w-2xl mx-auto mb-12">
@@ -26,7 +26,7 @@ export const FinalCTA = () => {
 
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Link href={WEBSITE_ANALYSE_URL} className="inline-flex justify-center bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-600/90 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-600/20">
-            Analyse starten
+            Website analysieren
           </Link>
           <Link href="/leistungen" className="inline-flex justify-center border border-white/10 bg-white/[0.04] text-white px-10 py-4 rounded-xl font-bold text-lg hover:border-blue-400/40 hover:bg-white/[0.08] transition-all">
             Leistungen ansehen

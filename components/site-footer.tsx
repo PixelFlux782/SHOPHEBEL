@@ -20,7 +20,7 @@ export function SiteFooter() {
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">Shophebel</p>
             <div className="mt-4 grid gap-2 text-sm">
               <Link href={WEBSITE_ANALYSE_URL} className="hover:text-white">Website analysieren</Link>
-              <Link href="/analyse-system" className="hover:text-white">Methodik</Link>
+              <Link href="/analyse-system" className="hover:text-white">So funktioniert Shophebel</Link>
               <Link href="/leistungen" className="hover:text-white">Leistungen</Link>
               <Link href="/preise" className="hover:text-white">Preise</Link>
             </div>

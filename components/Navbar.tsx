@@ -8,7 +8,7 @@ import { WEBSITE_ANALYSE_URL } from "@/lib/constants";
 
 const navLinks = [
   { label: "Analyse", href: WEBSITE_ANALYSE_URL },
-  { label: "Methodik", href: "/analyse-system" },
+  { label: "So funktioniert es", href: "/analyse-system" },
   { label: "Leistungen", href: "/leistungen" },
   { label: "Preise", href: "/preise" },
   { label: "Kontakt", href: "/#kontakt" },

@@ -330,7 +330,7 @@ export const DashboardPreview = ({
     { label: "Mobile clarity signal", value: `${view.signals.find((signal) => /mobile/i.test(signal.label))?.value ?? view.signals[1]?.value ?? 58}/100` },
     { label: "Above-the-fold scan", value: isScanning ? "aktiv" : currentMode === "result" ? "verdichtet" : "Demo" },
   ];
-  const frictionSignals = ["Trust Gap erkannt", "CTA-Pfad geprüft", "Mobile Ansicht geprüft"];
+  const frictionSignals = ["Trust Gap erkannt", "CTA-Hierarchie unklar", "Mobile Friction"];
 
   return (
     <section
@@ -589,7 +589,7 @@ export const DashboardPreview = ({
                     <div className="flex items-center gap-2 text-zinc-400">
                       <AlertCircle className="h-3 w-3 text-blue-300/58" strokeWidth={1.5} />
                       <span className="text-[9px] font-medium uppercase tracking-[0.25em] text-zinc-400">
-                        UX Signal Map
+                        Reibungssignale
                       </span>
                     </div>
                     <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-zinc-600">

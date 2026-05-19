@@ -15,7 +15,7 @@ import { WEBSITE_ANALYSE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Analyse-System | Wie Shophebel Websites analysiert",
   description:
-    "Wie Shophebel Vertrauen, Nutzerführung, Sichtbarkeit, AI Visibility und Conversion prüft und daraus priorisierte Website-Maßnahmen ableitet.",
+    "Wie Shophebel Vertrauen, Nutzerführung, Sichtbarkeit, KI-Sichtbarkeit und Conversion prüft und daraus priorisierte Website-Maßnahmen ableitet.",
 };
 
 export default function AnalysisSystemPage() {

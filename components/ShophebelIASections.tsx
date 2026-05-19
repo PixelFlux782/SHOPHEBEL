@@ -22,19 +22,28 @@ const cardBase =
 
 export const problemCards = [
   {
-    title: "Besucher verstehen das Angebot nicht schnell genug",
+    title: "Besucher verstehen in den ersten Sekunden nicht, warum sie bleiben sollen.",
+    consequence: "Die Seite verliert Aufmerksamkeit, bevor Vertrauen entstehen kann.",
     icon: Eye,
   },
   {
-    title: "Vertrauen entsteht zu spät oder gar nicht",
+    title: "Die Seite sieht gut aus, führt aber nicht klar zur Anfrage.",
+    consequence: "Interessierte Nutzer wissen nicht, welcher Schritt als Nächstes sinnvoll ist.",
+    icon: Target,
+  },
+  {
+    title: "Vertrauen entsteht zu spät oder gar nicht.",
+    consequence: "Belege, Sicherheit und Kontaktklarheit kommen zu spät im Entscheidungsprozess.",
     icon: ShieldCheck,
   },
   {
-    title: "Mobile Nutzer werden schlecht geführt",
+    title: "Mobile Nutzer verlieren Orientierung.",
+    consequence: "Auf kleinen Screens werden Angebot, CTA und nächste Schritte zu schwer erfassbar.",
     icon: Smartphone,
   },
   {
-    title: "Google und KI-Systeme erkennen den Wert der Seite nicht klar",
+    title: "Google und KI-Systeme erkennen den Wert der Seite nicht eindeutig.",
+    consequence: "Themen, Expertise und Nutzen werden schlechter eingeordnet.",
     icon: Search,
   },
 ];
@@ -42,27 +51,27 @@ export const problemCards = [
 export const offers = [
   {
     title: "Kostenloser Website-Scan",
-    description: "Schneller Einstieg mit Score, ersten Schwachstellen und klaren Quick Wins.",
+    description: "Erste Einschätzung, wo Vertrauen, Nutzerführung und Sichtbarkeit gerade bremsen.",
     href: WEBSITE_ANALYSE_URL,
     cta: "Website analysieren",
   },
   {
-    title: "Premium Analyse / Report",
-    description: "Vertiefter Report mit visuellen Befunden, Prioritäten und konkretem Maßnahmenplan.",
+    title: "Premium Website-Analyse",
+    description: "Priorisierter Report mit konkreten Hebeln, damit Optimierung nicht aus Bauchgefühl entsteht.",
     href: "/shophebel/report",
-    cta: "Report ansehen",
+    cta: "Premium Analyse ansehen",
   },
   {
     title: "Conversion Optimierung",
     description: "Für Seiten mit Traffic, aber zu wenig Anfragen, Käufen oder Vertrauen.",
     href: CONVERSION_OPTIMIERUNG_URL,
-    cta: "Potenziale prüfen",
+    cta: "Leistungen ansehen",
   },
   {
     title: "Website- & Shop-Umsetzung",
-    description: "Analyse, Strategie und Umsetzung für klare Seiten, bessere Führung und stärkere Wirkung.",
+    description: "Hochwertige Umsetzung auf Basis der Analyse: klarer Aufbau, bessere Führung, stärkere Wirkung.",
     href: "/shophebel/optimierung",
-    cta: "Umsetzung anfragen",
+    cta: "Kontakt aufnehmen",
   },
 ];
 
@@ -76,11 +85,12 @@ export function ProblemSection() {
         </h2>
       </div>
 
-      <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
         {problemCards.map((item) => (
           <article key={item.title} className={cardBase}>
             <item.icon className="h-6 w-6 text-blue-300" strokeWidth={1.6} />
             <h3 className="mt-5 text-lg font-semibold leading-snug text-white">{item.title}</h3>
+            <p className="mt-4 text-sm leading-6 text-zinc-400">{item.consequence}</p>
           </article>
         ))}
       </div>
@@ -90,7 +100,7 @@ export function ProblemSection() {
 
 export function WhatShophebelDoes() {
   const steps = [
-    { title: "Analyse starten", icon: MousePointer2 },
+    { title: "Website analysieren", icon: MousePointer2 },
     { title: "Schwachstellen sichtbar machen", icon: BarChart3 },
     { title: "Optimierung umsetzen", icon: CheckCircle2 },
   ];
@@ -104,7 +114,7 @@ export function WhatShophebelDoes() {
             Analyse und Optimierung für Websites und Onlineshops.
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
-            Shophebel ist ein Analyse- und Optimierungssystem für Websites und Onlineshops. Es zeigt, wo Nutzer abspringen, wo Vertrauen fehlt und welche Verbesserungen den größten Hebel haben.
+            Shophebel zeigt, warum Besucher nicht anfragen, wo Vertrauen verloren geht und welche Optimierung zuerst sinnvoll ist.
           </p>
         </div>
 
@@ -163,17 +173,17 @@ export function MethodologyTeaser() {
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-200/80">Methodik</p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Das Shophebel Intelligence Framework
+              Die Shophebel-Methodik
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
-              Wir bewerten Websites nicht nur technisch, sondern aus Sicht von Nutzervertrauen, Conversion, Sichtbarkeit und Wirkung.
+              Shophebel ersetzt keine Erfahrung. Es macht sie sichtbar, strukturierbar und priorisierbar.
             </p>
           </div>
           <Link
             href="/analyse-system"
             className="inline-flex w-fit items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-blue-600/20 hover:bg-blue-600/90"
           >
-            Methodik ansehen <ArrowRight className="h-4 w-4" />
+            So funktioniert Shophebel <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
@@ -185,14 +195,16 @@ export const frameworkPillars = [
   {
     title: "Vertrauen",
     icon: ShieldCheck,
-    description: "Prüft, ob Besucher früh genug Sicherheit, Belege und klare Kontaktwege finden.",
+    description: "Ob Besucher früh genug Sicherheit, Belege und klare Kontaktwege finden.",
+    why: "Ohne Vertrauen wird selbst ein gutes Angebot vertagt.",
     checks: ["Beweise und Referenzen", "Kontaktklarheit", "Sicherheits- und Seriositätssignale"],
     benefit: "Mehr Sicherheit vor Anfrage oder Kauf.",
   },
   {
     title: "Conversion",
     icon: Target,
-    description: "Bewertet, ob Angebot, CTA und Entscheidungsweg verständlich führen.",
+    description: "Ob Angebot, CTA und Entscheidungsweg verständlich führen.",
+    why: "Wenn der nächste Schritt unklar ist, bleiben gute Besucher passiv.",
     checks: ["CTA-Hierarchie", "Angebotsklarheit", "Reibung im Funnel"],
     benefit: "Weniger Absprünge und klarere nächste Schritte.",
   },
@@ -200,20 +212,23 @@ export const frameworkPillars = [
     title: "Sichtbarkeit",
     icon: Search,
     description: "Analysiert, ob Suchmaschinen und KI-Systeme Wert, Themen und Expertise erkennen.",
-    checks: ["SEO-Grundlagen", "Strukturierte Inhalte", "AI Visibility"],
+    why: "Nur klar erkennbare Relevanz kann sauber gefunden und empfohlen werden.",
+    checks: ["SEO-Grundlagen", "Strukturierte Inhalte", "KI-Sichtbarkeit"],
     benefit: "Bessere Einordnung in Suche und KI-Antworten.",
   },
   {
     title: "Wirkung",
     icon: Sparkles,
-    description: "Prüft, ob Sprache, Gestaltung und Priorisierung die richtige Botschaft tragen.",
+    description: "Ob Sprache, Gestaltung und Priorisierung die richtige Botschaft tragen.",
+    why: "Gute Gestaltung verkauft nicht, wenn der Nutzen nicht spürbar wird.",
     checks: ["Hero-Klarheit", "Nutzenargumente", "visuelle Gewichtung"],
     benefit: "Besucher verstehen schneller, warum das Angebot relevant ist.",
   },
   {
     title: "Wachstum",
     icon: TrendingUp,
-    description: "Leitet ab, welche Maßnahmen zuerst sinnvoll sind und welchen Hebel sie haben.",
+    description: "Welche Maßnahmen zuerst sinnvoll sind und welchen Hebel sie haben.",
+    why: "Optimierung braucht Reihenfolge, sonst wird sie teuer und beliebig.",
     checks: ["Priorisierung", "Aufwand und Wirkung", "Maßnahmenplan"],
     benefit: "Ein klarer Fahrplan statt verstreuter Einzelmeinungen.",
   },
@@ -225,7 +240,7 @@ export function FrameworkSection() {
       <div className="mb-10 max-w-3xl">
         <p className="text-xs font-bold uppercase tracking-[0.24em] text-blue-300/80">Framework</p>
         <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
-          Fünf Säulen für eine Website, die verstanden wird.
+          Fünf Säulen für eine Website, die verstanden wird und besser führt.
         </h2>
       </div>
       <div className="grid gap-4 lg:grid-cols-5">
@@ -233,7 +248,10 @@ export function FrameworkSection() {
           <article key={pillar.title} className={`${cardBase} flex flex-col`}>
             <pillar.icon className="h-6 w-6 text-cyan-300" strokeWidth={1.6} />
             <h3 className="mt-5 text-xl font-bold text-white">{pillar.title}</h3>
-            <p className="mt-3 text-sm leading-7 text-zinc-400">{pillar.description}</p>
+            <p className="mt-3 text-xs font-bold uppercase tracking-[0.16em] text-blue-200/70">Was wird geprüft?</p>
+            <p className="mt-2 text-sm leading-7 text-zinc-400">{pillar.description}</p>
+            <p className="mt-4 text-xs font-bold uppercase tracking-[0.16em] text-blue-200/70">Warum ist das wichtig?</p>
+            <p className="mt-2 text-sm leading-7 text-zinc-400">{pillar.why}</p>
             <ul className="mt-5 space-y-2 text-sm text-zinc-300">
               {pillar.checks.map((check) => (
                 <li key={check} className="flex gap-2">
@@ -242,7 +260,8 @@ export function FrameworkSection() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 border-t border-white/10 pt-4 text-sm font-semibold text-white">{pillar.benefit}</p>
+            <p className="mt-5 border-t border-white/10 pt-4 text-xs font-bold uppercase tracking-[0.16em] text-blue-200/70">Was bringt es?</p>
+            <p className="mt-2 text-sm font-semibold leading-6 text-white">{pillar.benefit}</p>
           </article>
         ))}
       </div>
@@ -268,7 +287,7 @@ export function SimulatedAnalysisVisual() {
             Aus unsichtbarer Reibung werden konkrete Befunde.
           </h2>
           <p className="mt-6 text-lg leading-8 text-zinc-300">
-            Die Ansicht arbeitet mit generischen Beispielen. Sie zeigt, wie Shophebel Muster erkennt, priorisiert und verständlich macht.
+            Die Ansicht arbeitet mit generischen Signalen. Sie zeigt, wie Shophebel Muster erkennt, priorisiert und verständlich macht.
           </p>
         </div>
         <div className="rounded-3xl border border-white/10 bg-[#050912]/90 p-5 shadow-[0_28px_110px_-75px_rgba(37,99,235,0.75)] backdrop-blur-xl">
@@ -292,7 +311,7 @@ export function SimulatedAnalysisVisual() {
 }
 
 export function ProcessSection() {
-  const steps = ["Website erfassen", "UX, Trust, SEO und AI Visibility prüfen", "Prioritäten ableiten", "Maßnahmenplan erstellen"];
+  const steps = ["Website erfassen", "Trust, UX, SEO und KI-Sichtbarkeit prüfen", "Prioritäten ableiten", "Maßnahmenplan erstellen"];
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
@@ -373,9 +392,9 @@ export function ServiceDetailCards() {
   const serviceDetails = [
     {
       title: "Kostenloser Website-Scan",
-      included: "Score, erste Schwachstellen, Quick Wins und kritische Signale.",
+      included: "Eine erste Einschätzung zu Vertrauen, Nutzerführung, Sichtbarkeit und Conversion.",
       audience: "Für Unternehmen, die schnell verstehen wollen, wo ihre Website steht.",
-      result: "Ein klarer erster Überblick mit nächstem Schritt.",
+      result: "Ein klarer Einstieg mit den auffälligsten Bremsen und dem nächsten sinnvollen Schritt.",
       href: WEBSITE_ANALYSE_URL,
       cta: "Website analysieren",
     },
@@ -385,7 +404,7 @@ export function ServiceDetailCards() {
       audience: "Für Websites, Shops und Dienstleister mit konkretem Optimierungsbedarf.",
       result: "Ein Report, der zeigt, was zuerst verbessert werden sollte.",
       href: "/shophebel/report",
-      cta: "Premium Report ansehen",
+      cta: "Premium Analyse ansehen",
     },
     {
       title: "Conversion Optimierung",
@@ -393,23 +412,23 @@ export function ServiceDetailCards() {
       audience: "Für Seiten mit Besuchern, aber zu wenig Anfragen, Verkäufen oder Abschlüssen.",
       result: "Weniger Reibung und klarere Wege zur Anfrage oder zum Kauf.",
       href: CONVERSION_OPTIMIERUNG_URL,
-      cta: "Conversion prüfen",
+      cta: "Leistungen ansehen",
     },
     {
       title: "Website- und Shop-Umsetzung",
       included: "Struktur, Texte, UX-Verbesserungen, technische Umsetzung und klare Prioritäten.",
       audience: "Für Unternehmen, die Analyse und Umsetzung nicht trennen möchten.",
-      result: "Eine Website, die verständlicher führt und stärker verkauft.",
+      result: "Eine Website, die verständlicher führt und stärker auf Anfrage oder Kauf ausgerichtet ist.",
       href: "/shophebel/optimierung",
-      cta: "Umsetzung anfragen",
+      cta: "Kontakt aufnehmen",
     },
     {
       title: "Laufende Betreuung",
       included: "Regelmäßige Prüfung, neue Prioritäten, Begleitung bei Content, UX und Sichtbarkeit.",
       audience: "Für Teams, die ihre Website kontinuierlich verbessern möchten.",
-      result: "Ein belastbarer Optimierungsrhythmus statt sporadischer Einzelmaßnahmen.",
+      result: "Kontinuierliche Verbesserung statt Einmalprojekt.",
       href: "/#kontakt",
-      cta: "Betreuung anfragen",
+      cta: "Kontakt aufnehmen",
     },
   ];
 
@@ -422,8 +441,8 @@ export function ServiceDetailCards() {
               <h2 className="text-2xl font-bold tracking-tight text-white">{service.title}</h2>
             </div>
             <div className="grid gap-4 text-sm leading-7 text-zinc-300 md:grid-cols-3">
-              <p><span className="block font-bold text-white">Enthalten</span>{service.included}</p>
-              <p><span className="block font-bold text-white">Geeignet für</span>{service.audience}</p>
+              <p><span className="block font-bold text-white">Was ist es?</span>{service.included}</p>
+              <p><span className="block font-bold text-white">Für wen?</span>{service.audience}</p>
               <p><span className="block font-bold text-white">Ergebnis</span>{service.result}</p>
             </div>
             <Link href={service.href} className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-5 py-3 text-sm font-bold text-white hover:border-blue-300/40 hover:bg-white/[0.1]">
@@ -445,7 +464,7 @@ export function ServicesToolNote() {
             <Layers3 className="h-7 w-7 text-cyan-300" strokeWidth={1.6} />
             <h2 className="mt-5 text-3xl font-bold tracking-tight text-white">Analyse, Strategie und Umsetzung gehören zusammen.</h2>
             <p className="mt-4 text-base leading-8 text-zinc-300">
-              Der Scan zeigt die Hebel. Der Report sortiert sie. Die Umsetzung bringt sie auf die Seite.
+              Die Analyse ist der Einstieg, damit Optimierung nicht aus Bauchgefühl entsteht. Der Report sortiert die Hebel. Die Umsetzung bringt sie auf die Seite.
             </p>
           </div>
           <Lightbulb className="hidden h-16 w-16 text-blue-200/40 md:block" strokeWidth={1.2} />
